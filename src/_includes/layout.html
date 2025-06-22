@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    {% include "head.html" %}
+
+    <body
+        class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
+    >
+        <!-- Skip Link -->
+        {% include "skip-link.html" %}
+
+        <!-- Header with Navbar -->
+        <header>{% include "nav.html" %}</header>
+
+        <!-- Main Content -->
+        <div
+            id="main-content"
+            class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8"
+        >
+            <!-- Blog Post -->
+            {% include "main-content.html" %}
+
+            <!-- Sidebar -->
+            <aside
+                role="complementary"
+                class="bg-white rounded-xl shadow p-6 space-y-8 dark:bg-zinc-800 dark:shadow-gray-900"
+            >
+                <!-- Tags -->
+                {% include "sidebar/tags.html" %}
+
+                <!-- Optional: Recent Posts -->
+                {% include "sidebar/recent-posts.html" %}
+
+                <!-- Author Bio -->
+                {% include "sidebar/author-bio.html" %}
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        {% include "footer.html" %}
+
+        <!-- Mobile Menu Toggle Script -->
+        <script>
+            const menuBtn = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            menuBtn.addEventListener("click", () => {
+                const isExpanded =
+                    menuBtn.getAttribute("aria-expanded") === "true";
+                menuBtn.setAttribute("aria-expanded", String(!isExpanded));
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            const calculateReadingTime = (text) => {
+                const wordsPerMinute = 225;
+                const words = text.trim().split(/\s+/).length;
+                const minutes = Math.ceil(words / wordsPerMinute);
+                return `${minutes} min read`;
+            };
+
+            const updateReadingTime = () => {
+                const mainContent = document.querySelector("main");
+                const readingTimeEl = document.getElementById("reading-time");
+
+                if (mainContent && readingTimeEl) {
+                    const text = mainContent.innerText || "";
+                    const readingTime = calculateReadingTime(text);
+                    readingTimeEl.textContent = readingTime;
+                }
+            };
+
+            // Run after DOM is fully loaded
+            document.addEventListener("DOMContentLoaded", updateReadingTime);
+        </script>
+    </body>
+</html>

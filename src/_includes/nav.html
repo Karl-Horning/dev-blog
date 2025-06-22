@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="/test-blog/css/tailwind-output.css" />
-    </head>
-    <body
-        class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
-    >
-        <header><nav
+<nav
     role="navigation"
     aria-label="Main menu"
     class="bg-white border-b border-gray-200 relative dark:bg-zinc-800 dark:border-zinc-700"
@@ -21,7 +10,7 @@
                 class="flex-shrink-0 text-xl font-bold transition duration-300 ease-in-out hover:text-red-600 dark:hover:text-red-400"
             >
                 <a
-                    href="/test-blog/"
+                    href="{{ '/' | url }}"
                     class="focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:focus-visible:ring-red-400"
                     >Karl Horning</a
                 >
@@ -57,22 +46,22 @@
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-6">
                 <a
-                    href="/test-blog/"
+                    href="{{ '/' | url }}"
                     class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
                     >Home</a
                 >
                 <a
-                    href="/test-blog/blog/"
+                    href="{{ '/blog/' | url }}"
                     class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
                     >Blog</a
                 >
                 <a
-                    href="/test-blog/about/"
+                    href="{{ '/about/' | url }}"
                     class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
                     >About</a
                 >
                 <a
-                    href="/test-blog/contact/"
+                    href="{{ '/contact/' | url }}"
                     class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
                     >Contact</a
                 >
@@ -109,7 +98,3 @@
         </div>
     </div>
 </nav>
-</header>
-        <h1 class="text-red-600">Test this!</h1>
-    </body>
-</html>

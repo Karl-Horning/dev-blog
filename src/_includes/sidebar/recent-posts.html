@@ -1,0 +1,17 @@
+<section class="pb-8 border-gray-800 border-b-8 dark:border-zinc-700">
+    <h2 class="text-xl font-semibold mb-4">Recent Posts</h2>
+    <ul class="space-y-2 text-gray-700">
+        {% for post in collections.post | slice(0, 5) %}
+        <li>
+            <a
+                href="{{ post.url | url }}"
+                class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-gray-300"
+            >
+                <p>
+                    {{ post.data.title }} | {{ post.date | date: "%d %B %Y" }}
+                </p>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
