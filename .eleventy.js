@@ -34,7 +34,7 @@ export default function (eleventyConfig) {
     });
 
     return {
-        pathPrefix: "/test-blog/",
+        pathPrefix: "/dev-blog/",
         dir: {
             input: "src",
             output: "dist",
