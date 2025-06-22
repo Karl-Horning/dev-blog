@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# Eleventy's output folder
+_site/
+
+# Optional: VSCode settings
+.vscode/
+
+# Optional: Mac system files
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files (if you use them)
+.env
