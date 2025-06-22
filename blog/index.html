@@ -110,12 +110,34 @@
     </div>
 </nav>
 </header>
-        <h1 class="text-red-600">Blog Page!</h1>
-        
-        <a href="/dev-blog/posts/hello-world/">
-            <p class="text-2xl">Hello, World!</p>
-            <p>22 June 2026</p>
-        </a>
-        
+        <main class="max-w-6xl mx-auto px-4 py-10 space-y-12">
+            <h1 class="text-4xl font-bold mb-6">Blog</h1>
+            <hr
+                class="mb-4 pt-4 border-gray-800 border-t-8 dark:border-zinc-700"
+            />
+            <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                
+                <article
+                    class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition dark:bg-zinc-800"
+                >
+                    <h3 class="text-xl font-semibold mb-2">
+                        Hello, World!
+                    </h3>
+                    <p class="text-sm font-semibold mb-4">
+                        22 June 2026
+                    </p>
+                    
+                    <p class="text-gray-600 mb-3 dark:text-gray-400">
+                        This is my first post, so "Hello, World!"
+                    </p>
+                    <a
+                        href="/dev-blog/posts/hello-world/"
+                        class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                        >Read more</a
+                    >
+                </article>
+                
+            </section>
+        </main>
     </body>
 </html>
