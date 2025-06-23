@@ -7,16 +7,26 @@
         <li>
             <a
                 href="{{ post.url | url }}"
-                class="group block p-4 rounded-lg transition duration-300 ease-in-out hover:bg-red-50 dark:hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 dark:focus-visible:ring-red-400"
+                class="group flex items-center gap-4 p-4 rounded-lg transition duration-300 ease-in-out hover:bg-red-50 dark:hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 dark:focus-visible:ring-red-400"
             >
-                <p
-                    class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400"
-                >
-                    {{ post.data.title }}
-                </p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                    Posted {{ post.date | date: "%d %B %Y" }}
-                </p>
+                {% if post.data.thumbnail %}
+                <img
+                    src="{{ post.data.thumbnail | url }}"
+                    alt="Thumbnail for {{ post.data.title }}"
+                    class="w-16 h-16 object-cover rounded-md shrink-0"
+                    loading="lazy"
+                />
+                {% endif %}
+                <div class="text-left">
+                    <p
+                        class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400"
+                    >
+                        {{ post.data.title }}
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Posted {{ post.date | date: "%d %B %Y" }}
+                    </p>
+                </div>
             </a>
         </li>
         {% endfor %}
