@@ -34,6 +34,7 @@ export default function (eleventyConfig) {
 
     // Passthrough copy
     eleventyConfig.addPassthroughCopy("src/img");
+    eleventyConfig.addPassthroughCopy("src/scripts");
     eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
     return {
