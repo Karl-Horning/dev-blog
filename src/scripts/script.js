@@ -5,6 +5,8 @@
 
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
+const iconHamburger = document.getElementById("icon-hamburger");
+const iconClose = document.getElementById("icon-close");
 
 menuBtn.addEventListener("click", () => {
     // Check current expanded state
@@ -13,8 +15,18 @@ menuBtn.addEventListener("click", () => {
     // Toggle the aria-expanded attribute for accessibility
     menuBtn.setAttribute("aria-expanded", String(!isExpanded));
 
-    // Show/hide the mobile menu
-    mobileMenu.classList.toggle("hidden");
+    // Toggle slide animation using max-height
+    if (isExpanded) {
+        mobileMenu.classList.remove("max-h-screen");
+        mobileMenu.classList.add("max-h-0");
+    } else {
+        mobileMenu.classList.remove("max-h-0");
+        mobileMenu.classList.add("max-h-screen");
+    }
+
+    // Toggle icon visibility
+    iconHamburger.classList.toggle("hidden");
+    iconClose.classList.toggle("hidden");
 });
 
 /**
