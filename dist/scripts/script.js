@@ -13,8 +13,14 @@ menuBtn.addEventListener("click", () => {
     // Toggle the aria-expanded attribute for accessibility
     menuBtn.setAttribute("aria-expanded", String(!isExpanded));
 
-    // Show/hide the mobile menu
-    mobileMenu.classList.toggle("hidden");
+    // Toggle slide animation using max-height
+    if (isExpanded) {
+        mobileMenu.classList.remove("max-h-screen");
+        mobileMenu.classList.add("max-h-0");
+    } else {
+        mobileMenu.classList.remove("max-h-0");
+        mobileMenu.classList.add("max-h-screen");
+    }
 });
 
 /**
