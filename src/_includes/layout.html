@@ -39,37 +39,6 @@
         {% include "footer.html" %}
 
         <!-- Mobile Menu Toggle Script -->
-        <script>
-            const menuBtn = document.getElementById("menu-btn");
-            const mobileMenu = document.getElementById("mobile-menu");
-
-            menuBtn.addEventListener("click", () => {
-                const isExpanded =
-                    menuBtn.getAttribute("aria-expanded") === "true";
-                menuBtn.setAttribute("aria-expanded", String(!isExpanded));
-                mobileMenu.classList.toggle("hidden");
-            });
-
-            const calculateReadingTime = (text) => {
-                const wordsPerMinute = 225;
-                const words = text.trim().split(/\s+/).length;
-                const minutes = Math.ceil(words / wordsPerMinute);
-                return `${minutes} min read`;
-            };
-
-            const updateReadingTime = () => {
-                const mainContent = document.querySelector("main");
-                const readingTimeEl = document.getElementById("reading-time");
-
-                if (mainContent && readingTimeEl) {
-                    const text = mainContent.innerText || "";
-                    const readingTime = calculateReadingTime(text);
-                    readingTimeEl.textContent = readingTime;
-                }
-            };
-
-            // Run after DOM is fully loaded
-            document.addEventListener("DOMContentLoaded", updateReadingTime);
-        </script>
+        <script src="{{ '/scripts/script.js' | url }}"></script>
     </body>
 </html>
