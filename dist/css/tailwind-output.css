@@ -371,9 +371,6 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1\/2 {
-    width: calc(1/2 * 100%);
-  }
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
@@ -1023,6 +1020,11 @@
   .focus-visible\:ring-white {
     &:focus-visible {
       --tw-ring-color: var(--color-white);
+    }
+  }
+  .sm\:w-1\/2 {
+    @media (width >= 40rem) {
+      width: calc(1/2 * 100%);
     }
   }
   .sm\:w-64 {
