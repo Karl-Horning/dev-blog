@@ -887,6 +887,11 @@
       justify-content: flex-start;
     }
   }
+  .lg\:justify-items-start {
+    @media (width >= 64rem) {
+      justify-items: start;
+    }
+  }
   .lg\:border-b-8 {
     @media (width >= 64rem) {
       border-bottom-style: var(--tw-border-style);
