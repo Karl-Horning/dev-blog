@@ -5,11 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Contact | Karl Horning</title>
         <link rel="stylesheet" href="/dev-blog/css/tailwind-output.css" />
+        <script
+            src="https://kit.fontawesome.com/5481de0f94.js"
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body
         class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
     >
-        <header><nav
+        <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only bg-white text-black px-4 py-2 absolute z-50 top-2 left-2 dark:bg-zinc-800 dark:text-gray-100"
+>
+    Skip to main content
+</a>
+ <nav
     role="navigation"
     aria-label="Main menu"
     class="bg-white border-b border-gray-200 relative dark:bg-zinc-800 dark:border-zinc-700"
@@ -130,97 +140,239 @@
         </div>
     </div>
 </nav>
-</header>
-        <main class="max-w-prose mx-auto px-4 py-10 space-y-12 min-h-screen">
-            <h1 class="text-4xl font-bold mb-6 text-center lg:text-left">Contact</h1>
-            <hr
-                class="mb-4 pt-4 border-gray-800 border-t-8 dark:border-zinc-700"
-            />
 
-            <section
-                class="lg:col-span-2 bg-white rounded-xl shadow p-6 dark:bg-zinc-800 dark:shadow-gray-900"
-            >
-                <article>
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Earum quae magnam iste aliquid ratione sapiente,
-                        inventore consectetur placeat in officiis facilis quo,
-                        sint incidunt nemo aspernatur quos voluptate eius
-                        architecto.
+
+        <main
+            id="main-content"
+            aria-label="Contact Karl Horning"
+            class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8"
+        >
+            <!-- Contact Form Section -->
+            <section class="lg:col-span-2 space-y-8">
+                <header>
+                    <h1
+                        class="text-4xl font-bold mb-6 text-center lg:text-left"
+                    >
+                        Contact
+                    </h1>
+                    <hr
+                        class="border-gray-800 border-t-8 dark:border-zinc-700"
+                    />
+                </header>
+
+                <article
+                    class="bg-white rounded-xl shadow p-6 dark:bg-zinc-800 dark:shadow-gray-900"
+                >
+                    <p class="mb-4 text-gray-700 dark:text-gray-300">
+                        Whether you'd like to collaborate, discuss a project,
+                        share feedback, or just say hello, feel free to get in
+                        touch using the form below. You can also connect with me
+                        via LinkedIn or email.
                     </p>
 
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Doloremque debitis dolorem assumenda incidunt. Quo aut
-                        officia quidem accusamus aperiam molestias delectus
-                        reiciendis suscipit assumenda. Consequatur cum et porro
-                        dolor eaque, reprehenderit omnis quibusdam ipsum dolores
-                        voluptatibus minus commodi.
-                    </p>
+                    <form
+                        name="Blog contact form"
+                        method="POST"
+                        netlify
+                        class="space-y-6"
+                        data-netlify="true"
+                        action="https://fabform.io/f/d6S6WtJ"
+                    >
+                        <input
+                            type="hidden"
+                            name="form-name"
+                            value="Blog contact form"
+                        />
 
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Explicabo nostrum itaque iste dicta dolor rerum tempora,
-                        culpa labore neque inventore et eos odit deserunt
-                        aliquid. Ipsum nihil ea recusandae quaerat iusto
-                        distinctio, voluptates temporibus! Ab sapiente in
-                        quaerat.
-                    </p>
+                        <div>
+                            <label
+                                for="name"
+                                class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                            >
+                                Name <span class="text-red-600">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                required
+                                aria-required="true"
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 dark:bg-zinc-700 dark:border-zinc-600 dark:text-gray-200"
+                            />
+                        </div>
 
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Nostrum, cupiditate fugit. Officia quis quibusdam odit
-                        earum illum maxime unde eveniet, optio, alias corrupti
-                        laudantium, vel omnis porro? Dolore tenetur delectus
-                        repellendus porro amet nemo earum saepe tempora soluta?
-                    </p>
+                        <div>
+                            <label
+                                for="company"
+                                class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                            >
+                                Company (optional)
+                            </label>
+                            <input
+                                type="text"
+                                name="company"
+                                id="company"
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 dark:bg-zinc-700 dark:border-zinc-600 dark:text-gray-200"
+                            />
+                        </div>
 
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Rem quibusdam, corrupti iusto mollitia perspiciatis
-                        aspernatur dolor error enim repellat labore. Eaque culpa
-                        voluptates, eius nesciunt vel ad beatae voluptatem quod
-                        omnis obcaecati, hic et consequatur deserunt sunt neque.
-                    </p>
+                        <div>
+                            <label
+                                for="email"
+                                class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                            >
+                                Email <span class="text-red-600">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                required
+                                aria-required="true"
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 dark:bg-zinc-700 dark:border-zinc-600 dark:text-gray-200"
+                            />
+                        </div>
 
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Magnam fugit, et nobis pariatur odit dolores ullam quam
-                        vero nostrum repellendus deserunt fugiat quia rem omnis?
-                        Repellendus voluptate aspernatur deleniti explicabo
-                        natus, sit dolorem excepturi tempora sint tenetur
-                        consequatur!
-                    </p>
+                        <div>
+                            <label
+                                for="message"
+                                class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                            >
+                                Message <span class="text-red-600">*</span>
+                            </label>
+                            <textarea
+                                name="message"
+                                id="message"
+                                rows="5"
+                                required
+                                aria-required="true"
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 dark:bg-zinc-700 dark:border-zinc-600 dark:text-gray-200"
+                            ></textarea>
+                        </div>
 
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Voluptatum beatae repellendus delectus labore
-                        perferendis voluptates! Minus ullam minima, debitis
-                        dolorem modi atque, porro quas temporibus, sed impedit
-                        ipsum corrupti. Mollitia quae architecto assumenda
-                        ducimus eligendi laudantium nisi odit.
-                    </p>
-
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Aperiam quod consequatur dolores voluptatibus assumenda,
-                        eum repudiandae, ratione recusandae fuga eos soluta
-                        molestias iusto nostrum veritatis ab aut. Incidunt
-                        tempore velit ipsam recusandae voluptatibus, expedita
-                        nulla earum pariatur illo!
-                    </p>
-
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Totam earum ratione ipsam, fugit cum voluptatem
-                        incidunt, corporis at, consectetur unde ex. Eum quas,
-                        ducimus adipisci sapiente itaque, cum perferendis quis
-                        laboriosam obcaecati asperiores recusandae magnam
-                        veritatis sed velit.
-                    </p>
-
-                    <p class="text-gray-700 mb-6 dark:text-gray-300">
-                        Aliquam repellat tenetur ratione sapiente? Amet rem
-                        dolor ex minima repudiandae possimus provident natus
-                        praesentium reiciendis voluptates repellendus similique
-                        eos accusamus asperiores, esse sit. Dolor quidem facere
-                        atque deleniti alias.
-                    </p>
+                        <div class="text-center">
+                            <button
+                                type="submit"
+                                class="w-1/2 justify-center inline-flex items-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 transition cursor-pointer"
+                            >
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
                 </article>
             </section>
+
+            <!-- Sidebar -->
+            <aside
+                class="space-y-10 bg-white rounded-xl shadow p-6 dark:bg-zinc-800 dark:shadow-gray-900"
+            >
+                <section
+                    class="pb-8 border-gray-800 border-b-8 dark:border-zinc-700 text-center lg:text-left"
+                >
+                    <h2 class="text-2xl font-bold mb-4">
+                        Other Ways to Connect
+                    </h2>
+                    <ul class="space-y-4 text-gray-700 dark:text-gray-300 mb-4">
+                        <li
+                            class="flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-3"
+                        >
+                            <i
+                                class="fab fa-linkedin text-blue-600 text-xl"
+                            ></i>
+                            <a
+                                href="https://www.linkedin.com/in/karl-horning/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="hover:underline hover:text-red-600"
+                            >
+                                LinkedIn Profile
+                            </a>
+                        </li>
+                        <li
+                            class="flex flex-col items-center text-center sm:flex-row sm:items-center sm:text-left gap-3"
+                        >
+                            <i class="fas fa-envelope text-red-600 text-xl"></i>
+                            <a
+                                href="mailto:me@example.com"
+                                class="hover:underline hover:text-red-600"
+                            >
+                                me@example.com
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Availability</h3>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm">
+                            Typically respond within 1 to 2 working days.<br />
+                            Mon to Fri, 09:00 to 17:00 (UK time)
+                        </p>
+                    </div>
+                </section>
+
+                <section
+                    aria-label="About Karl Horning"
+                    class="bg-white dark:bg-zinc-900 rounded-2xl shadow-md pb-12 pt-6 px-6 mb-8 border border-zinc-200 dark:border-zinc-700"
+                >
+                    <h2
+                        class="text-xl font-semibold mb-4 text-center lg:text-left"
+                    >
+                        Let's Connect
+                    </h2>
+                    <img
+                        src="/dev-blog/img/2024-01-27 19.01.22.png"
+                        alt="Portrait of Karl Horning, contact page sidebar"
+                        loading="lazy"
+                        class="rounded-xl shadow-md mb-4 w-32 h-32 mx-auto object-cover"
+                    />
+                    <p
+                        class="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed"
+                    >
+                        Hi, I'm Karl, a self-taught full-stack JavaScript
+                        developer and learning technologist with over 15 years
+                        of experience in education and EdTech. I build digital
+                        tools that bridge technology and pedagogy, with a focus
+                        on accessibility, user experience, and lifelong
+                        learning.
+                    </p>
+                    <div class="text-center">
+                        <a
+                            href="/dev-blog/about/"
+                            class="inline-block text-sm font-medium text-red-700 dark:text-red-400 hover:underline"
+                        >
+                            Learn more →
+                        </a>
+                    </div>
+                    <div class="flex justify-center mt-6">
+                        <script
+                            type="text/javascript"
+                            src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"
+                        ></script>
+                        <script type="text/javascript">
+                            kofiwidget2.init(
+                                "Buy me a coffee",
+                                "#e7000b",
+                                "R6R71GUNJQ"
+                            );
+                            kofiwidget2.draw();
+                        </script>
+                        <noscript>
+                            <p class="text-center text-sm mt-4">
+                                Support me on
+                                <a
+                                    href="https://ko-fi.com/R6R71GUNJQ"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-red-600 hover:underline"
+                                    >Ko-fi</a
+                                >
+                            </p>
+                        </noscript>
+                    </div>
+                </section>
+            </aside>
         </main>
+
         <footer
     role="contentinfo"
     class="bg-white mt-12 border-t dark:bg-zinc-900 dark:border-zinc-700"
