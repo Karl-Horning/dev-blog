@@ -13,9 +13,11 @@
     <body
         class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
     >
-        {% include "nav.html" %}
+        {% include "skip-link.html" %} {% include "nav.html" %}
 
         <main
+            id="main-content"
+            aria-label="About Karl Horning"
             class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8"
         >
             <!-- Main Content -->
@@ -80,6 +82,7 @@
 
             <!-- Sidebar -->
             <aside
+                role="complementary"
                 class="space-y-10 bg-white rounded-xl shadow p-6 dark:bg-zinc-800 dark:shadow-gray-900"
             >
                 <!-- Skills -->
@@ -117,8 +120,10 @@
                             Tailwind CSS
                         </li>
                         <li class="flex items-center gap-2">
-                            <i class="fas fa-users text-gray-600"></i> Agile
-                            Delivery
+                            <i
+                                class="fas fa-users text-gray-700 dark:text-gray-400"
+                            ></i>
+                            Agile Delivery
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="fas fa-vials text-purple-600"></i> API
@@ -181,6 +186,7 @@
                         <a
                             href="https://github.com/Karl-Horning"
                             target="_blank"
+                            rel="noopener noreferrer"
                             aria-label="GitHub"
                         >
                             <i
@@ -190,6 +196,7 @@
                         <a
                             href="https://www.linkedin.com/in/karl-horning/"
                             target="_blank"
+                            rel="noopener noreferrer"
                             aria-label="LinkedIn"
                         >
                             <i

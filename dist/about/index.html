@@ -13,7 +13,13 @@
     <body
         class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
     >
-        <nav
+        <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only bg-white text-black px-4 py-2 absolute z-50 top-2 left-2 dark:bg-zinc-800 dark:text-gray-100"
+>
+    Skip to main content
+</a>
+ <nav
     role="navigation"
     aria-label="Main menu"
     class="bg-white border-b border-gray-200 relative dark:bg-zinc-800 dark:border-zinc-700"
@@ -137,6 +143,8 @@
 
 
         <main
+            id="main-content"
+            aria-label="About Karl Horning"
             class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8"
         >
             <!-- Main Content -->
@@ -201,6 +209,7 @@
 
             <!-- Sidebar -->
             <aside
+                role="complementary"
                 class="space-y-10 bg-white rounded-xl shadow p-6 dark:bg-zinc-800 dark:shadow-gray-900"
             >
                 <!-- Skills -->
@@ -238,8 +247,10 @@
                             Tailwind CSS
                         </li>
                         <li class="flex items-center gap-2">
-                            <i class="fas fa-users text-gray-600"></i> Agile
-                            Delivery
+                            <i
+                                class="fas fa-users text-gray-700 dark:text-gray-400"
+                            ></i>
+                            Agile Delivery
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="fas fa-vials text-purple-600"></i> API
@@ -302,6 +313,7 @@
                         <a
                             href="https://github.com/Karl-Horning"
                             target="_blank"
+                            rel="noopener noreferrer"
                             aria-label="GitHub"
                         >
                             <i
@@ -311,6 +323,7 @@
                         <a
                             href="https://www.linkedin.com/in/karl-horning/"
                             target="_blank"
+                            rel="noopener noreferrer"
                             aria-label="LinkedIn"
                         >
                             <i
