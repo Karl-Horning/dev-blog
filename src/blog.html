@@ -11,37 +11,49 @@
     >
         <header>{% include "nav.html" %}</header>
         <main class="max-w-6xl mx-auto px-4 py-10 space-y-12 min-h-screen">
-            <h1 class="text-4xl font-bold mb-6 text-center lg:text-left">Blog</h1>
+            <h1 class="text-4xl font-bold mb-6 text-center lg:text-left">
+                Blog
+            </h1>
             <hr
                 class="mb-4 pt-4 border-gray-800 border-t-8 dark:border-zinc-700"
             />
             <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {% for post in collections.post %}
                 <article
-                    class="bg-white rounded-xl shadow p-5 hover:shadow-lg transition dark:bg-zinc-800"
+                    class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden dark:bg-zinc-800"
                 >
-                    <h3 class="text-xl font-semibold mb-2">
-                        {{ post.data.title }}
-                    </h3>
-                    <p class="text-sm font-semibold mb-4">
-                        {{ post.data.date | date: "%d %B %Y" }}
-                    </p>
-                    {% if post.data.image %}
-                    <img src="{{ post.data.image }}" alt="Thumbnail" />
+                    {% if post.data.thumbnail %}
+                    <img
+                        src="{{ post.data.thumbnail | url }}"
+                        alt="Thumbnail for {{ post.data.title }}"
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    />
                     {% endif %}
-                    <p class="text-gray-600 mb-3 dark:text-gray-400">
-                        {{ post.data.summary }}
-                    </p>
-                    <a
-                        href="{{ post.url | url }}"
-                        class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                        >Read more</a
-                    >
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-1">
+                            {{ post.data.title }}
+                        </h3>
+                        <p
+                            class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
+                        >
+                            {{ post.data.date | date: "%d %B %Y" }}
+                        </p>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">
+                            {{ post.data.summary }}
+                        </p>
+                        <a
+                            href="{{ post.url | url }}"
+                            class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
+                        >
+                            Read more →
+                        </a>
+                    </div>
                 </article>
                 {% endfor %}
             </section>
         </main>
-         {% include "footer.html" %}
-         <script src="{{ '/scripts/script.js' | url }}"></script>
+        {% include "footer.html" %}
+        <script src="{{ '/scripts/script.js' | url }}"></script>
     </body>
 </html>
