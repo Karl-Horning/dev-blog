@@ -32,6 +32,29 @@ export default function (eleventyConfig) {
         return [...tagSet].sort();
     });
 
+    eleventyConfig.addCollection("tagMap", function (collectionApi) {
+        const tagMap = new Map();
+
+        collectionApi.getAll().forEach((item) => {
+            if ("tags" in item.data) {
+                let tags = Array.isArray(item.data.tags)
+                    ? item.data.tags
+                    : [item.data.tags];
+
+                tags.filter(
+                    (tag) => !["all", "nav", "post"].includes(tag)
+                ).forEach((tag) => {
+                    if (!tagMap.has(tag)) {
+                        tagMap.set(tag, []);
+                    }
+                    tagMap.get(tag).push(item);
+                });
+            }
+        });
+
+        return Object.fromEntries(tagMap);
+    });
+
     // Passthrough copy
     eleventyConfig.addPassthroughCopy("src/img");
     eleventyConfig.addPassthroughCopy("src/scripts");
