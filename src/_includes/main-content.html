@@ -5,7 +5,9 @@
         <h1 class="text-4xl font-bold mb-2 text-center lg:text-left">
             {{ title | default: "My Blog!" }}
         </h1>
-        <p class="text-gray-700 mb-6 dark:text-gray-300 text-center lg:text-left">
+        <p
+            class="text-gray-700 mb-6 dark:text-gray-300 text-center lg:text-left"
+        >
             By
             <a
                 href="{{ '/about/' | url }}"
@@ -23,23 +25,34 @@
 
     <!-- Tags and Navigation -->
     <div
-        class="mt-10 flex flex-wrap justify-between items-center text-sm text-gray-700 pt-6 border-gray-800 border-t-8 dark:text-gray-300 dark:border-zinc-700"
+        class="mt-10 pt-6 border-t-8 border-gray-800 dark:border-zinc-700 text-sm text-gray-700 dark:text-gray-300"
     >
-        <div class="space-x-2">
-            {% for tag in tags %} {% unless tag == "post" or tag == "all" or tag
-            == "nav" %}
-            <a
-                href="{{ '/tags/' | append: tag | slug | append: '/' | url }}"
-                aria-label="View all posts tagged {{ tag }}"
-                class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                >#{{ tag }}</a
-            >
-            {% endunless %} {% endfor %}
-        </div>
-        <a
-            href="{{ '/blog/' | url }}"
-            class="text-red-600 transition duration-300 ease-in-out hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-            >← Back to all posts</a
+        <div
+            class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
         >
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+                {% for tag in tags %} {% unless tag == "post" or tag == "all" or
+                tag == "nav" %}
+                <a
+                    href="{{ '/tags/' | append: tag | slug | append: '/' | url }}"
+                    aria-label="View all posts tagged {{ tag }}"
+                    class="inline-block bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium hover:bg-red-100 dark:hover:bg-zinc-600 transition"
+                >
+                    #{{ tag }}
+                </a>
+                {% endunless %} {% endfor %}
+            </div>
+
+            <!-- Back Link -->
+            <div>
+                <a
+                    href="{{ '/blog/' | url }}"
+                    class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                >
+                    ← Back to all posts
+                </a>
+            </div>
+        </div>
     </div>
 </main>
