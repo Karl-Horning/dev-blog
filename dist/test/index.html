@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home | Karl Horning</title>
+        <link rel="stylesheet" href="/dev-blog/css/tailwind-output.css" />
+        <script
+            src="https://kit.fontawesome.com/5481de0f94.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body
+        class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
+    >
+        <header><nav
+    role="navigation"
+    aria-label="Main menu"
+    class="bg-white border-b border-gray-200 relative dark:bg-zinc-800 dark:border-zinc-700"
+>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div
+                class="flex-shrink-0 text-xl font-bold transition duration-300 ease-in-out hover:text-red-600 dark:hover:text-red-400"
+            >
+                <a
+                    href="/dev-blog/"
+                    class="focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:focus-visible:ring-red-400"
+                    >Karl Horning</a
+                >
+            </div>
+
+            <div class="md:hidden">
+                <button
+                    id="menu-btn"
+                    class="text-gray-700 dark:text-gray-300 focus:outline-none"
+                    aria-label="Toggle menu"
+                    aria-controls="mobile-menu"
+                    aria-expanded="false"
+                >
+                    <!-- Hamburger Icon -->
+                    <svg
+                        id="icon-hamburger"
+                        class="w-6 h-6 block"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        />
+                    </svg>
+
+                    <!-- Close Icon -->
+                    <svg
+                        id="icon-close"
+                        class="w-6 h-6 hidden"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6">
+                <a
+                    href="/dev-blog/"
+                    class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                    >Home</a
+                >
+                <a
+                    href="/dev-blog/blog/"
+                    class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                    >Blog</a
+                >
+                <a
+                    href="/dev-blog/about/"
+                    class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                    >About</a
+                >
+                <a
+                    href="/dev-blog/contact/"
+                    class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                    >Contact</a
+                >
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+        id="mobile-menu"
+        class="md:hidden overflow-hidden max-h-0 transition-all duration-500 ease-in-out absolute top-16 left-0 w-full bg-white shadow-md z-10 dark:bg-zinc-800"
+    >
+        <div
+            class="flex flex-col items-center px-4 py-8 space-y-8 text-lg text-center"
+        >
+            <a
+                href="/dev-blog/"
+                class="block transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                >Home</a
+            >
+            <a
+                href="/dev-blog/blog/"
+                class="block transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                >Blog</a
+            >
+            <a
+                href="/dev-blog/about/"
+                class="block transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                >About</a
+            >
+            <a
+                href="/dev-blog/contact/"
+                class="block transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
+                >Contact</a
+            >
+        </div>
+    </div>
+</nav>
+</header>
+        <!-- Hero Section -->
+        <section
+            class="py-16 px-4 bg-white dark:bg-zinc-800 border-b-8 border-gray-200 dark:border-zinc-700"
+        >
+            <div class="max-w-4xl mx-auto text-center">
+                <h1
+                    class="text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                >
+                    Hi, I’m Karl Horning
+                </h1>
+                <p class="text-xl text-gray-700 dark:text-gray-300 mb-6">
+                    Full-Stack JavaScript Developer & Learning Technologist with
+                    15+ years of experience bridging education and technology.
+                </p>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <a
+                        href="/about/"
+                        class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
+                    >
+                        About Me
+                    </a>
+                    <a
+                        href="/contact/"
+                        class="bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600"
+                    >
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section
+            class="py-12 px-4 bg-gray-50 dark:bg-zinc-900 border-b-8 border-gray-200 dark:border-zinc-700"
+        >
+            <div class="max-w-5xl mx-auto text-center lg:text-left">
+                <h2
+                    class="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
+                >
+                    Core Skills
+                </h2>
+                <ul
+                    class="grid grid-cols-2 gap-3 text-sm justify-items-center lg:justify-items-start"
+                >
+                    <li class="flex items-center gap-2">
+                        <i class="fab fa-js text-yellow-500"></i> JavaScript
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fab fa-node-js text-green-600"></i> Node.js
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fab fa-react text-cyan-500"></i> React
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-bolt text-blue-600"></i> Next.js
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-code-branch text-pink-600"></i> GraphQL
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-database text-indigo-600"></i>
+                        PostgreSQL
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fab fa-python text-blue-400"></i> Python
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-paint-brush text-teal-500"></i>
+                        Tailwind CSS
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i
+                            class="fas fa-users text-gray-700 dark:text-gray-400"
+                        ></i>
+                        Agile Delivery
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-vials text-purple-600"></i> API Testing
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i
+                            class="fas fa-chalkboard-teacher text-orange-600"
+                        ></i>
+                        LMS Evaluation
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-universal-access text-green-700"></i>
+                        Accessibility
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Featured Blog Posts -->
+        <section
+            class="py-12 px-4 bg-white dark:bg-zinc-800 border-b-8 border-gray-200 dark:border-zinc-700"
+        >
+            <div class="max-w-6xl mx-auto">
+                <h2
+                    class="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white"
+                >
+                    Featured Blog Posts
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    
+                    <article
+                        class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
+                    >
+                        
+                        <img
+                            src="/dev-blog/img/pexels-meruyert-gonullu-7317281.jpg"
+                            alt="Thumbnail for Hello, World!"
+                            class="w-full h-48 object-cover rounded-t-md"
+                            loading="lazy"
+                        />
+                        
+                        <div class="p-5">
+                            <h3
+                                class="text-xl font-semibold mb-1 text-gray-900 dark:text-white"
+                            >
+                                Hello, World!
+                            </h3>
+                            <p
+                                class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
+                            >
+                                22 June 2026
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A quick introduction to the blog: what it's for, what I might write about, and why I'm building it in the first place.
+                            </p>
+                            <a
+                                href="/dev-blog/posts/hello-world/"
+                                class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
+                            >
+                                Read more →
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article
+                        class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
+                    >
+                        
+                        <img
+                            src="/dev-blog/img/pexels-mali-63238.jpg"
+                            alt="Thumbnail for Testing, Testing"
+                            class="w-full h-48 object-cover rounded-t-md"
+                            loading="lazy"
+                        />
+                        
+                        <div class="p-5">
+                            <h3
+                                class="text-xl font-semibold mb-1 text-gray-900 dark:text-white"
+                            >
+                                Testing, Testing
+                            </h3>
+                            <p
+                                class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
+                            >
+                                23 June 2026
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                A light-hearted post about testing my new blog, tweaking layouts, and checking how everything fits together.
+                            </p>
+                            <a
+                                href="/dev-blog/posts/testing-testing/"
+                                class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
+                            >
+                                Read more →
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+                <div class="text-center mt-6">
+                    <a
+                        href="/blog/"
+                        class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
+                    >
+                        View All Posts
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section
+            class="py-12 px-4 bg-gray-50 dark:bg-zinc-900 border-b-8 border-gray-200 dark:border-zinc-700"
+        >
+            <div class="max-w-3xl mx-auto text-center">
+                <h2
+                    class="text-2xl font-bold mb-4 text-gray-900 dark:text-white"
+                >
+                    A Bit About Me
+                </h2>
+                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                    I’ve worked on everything from language-learning platforms
+                    to university-wide LMS rollouts. Passionate about bridging
+                    dev and education.
+                </p>
+                <a
+                    href="/about/"
+                    class="bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-600"
+                >
+                    Read My Full Bio
+                </a>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-12 px-4 bg-red-600 dark:bg-red-500 text-white">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-2xl font-bold">
+                    Interested in Working Together?
+                </h2>
+                <p class="mt-2">Let’s build better learning experiences.</p>
+                <a
+                    href="/contact/"
+                    class="bg-white text-red-600 font-semibold px-6 py-2 mt-4 inline-block rounded-full hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                    Get in Touch
+                </a>
+            </div>
+        </section>
+
+        <footer
+    role="contentinfo"
+    class="bg-white mt-12 border-t dark:bg-zinc-900 dark:border-zinc-700"
+>
+    <div
+        class="max-w-6xl mx-auto px-4 py-6 text-center text-sm text-gray-700 dark:bg-zinc-900 dark:border-zinc-700 dark:text-gray-400"
+    >
+        &copy; 2025
+        <a
+            href="/dev-blog/"
+            class="text-red-600 transition duration-300 ease-in-out hover:text-red-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded"
+            >Karl Horning</a
+        >. All rights reserved.
+    </div>
+</footer>
+
+        <script src="/dev-blog/scripts/script.js"></script>
+    </body>
+</html>
