@@ -12,123 +12,119 @@
         <header><nav
     role="navigation"
     aria-label="Main menu"
-    class="bg-white border-b border-gray-200 relative dark:bg-zinc-800 dark:border-zinc-700"
+    class="fixed z-30 w-full bg-hero px-6 shadow-md"
 >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="flex h-16 items-center justify-between">
             <!-- Logo -->
             <div
-                class="flex-shrink-0 text-xl font-bold transition duration-300 ease-in-out hover:text-red-600 dark:hover:text-red-400"
-            >
-                <a
-                    href="/dev-blog/"
-                    class="focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:focus-visible:ring-red-400"
-                    >Karl Horning</a
-                >
-            </div>
+    class="flex-shrink-0 text-xl font-bold transition-colors duration-300 ease-in-out"
+>
+    <a
+        href="https://karl-horning.github.io"
+        class="font-glitch glitch-hover relative rounded px-2 py-1 text-2xl font-extrabold text-primary transition-colors duration-300  focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        data-text="Karl Horning"
+        >Karl Horning</a
+    >
+</div>
 
+            
+            <!-- Menu button -->
             <div class="md:hidden">
-                <button
-                    id="menu-btn"
-                    class="text-gray-700 dark:text-gray-300 focus:outline-none"
-                    aria-label="Toggle menu"
-                    aria-controls="mobile-menu"
-                    aria-expanded="false"
-                >
-                    <!-- Hamburger Icon -->
-                    <svg
-                        id="icon-hamburger"
-                        class="w-6 h-6 block"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        focusable="false"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"
-                        />
-                    </svg>
+    <button
+        id="menu-btn"
+        class="block transition-colors duration-300 rounded px-2 py-1 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        aria-label="Toggle menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-haspopup="true"
+        type="button"
+    >
+        <!-- Hamburger Icon -->
+        <svg
+            id="icon-hamburger"
+            class="w-6 h-6 block"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+            />
+        </svg>
 
-                    <!-- Close Icon -->
-                    <svg
-                        id="icon-close"
-                        class="w-6 h-6 hidden"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        focusable="false"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    </svg>
-                </button>
-            </div>
+        <!-- Close Icon -->
+        <svg
+            id="icon-close"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+            />
+        </svg>
+    </button>
+</div>
 
+            
             <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-6">
-                <a
-                    href="/dev-blog/"
-                    class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                    >Home</a
-                >
-                <a
-                    href="/dev-blog/blog/"
-                    class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                    >Blog</a
-                >
-                <a
-                    href="/dev-blog/about/"
-                    class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                    >About</a
-                >
-                <a
-                    href="/dev-blog/contact/"
-                    class="transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                    >Contact</a
-                >
-            </div>
+            <div class="hidden space-x-6 text-text md:flex">
+    <a
+        class="inline-block rounded px-2 py-1 transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        href="https://karl-horning.github.io/about"
+        >About</a
+    ><a
+        class="inline-block rounded px-2 py-1 transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        href="/dev-blog/blog/"
+        >Blog</a
+    ><a
+        class="inline-block rounded px-2 py-1 transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        href="https://karl-horning.github.io/contact"
+        >Contact</a
+    >
+</div>
+
+            
         </div>
     </div>
 
     <!-- Mobile Menu -->
     <div
-        id="mobile-menu"
-        class="md:hidden overflow-hidden max-h-0 transition-all duration-500 ease-in-out absolute top-16 left-0 w-full bg-white shadow-md z-10 dark:bg-zinc-800"
+    id="mobile-menu"
+    aria-hidden="true"
+    class="absolute left-0 top-16 z-10 w-full overflow-hidden bg-hero shadow-md transition-[max-height] duration-500 ease-in-out md:hidden max-h-0"
+>
+    <div
+        class="flex flex-col items-center space-y-8 px-4 py-8 text-center text-lg text-text"
     >
-        <div
-            class="flex flex-col items-center px-4 py-8 space-y-8 text-lg text-center"
+        <a
+            class="block transition-colors duration-300 rounded px-2 py-1 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            href="https://karl-horning.github.io/about"
+            >About</a
+        ><a
+            class="block transition-colors duration-300 rounded px-2 py-1 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            href="/dev-blog/blog/"
+            >Blog</a
+        ><a
+            class="block transition-colors duration-300 rounded px-2 py-1 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            href="https://karl-horning.github.io/contact"
+            >Contact</a
         >
-            <a
-                href="/dev-blog/"
-                class="block transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                >Home</a
-            >
-            <a
-                href="/dev-blog/blog/"
-                class="block transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                >Blog</a
-            >
-            <a
-                href="/dev-blog/about/"
-                class="block transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                >About</a
-            >
-            <a
-                href="/dev-blog/contact/"
-                class="block transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                >Contact</a
-            >
-        </div>
     </div>
+</div>
+
 </nav>
 </header>
         <main class="max-w-6xl mx-auto px-4 py-10 space-y-12 min-h-screen">
