@@ -1,25 +1,56 @@
-<footer
-    class="mt-10 border-t pt-6 flex flex-wrap justify-center md:justify-between items-center text-sm"
->
-    <div class="flex flex-wrap gap-2 mb-4">
-        {% for tag in tags %} {% unless tag == "post" or tag == "all" or tag ==
-        "nav" %}
-        <a
-            href="{{ '/tags/' | append: tag | slug | append: '/' | url }}"
-            aria-label="View all posts tagged {{ tag }}"
-            class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+{% assign previousPost = collections.post | getPreviousCollectionItem: page %}
+{% assign nextPost = collections.post | getNextCollectionItem: page %}
+
+<footer class="mt-10 border-t pt-6 text-sm">
+    <div class="max-w-4xl mx-auto px-4">
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 justify-center">
+            {% for tag in tags %} {% unless tag == "post" or tag == "all" or tag
+            == "nav" %}
+            <a
+                href="{{ '/tags/' | append: tag | slug | append: '/' | url }}"
+                aria-label="View all posts tagged {{ tag }}"
+                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+                #{{ tag }}
+            </a>
+            {% endunless %} {% endfor %}
+        </div>
+
+        <div
+            class="flex justify-between flex-col md:flex-row mt-10 gap-4 md:gap-0"
         >
-            #{{ tag }}
-        </a>
-        {% endunless %} {% endfor %}
-    </div>
-    <div class="flex flex-wrap gap-2 mb-4">
-        <a
-            href="{{ '/' | url }}"
-            class="hover-bg-primary inline-block px-3 py-1 bg-primary text-white text-sm font-semibold rounded shadow transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-        >
-            <i class="fas fa-arrow-left ml-1" aria-hidden="true"></i>
-            Back to all posts
-        </a>
+            <div class="w-full md:w-auto">
+                {% if previousPost %}
+                <a
+                    href="{{ previousPost.url | url }}"
+                    class="bg-primary text-white rounded shadow font-semibold hover:bg-primary-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white block w-full text-center px-6 py-3 md:inline-block md:w-auto md:text-left"
+                >
+                    <i class="fas fa-arrow-left ml-1" aria-hidden="true"></i>
+                    Previous: {{ previousPost.data.title }}
+                </a>
+                {% else %}
+                <div style="visibility: hidden" class="block w-full">
+                    &nbsp;
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="w-full md:w-auto">
+                {% if nextPost %}
+                <a
+                    href="{{ nextPost.url | url }}"
+                    class="bg-primary text-white rounded shadow font-semibold hover:bg-primary-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white block w-full text-center px-6 py-3 mt-4 md:inline-block md:w-auto md:text-right md:mt-0"
+                >
+                    Next: {{ nextPost.data.title }}
+                    <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
+                </a>
+                {% else %}
+                <div style="visibility: hidden" class="block w-full">
+                    &nbsp;
+                </div>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </footer>
