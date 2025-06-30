@@ -89,8 +89,12 @@ h6 {
     font-family: var(--font-poppins), sans-serif;
 }
 
-/* Text colours */
+.text-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
 
+/* Text colours */
 .text-primary {
     color: var(--primary);
 }

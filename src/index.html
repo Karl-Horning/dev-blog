@@ -13,50 +13,58 @@
         <link rel="stylesheet" href="{{ '/css/tailwind-output.css' | url }}" />
     </head>
     <body
-        class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
+        class="flex min-h-screen flex-col bg-background font-sans text-foreground text-text leading-relaxed"
     >
         <header>{% include "navbar/layout.html" %}</header>
-        <main class="max-w-6xl mx-auto px-4 py-10 space-y-12 min-h-screen">
-            <h1 class="text-4xl font-bold mb-6 text-center lg:text-left">
-                Blog
-            </h1>
-            <hr
-                class="mb-4 pt-4 border-gray-800 border-t-8 dark:border-zinc-700"
-            />
-            <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {% for post in collections.post %}
-                <article
-                    class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
+
+        <main class="flex-1 pt-24">
+            <section class="max-w-6xl mx-auto py-8 px-6">
+                <h1 class="text-5xl font-bold text-center text-primary mb-6">
+                    From the Blog
+                </h1>
+                <div
+                    class="grid gap-8 md:grid-cols-2"
                 >
-                    {% if post.data.thumbnail %}
-                    <img
-                        src="{{ post.data.thumbnail | url }}"
-                        alt="Thumbnail for {{ post.data.title }}"
-                        class="w-full h-48 object-cover"
-                        loading="lazy"
-                    />
-                    {% endif %}
-                    <div class="p-5">
-                        <h3 class="text-xl font-semibold mb-1">
-                            {{ post.data.title }}
-                        </h3>
-                        <p
-                            class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
+                    {% for post in collections.post %}
+                    <article
+                        class="inline-block w-full bg-surface p-8 rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+                    >
+                        {% if post.data.thumbnail %}
+                        <img
+                            src="{{ post.data.thumbnail | url }}"
+                            alt="Thumbnail for {{ post.data.title }}"
+                            class="w-full h-48 object-cover rounded-md mb-4"
+                            loading="lazy"
+                        />
+                        {% endif %}
+
+                        <h2
+                            class="text-link text-2xl font-semibold mb-2 text-text"
                         >
-                            {{ post.data.date | date: "%d %B %Y" }}
-                        </p>
-                        <p class="text-gray-600 mb-4 dark:text-gray-300">
-                            {{ post.data.summary }}
-                        </p>
-                        <a
-                            href="{{ post.url | url }}"
-                            class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
+                            <a href="{{ post.url | url }}"
+                                >{{ post.data.title }}</a
+                            >
+                        </h2>
+                        <time class="text-sm text-muted mb-2"
+                            >{{ post.data.date | date: "%d %B %Y" }}</time
                         >
-                            Read more →
-                        </a>
-                    </div>
-                </article>
-                {% endfor %}
+
+                        <p class="text-text mb-4">{{ post.data.summary }}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            {% for tag in post.data.tags %} {% unless tag ==
+                            "post" or tag == "all" or tag == "nav" %}
+                            <a
+                                href="{{ '/tags/' | append: tag | slug | append: '/' | url }}"
+                                aria-label="View all posts tagged {{ tag }}"
+                                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                            >
+                                #{{ tag }}
+                            </a>
+                            {% endunless %} {% endfor %}
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
             </section>
         </main>
         {% include "footer.html" %}
