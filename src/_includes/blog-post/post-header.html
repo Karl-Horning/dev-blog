@@ -1,0 +1,18 @@
+<header
+    class="relative text-white py-32 px-4 bg-cover bg-center"
+    style="background-image: url('{{ thumbnail | url }}')"
+>
+    <div class="absolute inset-0 blog-hero"></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl font-bold mb-4">
+            {{ title | default: "My Blog!" }}
+        </h1>
+        <p class="text-sm opacity-80 flex items-center justify-center gap-2">
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            <time datetime="2025-06-26">{{ date | date: "%d %B %Y" }}</time>
+            <span class="mx-1 text-xs">•</span>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span id="reading-time">Calculating...</span>
+        </p>
+    </div>
+</header>
