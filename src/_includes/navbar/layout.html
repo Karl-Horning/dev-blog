@@ -1,0 +1,22 @@
+<nav
+    role="navigation"
+    aria-label="Main menu"
+    class="fixed z-30 w-full bg-hero px-6 shadow-md"
+>
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="flex h-16 items-center justify-between">
+            <!-- Logo -->
+            {% include "navbar/logo.html" %}
+            
+            <!-- Menu button -->
+            {% include "navbar/menu-button.html" %}
+            
+            <!-- Desktop Menu -->
+            {% include "navbar/desktop-menu.html" %}
+            
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    {% include "navbar/mobile-menu.html" %}
+</nav>
