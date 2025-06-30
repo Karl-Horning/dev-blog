@@ -89,9 +89,18 @@ h6 {
     font-family: var(--font-poppins), sans-serif;
 }
 
-.text-link:hover {
+.heading-link:hover {
     color: var(--primary);
     text-decoration: underline;
+}
+
+.heading-link:focus {
+    outline: none;
+}
+
+.heading-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--primary);
 }
 
 /* Text colours */

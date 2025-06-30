@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,20 +11,85 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="{{ '/css/tailwind-output.css' | url }}" />
+        <meta
+            name="description"
+            content="Blog posts by Karl Horning: JavaScript developer and learning technologist, writing about full-stack development, learning tech, accessibility and more."
+        />
+        <meta property="og:title" content="Blog | Karl Horning" />
+        <meta
+            property="og:description"
+            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://karl-horning.github.io/blog/"
+        />
+        <meta
+            property="og:image"
+            content="https://karl-horning.github.io/img/social-preview.jpg"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blog | Karl Horning" />
+        <meta
+            name="twitter:description"
+            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+        />
+        <meta
+            name="twitter:image"
+            content="https://karl-horning.github.io/img/social-preview.jpg"
+        />
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "Karl Horning Blog",
+              "url": "https://karl-horning.github.io/blog/",
+              "author": {
+                "@type": "Person",
+                "name": "Karl Horning"
+              },
+              "blogPost": [
+                {% for post in collections.post %}
+                {
+                  "@type": "BlogPosting",
+                  "headline": "{{ post.data.title | escape }}",
+                  "url": "https://karl-horning.github.io{{ post.url }}",
+                  "datePublished": "{{ post.data.date | date: '%Y-%m-%d' }}",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Karl Horning"
+                  }
+                }{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+              ]
+            }
+        </script>
     </head>
     <body
         class="flex min-h-screen flex-col bg-background font-sans text-foreground text-text leading-relaxed"
     >
+        {% include "skip-link.html" %}
         <header>{% include "navbar/layout.html" %}</header>
 
-        <main class="flex-1 pt-24">
-            <section class="max-w-6xl mx-auto py-8 px-6">
-                <h1 class="text-5xl font-bold text-center text-primary mb-6">
+        <main
+            role="main"
+            class="flex-1 pt-24"
+            id="main-content"
+            aria-label="Blog posts"
+        >
+            <section
+                class="max-w-6xl mx-auto py-8 px-6"
+                aria-labelledby="blog-title"
+            >
+                <h1
+                    id="blog-title"
+                    class="text-5xl font-bold text-center text-primary mb-6"
+                >
                     From the Blog
                 </h1>
-                <div
-                    class="grid gap-8 md:grid-cols-2"
-                >
+                <div class="grid gap-8 md:grid-cols-2">
                     {% for post in collections.post %}
                     <article
                         class="inline-block w-full bg-surface p-8 rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-lg"
@@ -39,15 +104,21 @@
                         {% endif %}
 
                         <h2
-                            class="text-link text-2xl font-semibold mb-2 text-text"
+                            class="text-2xl font-semibold mb-2 text-text"
                         >
-                            <a href="{{ post.url | url }}"
+                            <a
+                                href="{{ post.url | url }}"
+                                class="rounded heading-link"
                                 >{{ post.data.title }}</a
                             >
                         </h2>
-                        <time class="text-sm text-muted mb-2"
-                            >{{ post.data.date | date: "%d %B %Y" }}</time
+
+                        <time
+                            datetime="{{ post.data.date | date: '%Y-%m-%d' }}"
+                            class="text-sm text-muted mb-2"
                         >
+                            {{ post.data.date | date: "%d %B %Y" }}
+                        </time>
 
                         <p class="text-text mb-4">{{ post.data.summary }}</p>
                         <div class="flex flex-wrap gap-2 mb-4">
