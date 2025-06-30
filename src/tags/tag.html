@@ -12,54 +12,137 @@ permalink: "/tags/{{ tag | slug }}/"
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Posts tagged with "{{ tag }}" | Karl Horning</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Glitch&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="{{ '/css/tailwind-output.css' | url }}" />
+        <meta
+            name="description"
+            content="Blog posts by Karl Horning: JavaScript developer and learning technologist, writing about full-stack development, learning tech, accessibility and more."
+        />
+        <meta property="og:title" content="Blog | Karl Horning" />
+        <meta
+            property="og:description"
+            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://karl-horning.github.io/blog/"
+        />
+        <meta
+            property="og:image"
+            content="https://karl-horning.github.io/img/social-preview.jpg"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blog | Karl Horning" />
+        <meta
+            name="twitter:description"
+            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+        />
+        <meta
+            name="twitter:image"
+            content="https://karl-horning.github.io/img/social-preview.jpg"
+        />
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "Karl Horning Blog",
+              "url": "https://karl-horning.github.io/blog/",
+              "author": {
+                "@type": "Person",
+                "name": "Karl Horning"
+              },
+              "blogPost": [
+                {% for post in collections.post %}
+                {
+                  "@type": "BlogPosting",
+                  "headline": "{{ post.data.title | escape }}",
+                  "url": "https://karl-horning.github.io{{ post.url }}",
+                  "datePublished": "{{ post.data.date | date: '%Y-%m-%d' }}",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Karl Horning"
+                  }
+                }{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+              ]
+            }
+        </script>
     </head>
     <body
-        class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
+        class="flex min-h-screen flex-col bg-background font-sans text-foreground text-text leading-relaxed"
     >
-        <header>>{% include "navbar/layout.html" %}</header>
-        <main class="max-w-6xl mx-auto px-4 py-10 space-y-12 min-h-screen">
-            <h1 class="text-4xl font-bold mb-6 text-center lg:text-left">
-                Posts tagged with "{{ tag }}"
-            </h1>
-            <hr
-                class="mb-4 pt-4 border-gray-800 border-t-8 dark:border-zinc-700"
-            />
-            <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {% for post in collections.post %} {% if post.data.tags contains
-                tag %}
-                <article
-                    class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
+        {% include "skip-link.html" %}
+        <header>{% include "navbar/layout.html" %}</header>
+
+        <main
+            role="main"
+            class="flex-1 pt-24"
+            id="main-content"
+            aria-label="Blog posts"
+        >
+            <section
+                class="max-w-6xl mx-auto py-8 px-6"
+                aria-labelledby="blog-title"
+            >
+                <h1
+                    id="blog-title"
+                    class="text-5xl font-bold text-center text-primary mb-6"
                 >
-                    {% if post.data.thumbnail %}
-                    <img
-                        src="{{ post.data.thumbnail | url }}"
-                        alt="Thumbnail for {{ post.data.title }}"
-                        class="w-full h-48 object-cover"
-                        loading="lazy"
-                    />
-                    {% endif %}
-                    <div class="p-5">
-                        <h3 class="text-xl font-semibold mb-1">
-                            {{ post.data.title }}
-                        </h3>
-                        <p
-                            class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
+                    Posts tagged with "{{ tag }}"
+                </h1>
+                <div class="grid gap-8 md:grid-cols-2">
+                    {% for post in collections.post %} {% if post.data.tags
+                    contains tag %}
+                    <article
+                        class="inline-block w-full bg-surface p-8 rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+                    >
+                        {% if post.data.thumbnail %}
+                        <img
+                            src="{{ post.data.thumbnail | url }}"
+                            alt="Thumbnail for {{ post.data.title }}"
+                            class="w-full h-48 object-cover rounded-md mb-4"
+                            loading="lazy"
+                        />
+                        {% endif %}
+
+                        <h2 class="text-2xl font-semibold mb-2 text-text">
+                            <a
+                                href="{{ post.url | url }}"
+                                class="rounded heading-link"
+                                >{{ post.data.title }}</a
+                            >
+                        </h2>
+
+                        <time
+                            datetime="{{ post.data.date | date: '%Y-%m-%d' }}"
+                            class="text-sm text-muted mb-2"
                         >
                             {{ post.data.date | date: "%d %B %Y" }}
-                        </p>
-                        <p class="text-gray-600 mb-4 dark:text-gray-300">
-                            {{ post.data.summary }}
-                        </p>
-                        <a
-                            href="{{ post.url | url }}"
-                            class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
-                        >
-                            Read more →
-                        </a>
-                    </div>
-                </article>
-                {% endif %} {% endfor %}
+                        </time>
+
+                        <p class="text-text mb-4">{{ post.data.summary }}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            {% for tag in post.data.tags %} {% unless tag ==
+                            "post" or tag == "all" or tag == "nav" %}
+                            <a
+                                href="{{ '/tags/' | append: tag | slug | append: '/' | url }}"
+                                aria-label="View all posts tagged {{ tag }}"
+                                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                            >
+                                #{{ tag }}
+                            </a>
+                            {% endunless %} {% endfor %}
+                        </div>
+                    </article>
+                    {% endif %} {% endfor %}
+                </div>
             </section>
         </main>
         {% include "footer.html" %}
