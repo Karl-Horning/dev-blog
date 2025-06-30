@@ -51,8 +51,16 @@
     color: var(--primary);
 }
 
+.text-muted {
+    color: var(--muted);
+}
+
 .bg-hero {
     background-color: var(--hero);
+}
+
+.bg-black {
+    background-color: var(--black);
 }
 
 /* Logo Animation */
