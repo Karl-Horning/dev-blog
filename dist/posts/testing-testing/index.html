@@ -49,12 +49,14 @@
     />
     <meta name="twitter:image" content="https://picsum.photos/1200/400" />
     <meta name="twitter:creator" content="@KarlHorning" />
+    <script
+        src="https://kit.fontawesome.com/5481de0f94.js"
+        crossorigin="anonymous"
+    ></script>
 </head>
 
 
-    <body
-        class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
-    >
+    <body class="bg-background text-text font-sans leading-relaxed">
         <!-- Skip Link -->
         <a
     href="#main-content"
@@ -185,49 +187,40 @@
 </header>
 
         <!-- Main Content -->
-        <div
-            id="main-content"
-            class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8"
-        >
-            <!-- Blog Post -->
-            <main
-    class="lg:col-span-2 bg-white rounded-xl shadow p-6 dark:bg-zinc-800 dark:shadow-gray-900"
+        <div id="main-content" class="min-h-screen pt-16">
+            <!-- Blog post image, title, and date -->
+            <header
+    class="relative text-white py-32 px-4 bg-cover bg-center"
+    style="background-image: url('/dev-blog/img/pexels-mali-63238.jpg')"
 >
-    <article>
-        <h1 class="text-4xl font-bold mb-2 text-center lg:text-left">
+    <div class="absolute inset-0 blog-hero"></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl font-bold mb-4">
             Testing, Testing
         </h1>
-        <p
-            class="text-gray-700 mb-6 dark:text-gray-300 text-center lg:text-left"
-        >
-            By
-            <a
-                href="/dev-blog/about/"
-                class="font-medium transition duration-300 ease-in-out hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                >Karl Horning</a
-            >
-            • 23 June 2026 •
+        <p class="text-sm opacity-80 flex items-center justify-center gap-2">
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            <time datetime="2025-06-26">23 June 2026</time>
+            <span class="mx-1 text-xs">•</span>
+            <i class="fas fa-clock" aria-hidden="true"></i>
             <span id="reading-time">Calculating...</span>
         </p>
+    </div>
+</header>
 
-        <hr class="mb-4 pt-4 border-gray-800 border-t-8 dark:border-zinc-700" />
-
-        <section class="space-y-6 text-lg">
-<img
-    class="rounded-xl mb-8 w-full object-cover"
-    src="/dev-blog/img/pexels-mali-63238.jpg"
-    alt="Graffiti of a monkey wearing sunglasses (placeholder image)"
-/>
-
-<p>
+            <!-- Blog Post -->
+            <div class="max-w-4xl mx-auto px-4 py-16 grid lg:grid-cols-3 gap-12">
+    <main class="lg:col-span-2">
+        <div class="prose max-w-none text-lg">
+<p class="mb-6">
     This is my second blog post, and yes, it's mostly here to help me test
     things. But testing is part of the process. Without it, you never know
     what's working until something <em>isn't</em>.
 </p>
 
-<p>I'm currently checking how the layout handles things like:</p>
+<p class="mb-6">I'm currently checking how the layout handles things like:</p>
 
-<ul class="list-disc list-inside mb-4">
+<ul class="list-disc list-inside mb-6">
     <li>Thumbnails</li>
     <li>Headings and paragraph spacing</li>
     <li>Responsive images</li>
@@ -235,16 +228,16 @@
     <li>Sidebar listings and link styles</li>
 </ul>
 
-<h2 class="text-2xl font-semibold mb-2">It Doesn't Have to Be Perfect</h2>
+<h2 class="text-2xl font-semibold mb-6">It Doesn't Have to Be Perfect</h2>
 
-<p>
+<p class="mb-6">
     This isn't meant to be profound or polished, just a small step to see how
     things display and whether updates I've made to the blog design are working
     across devices. I'll probably come back and tidy this post later (or not, if
     you're reading this in the future! 🤖).
 </p>
 
-<p>
+<p class="mb-6">
     If you've stumbled across this post, hello! 👋 You've caught the blog
     mid-flight. Thanks for your patience while I bolt on bits of functionality
     and give things a coat of paint.
@@ -258,152 +251,165 @@
 
 <hr class="my-8 border-gray-300 dark:border-zinc-600" />
 
-<p>— Karl</p>
-</section>
-    </article>
-
-    <!-- Tags and Navigation -->
-    <div
-        class="mt-10 pt-6 border-t-8 border-gray-800 dark:border-zinc-700 text-sm text-gray-700 dark:text-gray-300"
-    >
-        <div
-            class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+<p class="mb-6">— Karl</p>
+</div>
+ <footer
+    class="mt-10 border-t pt-6 flex flex-wrap justify-center md:justify-between items-center text-sm"
+>
+    <div class="flex flex-wrap gap-2 mb-4">
+           
+        <a
+            href="/dev-blog/tags/meta/"
+            aria-label="View all posts tagged meta"
+            class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded"
         >
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-2">
-                   
-                <a
-                    href="/dev-blog/tags/meta/"
-                    aria-label="View all posts tagged meta"
-                    class="inline-block bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium hover:bg-red-100 dark:hover:bg-zinc-600 transition"
-                >
-                    #meta
-                </a>
-                  
-                <a
-                    href="/dev-blog/tags/blog/"
-                    aria-label="View all posts tagged blog"
-                    class="inline-block bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium hover:bg-red-100 dark:hover:bg-zinc-600 transition"
-                >
-                    #blog
-                </a>
-                  
-                <a
-                    href="/dev-blog/tags/testing/"
-                    aria-label="View all posts tagged testing"
-                    class="inline-block bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium hover:bg-red-100 dark:hover:bg-zinc-600 transition"
-                >
-                    #testing
-                </a>
-                 
-            </div>
-
-            <!-- Back Link -->
-            <div>
-                <a
-                    href="/dev-blog/blog/"
-                    class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:hover:text-red-400 dark:focus-visible:ring-red-400"
-                >
-                    ← Back to all posts
-                </a>
-            </div>
-        </div>
+            #meta
+        </a>
+          
+        <a
+            href="/dev-blog/tags/blog/"
+            aria-label="View all posts tagged blog"
+            class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded"
+        >
+            #blog
+        </a>
+          
+        <a
+            href="/dev-blog/tags/testing/"
+            aria-label="View all posts tagged testing"
+            class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded"
+        >
+            #testing
+        </a>
+         
     </div>
-</main>
+    <div class="flex flex-wrap gap-2 mb-4">
+        <a
+            href="/dev-blog/blog/"
+            class="hover-bg-primary inline-block px-3 py-1 bg-primary text-white text-sm font-semibold rounded shadow transition-colors duration-300"
+        >
+            <i class="fas fa-arrow-left ml-1" aria-hidden="true"></i>
+            Back to all posts
+        </a>
+    </div>
+</footer>
 
-
-            <!-- Sidebar -->
-            <aside
-                role="complementary"
-                class="bg-white rounded-xl shadow p-6 space-y-8 dark:bg-zinc-800 dark:shadow-gray-900"
-            >
-                <!-- Tags -->
-                <section
-    class="pb-8 border-gray-800 border-b-8 dark:border-zinc-700 text-center lg:text-left"
+    </main>
+    <aside class="lg:col-span-1 space-y-8">
+        <div
+    class="bg-surface rounded-lg shadow-md p-6 md:col-span-2 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg text-center"
 >
-    <h2 class="text-xl font-bold mb-4 dark:border-gray-600">All Tags</h2>
-     
+    <section aria-label="Author photo and social links">
+        <h3 class="text-lg font-semibold mb-2">About the Author</h3>
+        <img
+            src="/dev-blog/img/karl.optimised.webp"
+            alt="Karl: JavaScript developer and learning technologist"
+            class="bg-primary rounded-full mx-auto w-32 h-32 object-cover object-top mb-4"
+            aria-hidden="true"
+            loading="lazy"
+        />
+        <p class="text-sm text-muted text-center mb-4">
+            Full-stack JS developer &amp; learning technologist
+        </p>
+        <ul class="flex justify-center gap-1 text-primary text-sm mb-4">
+            <li>
+                <a
+                    href="https://karl-horning.github.io/about"
+                    aria-label="About"
+                    title="About"
+                    class="social-button"
+                >
+                    <i class="fas fa-circle-info" aria-hidden="true"></i>
+                </a>
+            </li>
 
-    <ul
-        role="list"
-        class="flex flex-wrap gap-2 justify-center lg:justify-start text-sm"
-    >
-        
-        <li>
-            <a
-                href="/dev-blog/tags/blog/"
-                class="inline-block px-3 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-zinc-700 dark:text-gray-100 hover:bg-red-100 dark:hover:bg-red-800 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
-            >
-                #blog
-                <span class="text-xs text-gray-500 dark:text-gray-400">
-                    (2)
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a
-                href="/dev-blog/tags/meta/"
-                class="inline-block px-3 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-zinc-700 dark:text-gray-100 hover:bg-red-100 dark:hover:bg-red-800 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
-            >
-                #meta
-                <span class="text-xs text-gray-500 dark:text-gray-400">
-                    (2)
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a
-                href="/dev-blog/tags/personal/"
-                class="inline-block px-3 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-zinc-700 dark:text-gray-100 hover:bg-red-100 dark:hover:bg-red-800 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
-            >
-                #personal
-                <span class="text-xs text-gray-500 dark:text-gray-400">
-                    (1)
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a
-                href="/dev-blog/tags/technology/"
-                class="inline-block px-3 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-zinc-700 dark:text-gray-100 hover:bg-red-100 dark:hover:bg-red-800 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
-            >
-                #technology
-                <span class="text-xs text-gray-500 dark:text-gray-400">
-                    (1)
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a
-                href="/dev-blog/tags/testing/"
-                class="inline-block px-3 py-1 rounded-full bg-gray-100 text-gray-800 dark:bg-zinc-700 dark:text-gray-100 hover:bg-red-100 dark:hover:bg-red-800 transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
-            >
-                #testing
-                <span class="text-xs text-gray-500 dark:text-gray-400">
-                    (1)
-                </span>
-            </a>
-        </li>
-        
-    </ul>
-</section>
+            <li>
+                <a
+                    href="https://github.com/Karl-Horning/"
+                    aria-label="GitHub"
+                    title="GitHub"
+                    class="social-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
 
+            <li>
+                <a
+                    href="https://www.linkedin.com/in/karl-horning/"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                    class="social-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </li>
 
-                <!-- Optional: Recent Posts -->
-                <section
-    class="pb-8 border-gray-800 border-b-8 dark:border-zinc-700 text-center lg:text-left"
->
-    <h2 class="text-xl font-semibold mb-4">Recent Posts</h2>
+            <li>
+                <a
+                    href="https://karl-horning.github.io/contact"
+                    aria-label="Contact"
+                    title="Contact"
+                    class="social-button"
+                >
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="/dev-blog/feed/"
+                    aria-label="RSS Feed"
+                    title="RSS Feed"
+                    class="social-button"
+                >
+                    <i class="fas fa-rss" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section aria-label="Support me on Ko-fi">
+        <h3 class="text-center text-sm mt-6 mb-2">Enjoying the blog?</h3>
+
+        <div class="flex justify-center my-6">
+            <script
+                type="text/javascript"
+                src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"
+            ></script>
+            <script type="text/javascript">
+                kofiwidget2.init("Buy me a coffee", "#cb2d6f", "R6R71GUNJQ");
+                kofiwidget2.draw();
+            </script>
+            <noscript>
+                <p class="text-center text-sm mt-4">
+                    Support me on
+                    <a
+                        href="https://ko-fi.com/R6R71GUNJQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-primary hover:underline"
+                        >Ko-fi</a
+                    >
+                </p>
+            </noscript>
+        </div>
+    </section>
+</div>
+
+        <div>
+    <h3 class="text-lg font-semibold text-center mb-4">Recent Posts</h3>
+
     <ul class="space-y-4">
         
         <li>
             <a
                 href="/dev-blog/posts/testing-testing/"
-                class="group flex items-center gap-4 p-4 rounded-lg transition duration-300 ease-in-out hover:bg-red-50 dark:hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 dark:focus-visible:ring-red-400"
+                class="hover-bg-accent group flex items-center gap-4 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface hover:bg-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
                 
                 <img
@@ -415,7 +421,7 @@
                 
                 <div class="text-left">
                     <p
-                        class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400"
+                        class="text-lg font-medium text-white group-hover:text-primary"
                     >
                         Testing, Testing
                     </p>
@@ -429,7 +435,7 @@
         <li>
             <a
                 href="/dev-blog/posts/hello-world/"
-                class="group flex items-center gap-4 p-4 rounded-lg transition duration-300 ease-in-out hover:bg-red-50 dark:hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 dark:focus-visible:ring-red-400"
+                class="hover-bg-accent group flex items-center gap-4 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface hover:bg-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
                 
                 <img
@@ -441,7 +447,7 @@
                 
                 <div class="text-left">
                     <p
-                        class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400"
+                        class="text-lg font-medium text-white group-hover:text-primary"
                     >
                         Hello, World!
                     </p>
@@ -453,62 +459,11 @@
         </li>
         
     </ul>
-</section>
+</div>
 
+    </aside>
+</div>
 
-                <!-- Author Bio -->
-                <section
-    aria-label="About the author"
-    class="bg-white dark:bg-zinc-900 rounded-2xl shadow-md pb-12 pt-6 px-6 mb-8 border border-zinc-200 dark:border-zinc-700"
->
-    <h2 class="text-xl font-semibold mb-4 text-center lg:text-left">
-        About the Author
-    </h2>
-    <img
-        src="/dev-blog/img/2024-01-27 19.01.22.png"
-        alt="Portrait of Karl Horning"
-        loading="lazy"
-        class="rounded-xl shadow-md mb-4 w-32 h-32 mx-auto object-cover"
-    />
-    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-        Karl is a self-taught full-stack JavaScript developer and learning
-        technologist with over 15 years of experience in education and EdTech.
-        He builds digital tools that bridge technology and pedagogy, with a
-        focus on accessibility, user experience, and lifelong learning.
-    </p>
-    <div class="text-center">
-        <a
-            href="/dev-blog/about/"
-            class="inline-block text-sm font-medium text-red-700 dark:text-red-400 hover:underline"
-        >
-            Learn more →
-        </a>
-    </div>
-    <div class="flex justify-center mt-6">
-        <script
-            type="text/javascript"
-            src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"
-        ></script>
-        <script type="text/javascript">
-            kofiwidget2.init("Buy me a coffee", "#e7000b", "R6R71GUNJQ");
-            kofiwidget2.draw();
-        </script>
-        <noscript>
-            <p class="text-center text-sm mt-4">
-                Support me on
-                <a
-                    href="https://ko-fi.com/R6R71GUNJQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-red-600 hover:underline"
-                    >Ko-fi</a
-                >
-            </p>
-        </noscript>
-    </div>
-</section>
-
-            </aside>
         </div>
 
         <!-- Footer -->

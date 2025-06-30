@@ -1,0 +1,104 @@
+<div
+    class="bg-surface rounded-lg shadow-md p-6 md:col-span-2 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg text-center"
+>
+    <section aria-label="Author photo and social links">
+        <h3 class="text-lg font-semibold mb-2">About the Author</h3>
+        <img
+            src="{{ '/img/karl.optimised.webp' | url }}"
+            alt="Karl: JavaScript developer and learning technologist"
+            class="bg-primary rounded-full mx-auto w-32 h-32 object-cover object-top mb-4"
+            aria-hidden="true"
+            loading="lazy"
+        />
+        <p class="text-sm text-muted text-center mb-4">
+            Full-stack JS developer &amp; learning technologist
+        </p>
+        <ul class="flex justify-center gap-1 text-primary text-sm mb-4">
+            <li>
+                <a
+                    href="https://karl-horning.github.io/about"
+                    aria-label="About"
+                    title="About"
+                    class="social-button"
+                >
+                    <i class="fas fa-circle-info" aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://github.com/Karl-Horning/"
+                    aria-label="GitHub"
+                    title="GitHub"
+                    class="social-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://www.linkedin.com/in/karl-horning/"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                    class="social-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="https://karl-horning.github.io/contact"
+                    aria-label="Contact"
+                    title="Contact"
+                    class="social-button"
+                >
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="{{ '/feed/' | url }}"
+                    aria-label="RSS Feed"
+                    title="RSS Feed"
+                    class="social-button"
+                >
+                    <i class="fas fa-rss" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section aria-label="Support me on Ko-fi">
+        <h3 class="text-center text-sm mt-6 mb-2">Enjoying the blog?</h3>
+
+        <div class="flex justify-center my-6">
+            <script
+                type="text/javascript"
+                src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"
+            ></script>
+            <script type="text/javascript">
+                kofiwidget2.init("Buy me a coffee", "#cb2d6f", "R6R71GUNJQ");
+                kofiwidget2.draw();
+            </script>
+            <noscript>
+                <p class="text-center text-sm mt-4">
+                    Support me on
+                    <a
+                        href="https://ko-fi.com/R6R71GUNJQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-primary hover:underline"
+                        >Ko-fi</a
+                    >
+                </p>
+            </noscript>
+        </div>
+    </section>
+</div>

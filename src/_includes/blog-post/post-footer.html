@@ -1,0 +1,25 @@
+<footer
+    class="mt-10 border-t pt-6 flex flex-wrap justify-center md:justify-between items-center text-sm"
+>
+    <div class="flex flex-wrap gap-2 mb-4">
+        {% for tag in tags %} {% unless tag == "post" or tag == "all" or tag ==
+        "nav" %}
+        <a
+            href="{{ '/tags/' | append: tag | slug | append: '/' | url }}"
+            aria-label="View all posts tagged {{ tag }}"
+            class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded"
+        >
+            #{{ tag }}
+        </a>
+        {% endunless %} {% endfor %}
+    </div>
+    <div class="flex flex-wrap gap-2 mb-4">
+        <a
+            href="{{ '/blog/' | url }}"
+            class="hover-bg-primary inline-block px-3 py-1 bg-primary text-white text-sm font-semibold rounded shadow transition-colors duration-300"
+        >
+            <i class="fas fa-arrow-left ml-1" aria-hidden="true"></i>
+            Back to all posts
+        </a>
+    </div>
+</footer>

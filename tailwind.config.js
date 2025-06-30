@@ -23,6 +23,7 @@ export default {
     ],
     safelist: [
         "hover:text-primary",
+        "hover:bg-primary",
         "focus-visible:ring-primary",
         "text-muted",
         "text-primary",

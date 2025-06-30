@@ -2,9 +2,7 @@
 <html lang="en" class="dark">
     {% include "head.html" %}
 
-    <body
-        class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
-    >
+    <body class="bg-background text-text font-sans leading-relaxed">
         <!-- Skip Link -->
         {% include "skip-link.html" %}
 
@@ -12,27 +10,11 @@
         <header>{% include "navbar/layout.html" %}</header>
 
         <!-- Main Content -->
-        <div
-            id="main-content"
-            class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8"
-        >
+        <div id="main-content" class="min-h-screen pt-16">
+            <!-- Blog post image, title, and date -->
+            {% include "blog-post/post-header.html" %}
             <!-- Blog Post -->
-            {% include "main-content.html" %}
-
-            <!-- Sidebar -->
-            <aside
-                role="complementary"
-                class="bg-white rounded-xl shadow p-6 space-y-8 dark:bg-zinc-800 dark:shadow-gray-900"
-            >
-                <!-- Tags -->
-                {% include "sidebar/tags.html" %}
-
-                <!-- Optional: Recent Posts -->
-                {% include "sidebar/recent-posts.html" %}
-
-                <!-- Author Bio -->
-                {% include "sidebar/author-bio.html" %}
-            </aside>
+            {% include "blog-post/post-layout.html" %}
         </div>
 
         <!-- Footer -->
