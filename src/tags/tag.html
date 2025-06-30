@@ -17,7 +17,7 @@ permalink: "/tags/{{ tag | slug }}/"
     <body
         class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
     >
-        <header>{% include "nav.html" %}</header>
+        <header>>{% include "navbar/layout.html" %}</header>
         <main class="max-w-6xl mx-auto px-4 py-10 space-y-12 min-h-screen">
             <h1 class="text-4xl font-bold mb-6 text-center lg:text-left">
                 Posts tagged with "{{ tag }}"
@@ -63,6 +63,6 @@ permalink: "/tags/{{ tag | slug }}/"
             </section>
         </main>
         {% include "footer.html" %}
-        <script src="{{ '/scripts/script.js' | url }}"></script>
+        <script src="{{ '/assets/scripts/main.js' | url }}"></script>
     </body>
 </html>

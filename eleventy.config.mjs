@@ -84,7 +84,7 @@ export default function (eleventyConfig) {
      * Ensure certain static assets are copied through to the output folder without processing.
      */
     eleventyConfig.addPassthroughCopy("src/assets/img");
-    eleventyConfig.addPassthroughCopy("src/scripts");
+    eleventyConfig.addPassthroughCopy("src/assets/scripts");
     eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
     /**
