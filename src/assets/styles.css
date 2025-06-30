@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+:root {
+    --font-inter: "Inter", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
+    --font-rubik-glitch: "Rubik Glitch", cursive;
+    --black: #2d292d;
+    --custom-red: #da4453;
+    --primary: #e93681;
+    --accent: #14a098;
+    --highlight: #148aad;
+    --background: #0f292f;
+    --background-subtle: #254c4f;
+    --surface: #1a3b3d;
+    --hero: #0b1d21;
+    --text: #cccccc;
+    --muted: #b3b3b3;
+}
+
+::selection {
+    background-color: #fee300; /* customYellow */
+    color: #2d292d; /* customBlack */
+}
+
+@layer utilities {
+    .font-glitch {
+        font-family: var(--font-rubik-glitch), cursive;
+    }
+    .font-sans {
+        font-family: var(--font-inter), sans-serif;
+    }
+    .font-poppins {
+        font-family: var(--font-poppins), sans-serif;
+    }
+    .hover\:text-primary:hover {
+        color: var(--primary);
+    }
+
+    .focus-visible\:ring-primary:focus-visible {
+        --tw-ring-offset-width: 2px;
+        --tw-ring-offset-color: transparent !important;
+        --tw-ring-color: var(--primary);
+        box-shadow: 0 0 0 var(--tw-ring-offset-width)
+                var(--tw-ring-offset-color),
+            0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        outline: none !important;
+    }
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.bg-hero {
+    background-color: var(--hero);
+}
+
+/* Logo Animation */
+.glitch-hover::before,
+.glitch-hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: inherit;
+    background: transparent;
+    overflow: hidden;
+    /* Using inset() to clip */
+    clip-path: inset(100% 100% 100% 100%); /* fully clipped by default */
+    opacity: 0;
+    pointer-events: none;
+}
+
+.glitch-hover::before {
+    text-shadow: -2px 0 var(--colour-primary); /* vibrant pinkish red primary */
+    animation-name: glitch-anim-1;
+    animation-duration: 0.5s; /* faster flicker */
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(2, end); /* jerky steps */
+    animation-direction: alternate-reverse;
+}
+
+.glitch-hover::after {
+    text-shadow: -2px 0 #148aad; /* teal accent */
+    animation-name: glitch-anim-2;
+    animation-duration: 0.5s; /* faster flicker */
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(2, end); /* jerky steps */
+    animation-direction: alternate-reverse;
+}
+
+/* Show glitch layers on hover */
+.glitch-hover:hover::before,
+.glitch-hover:hover::after {
+    opacity: 1;
+    clip-path: inset(0 0 0 0); /* show all */
+}
+
+/* Animation keyframes */
+@keyframes glitch-anim-1 {
+    0%,
+    20% {
+        clip-path: inset(0 0 calc(100% - 15px) 0);
+        transform: translateX(0);
+    }
+    25%,
+    45% {
+        clip-path: inset(7px 0 calc(100% - 22px) 0);
+        transform: translateX(-3px);
+    }
+    50%,
+    70% {
+        clip-path: inset(0 0 calc(100% - 15px) 0);
+        transform: translateX(0);
+    }
+    75%,
+    95% {
+        clip-path: inset(7px 0 calc(100% - 22px) 0);
+        transform: translateX(2px);
+    }
+    100% {
+        clip-path: inset(0 0 calc(100% - 15px) 0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0%,
+    20% {
+        clip-path: inset(calc(100% - 40px) 0 calc(100% - 25px) 0);
+        transform: translateX(0);
+    }
+    25%,
+    45% {
+        clip-path: inset(calc(100% - 45px) 0 calc(100% - 30px) 0);
+        transform: translateX(3px);
+    }
+    50%,
+    70% {
+        clip-path: inset(calc(100% - 40px) 0 calc(100% - 25px) 0);
+        transform: translateX(0);
+    }
+    75%,
+    95% {
+        clip-path: inset(calc(100% - 45px) 0 calc(100% - 30px) 0);
+        transform: translateX(-2px);
+    }
+    100% {
+        clip-path: inset(calc(100% - 40px) 0 calc(100% - 25px) 0);
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glitch-hover::before,
+    .glitch-hover::after {
+        animation: none;
+        opacity: 0;
+    }
+}
