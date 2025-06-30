@@ -5,12 +5,91 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Posts tagged with "testing" | Karl Horning</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Glitch&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="/dev-blog/css/tailwind-output.css" />
+        <meta
+            name="description"
+            content="Blog posts by Karl Horning: JavaScript developer and learning technologist, writing about full-stack development, learning tech, accessibility and more."
+        />
+        <meta property="og:title" content="Blog | Karl Horning" />
+        <meta
+            property="og:description"
+            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://karl-horning.github.io/blog/"
+        />
+        <meta
+            property="og:image"
+            content="https://karl-horning.github.io/img/social-preview.jpg"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blog | Karl Horning" />
+        <meta
+            name="twitter:description"
+            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+        />
+        <meta
+            name="twitter:image"
+            content="https://karl-horning.github.io/img/social-preview.jpg"
+        />
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "Karl Horning Blog",
+              "url": "https://karl-horning.github.io/blog/",
+              "author": {
+                "@type": "Person",
+                "name": "Karl Horning"
+              },
+              "blogPost": [
+                
+                {
+                  "@type": "BlogPosting",
+                  "headline": "Testing, Testing",
+                  "url": "https://karl-horning.github.io/posts/testing-testing/",
+                  "datePublished": "2026-06-23",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Karl Horning"
+                  }
+                },
+                
+                {
+                  "@type": "BlogPosting",
+                  "headline": "Hello, World!",
+                  "url": "https://karl-horning.github.io/posts/hello-world/",
+                  "datePublished": "2026-06-22",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Karl Horning"
+                  }
+                }
+                
+              ]
+            }
+        </script>
     </head>
     <body
-        class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
+        class="flex min-h-screen flex-col bg-background font-sans text-foreground text-text leading-relaxed"
     >
-        <header>><nav
+        <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only bg-white text-black px-4 py-2 absolute z-50 top-2 left-2 dark:bg-zinc-800 dark:text-gray-100"
+>
+    Skip to main content
+</a>
+
+        <header><nav
     role="navigation"
     aria-label="Main menu"
     class="fixed z-30 w-full bg-hero px-6 shadow-md"
@@ -128,47 +207,83 @@
 
 </nav>
 </header>
-        <main class="max-w-6xl mx-auto px-4 py-10 space-y-12 min-h-screen">
-            <h1 class="text-4xl font-bold mb-6 text-center lg:text-left">
-                Posts tagged with "testing"
-            </h1>
-            <hr
-                class="mb-4 pt-4 border-gray-800 border-t-8 dark:border-zinc-700"
-            />
-            <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                 
-                <article
-                    class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
+
+        <main
+            role="main"
+            class="flex-1 pt-24"
+            id="main-content"
+            aria-label="Blog posts"
+        >
+            <section
+                class="max-w-6xl mx-auto py-8 px-6"
+                aria-labelledby="blog-title"
+            >
+                <h1
+                    id="blog-title"
+                    class="text-5xl font-bold text-center text-primary mb-6"
                 >
-                    
-                    <img
-                        src="/dev-blog/assets/img/pexels-mali-63238.optimised.webp"
-                        alt="Thumbnail for Testing, Testing"
-                        class="w-full h-48 object-cover"
-                        loading="lazy"
-                    />
-                    
-                    <div class="p-5">
-                        <h3 class="text-xl font-semibold mb-1">
-                            Testing, Testing
-                        </h3>
-                        <p
-                            class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
+                    Posts tagged with "testing"
+                </h1>
+                <div class="grid gap-8 md:grid-cols-2">
+                     
+                    <article
+                        class="inline-block w-full bg-surface p-8 rounded-lg transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+                    >
+                        
+                        <img
+                            src="/dev-blog/assets/img/pexels-mali-63238.optimised.webp"
+                            alt="Thumbnail for Testing, Testing"
+                            class="w-full h-48 object-cover rounded-md mb-4"
+                            loading="lazy"
+                        />
+                        
+
+                        <h2 class="text-2xl font-semibold mb-2 text-text">
+                            <a
+                                href="/dev-blog/posts/testing-testing/"
+                                class="rounded heading-link"
+                                >Testing, Testing</a
+                            >
+                        </h2>
+
+                        <time
+                            datetime="2026-06-23"
+                            class="text-sm text-muted mb-2"
                         >
                             23 June 2026
-                        </p>
-                        <p class="text-gray-600 mb-4 dark:text-gray-300">
-                            A light-hearted post about testing my new blog, tweaking layouts, and checking how everything fits together.
-                        </p>
-                        <a
-                            href="/dev-blog/posts/testing-testing/"
-                            class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
-                        >
-                            Read more →
-                        </a>
-                    </div>
-                </article>
-                   
+                        </time>
+
+                        <p class="text-text mb-4">A light-hearted post about testing my new blog, tweaking layouts, and checking how everything fits together.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                               
+                            <a
+                                href="/dev-blog/tags/meta/"
+                                aria-label="View all posts tagged meta"
+                                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                            >
+                                #meta
+                            </a>
+                              
+                            <a
+                                href="/dev-blog/tags/blog/"
+                                aria-label="View all posts tagged blog"
+                                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                            >
+                                #blog
+                            </a>
+                              
+                            <a
+                                href="/dev-blog/tags/testing/"
+                                aria-label="View all posts tagged testing"
+                                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                            >
+                                #testing
+                            </a>
+                             
+                        </div>
+                    </article>
+                       
+                </div>
             </section>
         </main>
         <footer class="bg-black py-8 text-muted" role="contentinfo">
