@@ -1,14 +1,18 @@
 export default {
     theme: {
         extend: {
-            colors: {
-                primary: "#ff49db",
-            },
             fontFamily: {
-                sans: ["Helvetica", "Arial", "sans-serif"],
+                sans: ["var(--font-inter)", "sans-serif"], // body text
+                heading: ["var(--font-poppins)", "sans-serif"], // headings
+                glitch: ["var(--font-rubik-glitch)", "cursive"], // logo
             },
         },
     },
     plugins: [],
-    content: ["./src/**/*.{njk,md,html}", "./src/**/*.svg"],
+    darkMode: false,
+    content: [
+        "./src/**/*.{njk,md,html}",
+        "./src/**/*.svg",
+        "./_includes/**/*.{html,njk}",
+    ],
 };
