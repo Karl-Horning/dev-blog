@@ -69,6 +69,15 @@
         color: white;
         background-color: var(--primary);
     }
+
+    .social-button:focus {
+        outline: none; /* focus:outline-none */
+    }
+
+    .social-button:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--primary); /* focus-visible:ring-2 + focus-visible:ring-primary */
+    }
 }
 
 h1,

@@ -1564,6 +1564,13 @@
     color: white;
     background-color: var(--primary);
   }
+  .social-button:focus {
+    outline: none;
+  }
+  .social-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary);
+  }
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-poppins), sans-serif;
