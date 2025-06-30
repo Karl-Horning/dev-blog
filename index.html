@@ -3,12 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home | Karl Horning</title>
+        <title>Blog | Karl Horning</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Glitch&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="/dev-blog/css/tailwind-output.css" />
-        <script
-            src="https://kit.fontawesome.com/5481de0f94.js"
-            crossorigin="anonymous"
-        ></script>
     </head>
     <body
         class="bg-gray-100 text-gray-800 font-sans leading-relaxed dark:bg-zinc-900 dark:text-gray-200"
@@ -91,7 +93,7 @@
         >About</a
     ><a
         class="inline-block rounded px-2 py-1 transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        href="/dev-blog/blog/"
+        href="/dev-blog/"
         >Blog</a
     ><a
         class="inline-block rounded px-2 py-1 transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -119,7 +121,7 @@
             >About</a
         ><a
             class="block transition-colors duration-300 rounded px-2 py-1 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            href="/dev-blog/blog/"
+            href="/dev-blog/"
             >Blog</a
         ><a
             class="block transition-colors duration-300 rounded px-2 py-1 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -131,297 +133,81 @@
 
 </nav>
 </header>
-        <!-- Hero Section -->
-        <section
-    id="hero"
-    class="max-w-6xl mx-auto lg:min-h-screen flex flex-col lg:flex-row items-center lg:justify-between px-6 py-12 gap-12 lg:gap-20 bg-gray-100 dark:bg-zinc-900"
->
-    <!-- Right column: Text + button -->
-    <div class="lg:w-1/2 text-center lg:text-left order-1 lg:order-2">
-        <h1
-            class="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4"
-        >
-            Hi, I'm Karl 👋
-        </h1>
-        <p
-            class="text-lg text-gray-700 dark:text-gray-300 mb-6 max-w-xl mx-auto lg:mx-0"
-        >
-            Full-Stack JavaScript Developer & Learning Technologist with 15+
-            years of experience bridging education and technology.
-        </p>
-
-        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-            <a
-                href="/dev-blog/about/"
-                class="inline-flex items-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 transition cursor-pointer"
-            >
-                About Me
-            </a>
-            <a
-                href="/dev-blog/contact/"
-                class="inline-flex items-center px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg shadow hover:bg-red-700 transition cursor-pointer"
-            >
-                Get in Touch
-            </a>
-        </div>
-    </div>
-
-    <!-- Left column: Portrait image -->
-    <div class="lg:w-1/2 flex justify-center order-2 lg:order-1">
-        <img
-            src="/dev-blog/img/hero-img.png"
-            alt="Portrait of Karl Horning"
-            loading="lazy"
-            class="rounded-xl shadow-md w-48 sm:w-64 md:w-72 lg:w-full h-auto object-cover"
-        />
-    </div>
-</section>
-
-
-        <!-- Skills Section -->
-        <section
-    id="skills"
-    class="max-w-6xl mx-auto px-6 pt-12 pb-16 shadow-md dark:shadow-lg lg:rounded-xl bg-gray-700 border-t-[5px] border-b-[3px] border-t-gray-600 border-b-gray-800 mb-8"
->
-    <h2 class="text-2xl lg:text-4xl font-bold mb-10 text-white text-center">
-        Core Skills
-    </h2>
-
-    <div
-        class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-y-12 gap-x-10 justify-items-center"
-    >
-        <!-- Skill item -->
-        <div class="text-center">
-            <i
-                class="fab fa-js text-yellow-500 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">JavaScript</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fab fa-node-js text-green-600 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">Node.js</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fab fa-react text-cyan-500 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">React</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fas fa-bolt text-blue-600 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">Next.js</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fas fa-code-branch text-pink-600 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">GraphQL</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fas fa-database text-indigo-600 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">PostgreSQL</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fa-brands fa-git-alt text-orange-500 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">Git</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fas fa-paint-brush text-teal-500 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">Tailwind CSS</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fas fa-users text-gray-400 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">
-                Agile Delivery
-            </div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fas fa-vials text-purple-600 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">API Testing</div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fas fa-chalkboard-teacher text-orange-600 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">
-                LMS Evaluation
-            </div>
-        </div>
-
-        <div class="text-center">
-            <i
-                class="fas fa-universal-access text-green-700 text-2xl md:text-4xl lg:text-6xl mb-3 transition-transform duration-300 ease-in-out hover:scale-110"
-            ></i>
-            <div class="text-lg font-semibold text-gray-200">Accessibility</div>
-        </div>
-    </div>
-</section>
-
-
-        <!-- Featured Blog Posts -->
-        <section id="featured" class="py-12 px-4 bg-gray-100 dark:bg-zinc-900 mb-8">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-2xl lg:text-4xl font-bold mb-10 text-gray-700 dark:text-gray-300 text-center">
-            Featured Blog Posts
-        </h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            
-            <article
-                class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
-            >
+        <main class="max-w-6xl mx-auto px-4 py-10 space-y-12 min-h-screen">
+            <h1 class="text-4xl font-bold mb-6 text-center lg:text-left">
+                Blog
+            </h1>
+            <hr
+                class="mb-4 pt-4 border-gray-800 border-t-8 dark:border-zinc-700"
+            />
+            <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 
-                <img
-                    src="/dev-blog/assets/img/pexels-meruyert-gonullu-7317281.optimised.webp"
-                    alt="Thumbnail for Hello, World!"
-                    class="w-full h-48 object-cover rounded-t-md"
-                    loading="lazy"
-                />
+                <article
+                    class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
+                >
+                    
+                    <img
+                        src="/dev-blog/assets/img/pexels-mali-63238.optimised.webp"
+                        alt="Thumbnail for Testing, Testing"
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    />
+                    
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-1">
+                            Testing, Testing
+                        </h3>
+                        <p
+                            class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
+                        >
+                            23 June 2026
+                        </p>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">
+                            A light-hearted post about testing my new blog, tweaking layouts, and checking how everything fits together.
+                        </p>
+                        <a
+                            href="/dev-blog/posts/testing-testing/"
+                            class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
+                        >
+                            Read more →
+                        </a>
+                    </div>
+                </article>
                 
-                <div class="p-5">
-                    <h3
-                        class="text-xl font-semibold mb-1 text-gray-900 dark:text-white"
-                    >
-                        Hello, World!
-                    </h3>
-                    <p
-                        class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
-                    >
-                        22 June 2026
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        A quick introduction to the blog: what it's for, what I might write about, and why I'm building it in the first place.
-                    </p>
-                    <a
-                        href="/dev-blog/posts/hello-world/"
-                        class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
-                    >
-                        Read more →
-                    </a>
-                </div>
-            </article>
-            
-            <article
-                class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
-            >
+                <article
+                    class="bg-white rounded-xl shadow p-5 transition duration-300 hover:bg-red-50 hover:shadow-lg focus-within:ring-2 focus-within:ring-red-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:focus-within:ring-red-400"
+                >
+                    
+                    <img
+                        src="/dev-blog/assets/img/pexels-meruyert-gonullu-7317281.optimised.webp"
+                        alt="Thumbnail for Hello, World!"
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    />
+                    
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-1">
+                            Hello, World!
+                        </h3>
+                        <p
+                            class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
+                        >
+                            22 June 2026
+                        </p>
+                        <p class="text-gray-600 mb-4 dark:text-gray-300">
+                            A quick introduction to the blog: what it's for, what I might write about, and why I'm building it in the first place.
+                        </p>
+                        <a
+                            href="/dev-blog/posts/hello-world/"
+                            class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
+                        >
+                            Read more →
+                        </a>
+                    </div>
+                </article>
                 
-                <img
-                    src="/dev-blog/assets/img/pexels-mali-63238.optimised.webp"
-                    alt="Thumbnail for Testing, Testing"
-                    class="w-full h-48 object-cover rounded-t-md"
-                    loading="lazy"
-                />
-                
-                <div class="p-5">
-                    <h3
-                        class="text-xl font-semibold mb-1 text-gray-900 dark:text-white"
-                    >
-                        Testing, Testing
-                    </h3>
-                    <p
-                        class="text-sm font-semibold mb-3 text-gray-500 dark:text-gray-400"
-                    >
-                        23 June 2026
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        A light-hearted post about testing my new blog, tweaking layouts, and checking how everything fits together.
-                    </p>
-                    <a
-                        href="/dev-blog/posts/testing-testing/"
-                        class="text-red-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded dark:text-red-400 dark:hover:text-red-300 dark:focus-visible:ring-red-400"
-                    >
-                        Read more →
-                    </a>
-                </div>
-            </article>
-            
-        </div>
-        <div class="text-center mt-8">
-            <a
-                href="/dev-blog/blog/"
-                class="inline-flex items-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 transition cursor-pointer"
-            >
-                View All Posts
-            </a>
-        </div>
-    </div>
-</section>
-
-        
-        <!-- About Preview -->
-        <section
-    id="about"
-    class="max-w-6xl mx-auto px-6 pt-12 pb-16 shadow-md dark:shadow-lg lg:rounded-xl bg-gray-100 dark:bg-zinc-800 mb-24"
->
-    <h2
-        class="text-2xl lg:text-4xl font-bold mb-10 text-gray-700 dark:text-gray-300 text-center"
-    >
-        A Bit About Me
-    </h2>
-
-    <p
-        class="text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto text-center"
-    >
-        I've worked on everything from language-learning platforms to
-        university-wide LMS rollouts. Passionate about bridging dev and
-        education.
-    </p>
-
-    <div class="text-center mt-6">
-        <a
-            href="/dev-blog/about/"
-            class="inline-flex items-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 transition cursor-pointer"
-        >
-            Read My Full Bio
-        </a>
-    </div>
-</section>
-
-        
-        <!-- Call to Action -->
-        <section id="cta" class="py-12 px-4 bg-red-600 dark:bg-red-500 text-white mt-8">
-    <div class="text-center max-w-2xl mx-auto">
-        <h2 class="text-2xl lg:text-4xl font-bold mb-10 text-white text-center">
-            Ready to Create Something Impactful?
-        </h2>
-        <p class="mt-2 text-lg">Let's build better learning experiences.</p>
-        <p class="mt-2 text-sm text-red-100">
-            Whether you're designing a platform or scaling an LMS, I can help.
-        </p>
-        <a
-            href="/dev-blog/contact/"
-            class="bg-white text-red-600 font-semibold px-6 py-3 mt-8 inline-block rounded-lg hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition mb-8"
-        >
-            <i class="fas fa-paper-plane mr-2"></i> Get in Touch
-        </a>
-    </div>
-</section>
-
-
-        <!-- Footer -->
+            </section>
+        </main>
         <footer class="bg-black py-8 text-muted" role="contentinfo">
     <div
         class="mx-auto flex max-w-6xl flex-col items-center justify-between px-6 md:flex-row"
@@ -521,6 +307,6 @@
     </div>
 </footer>
 
-        <script src="/dev-blog/scripts/script.js"></script>
+        <script src="/dev-blog/assets/scripts/main.js"></script>
     </body>
 </html>
