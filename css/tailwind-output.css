@@ -425,6 +425,9 @@
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
+  .border-zinc-600 {
+    border-color: var(--color-zinc-600);
+  }
   .bg-black {
     background-color: var(--color-black);
   }
