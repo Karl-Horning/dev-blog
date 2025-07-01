@@ -94,13 +94,24 @@ h6 {
     text-decoration: underline;
 }
 
-.heading-link:focus {
+.heading-link:focus,
+.text-link:focus {
     outline: none;
 }
 
-.heading-link:focus-visible {
-    outline: none;
+.heading-link:focus-visible,
+.text-link:focus-visible {
+    border-radius: 0.25rem;
     box-shadow: 0 0 0 4px var(--primary);
+    outline: none;
+}
+
+.text-link {
+    color: var(--primary);
+}
+
+.text-link:hover {
+    text-decoration: underline;
 }
 
 /* Text colours */
