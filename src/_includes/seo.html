@@ -1,0 +1,48 @@
+<meta name="description" content="{{ description | default: summary }}" />
+<meta name="author" content="{{ author | default: 'Karl Horning' }}" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ title }}" />
+<meta
+    property="og:description"
+    content="{{ description | default: summary }}"
+/>
+<meta property="og:image" content="{{ image | url }}" />
+<meta property="og:url" content="{{ canonicalUrl | url }}" />
+<meta property="og:site_name" content="Karl Horning's Blog" />
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ title }}" />
+<meta
+    name="twitter:description"
+    content="{{ description | default: summary }}"
+/>
+<meta name="twitter:image" content="{{ image | url }}" />
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "{{ title }}",
+        "image": "{{ image | url }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ author | default: 'Karl Horning' }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Karl Horning",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "/assets/img/logo.png"
+            }
+        },
+        "datePublished": "{{ date | date: '%Y-%m-%d' }}",
+        "description": "{{ description | default: summary }}",
+        "mainEntityOfPage": "{{ canonicalUrl | url }}"
+    }
+</script>
