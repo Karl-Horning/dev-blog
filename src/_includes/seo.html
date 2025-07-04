@@ -28,7 +28,7 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "{{ title }}",
-        "image": "{{ image | url }}",
+        "image": "https://karl-horning.github.io/dev-blog{{ post.data.image | default: '/assets/img/social-preview.jpg' }}",
         "author": {
             "@type": "Person",
             "name": "{{ author | default: 'Karl Horning' }}",
@@ -43,7 +43,6 @@
             }
         },
         "datePublished": "{{ date | date: '%Y-%m-%dT%H:%M:%S%:z' }}",
-        "image": "https://karl-horning.github.io/dev-blog{{ post.data.image | default: '/assets/img/social-preview.jpg' }}",
         "description": "{{ description | default: summary }}",
         "mainEntityOfPage": "{{ canonicalUrl | url }}"
     }
