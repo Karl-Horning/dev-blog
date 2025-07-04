@@ -43,6 +43,7 @@
             }
         },
         "datePublished": "{{ date | date: '%Y-%m-%dT%H:%M:%S%:z' }}",
+        "image": "https://karl-horning.github.io/dev-blog{{ post.data.image | default: '/assets/img/social-preview.jpg' }}",
         "description": "{{ description | default: summary }}",
         "mainEntityOfPage": "{{ canonicalUrl | url }}"
     }
