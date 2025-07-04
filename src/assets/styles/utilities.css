@@ -1,0 +1,187 @@
+@layer utilities {
+    .heading-link:hover {
+        color: var(--primary);
+        text-decoration: underline;
+    }
+
+    .heading-link:focus,
+    .text-link:focus {
+        outline: none;
+    }
+
+    .heading-link:focus-visible,
+    .text-link:focus-visible {
+        border-radius: 0.25rem;
+        box-shadow: 0 0 0 4px var(--primary);
+        outline: none;
+    }
+
+    .hover-bg-accent:hover {
+        background-color: var(--primary) !important;
+        color: #ffffff !important;
+    }
+
+    .hover-bg-primary:hover {
+        background-color: var(--highlight);
+    }
+
+    .font-glitch {
+        font-family: var(--font-rubik-glitch), cursive;
+    }
+    .font-sans {
+        font-family: var(--font-inter), sans-serif;
+    }
+    .font-poppins {
+        font-family: var(--font-poppins), sans-serif;
+    }
+    .hover\:text-primary:hover {
+        color: var(--primary);
+    }
+
+    .hover\:bg-primary:hover {
+        background-color: var(--primary);
+    }
+
+    .focus-visible\:ring-primary:focus-visible {
+        --tw-ring-offset-width: 2px;
+        --tw-ring-offset-color: transparent !important;
+        --tw-ring-color: var(--primary);
+        box-shadow: 0 0 0 var(--tw-ring-offset-width)
+                var(--tw-ring-offset-color),
+            0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        outline: none !important;
+    }
+
+    .social-button {
+        align-items: center;
+        background-color: var(--hero);
+        border-radius: 0.25rem; /* rounded */
+        color: var(--muted);
+        display: flex;
+        font-size: 0.875rem; /* text-sm */
+        gap: 0.25rem;
+        height: 2rem;
+        justify-content: center;
+        padding: 0.25rem 0.5rem; /* px-2 py-1 */
+        transition: color 0.3s, background-color 0.3s;
+        width: 2rem;
+    }
+
+    .social-button:hover {
+        color: white;
+        background-color: var(--primary);
+    }
+
+    .social-button:focus {
+        outline: none; /* focus:outline-none */
+    }
+
+    .social-button:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--primary); /* focus-visible:ring-2 + focus-visible:ring-primary */
+    }
+
+    .button-link {
+        background-color: var(--primary);
+        border-radius: 0.25rem /* 4px */;
+        color: var(--color-white);
+        display: block;
+        transition: color 0.3s, background-color 0.3s;
+        width: 100%;
+    }
+
+    .button-link:hover {
+        background-color: var(--highlight);
+    }
+
+    .button-link:focus {
+        outline: none; /* focus:outline-none */
+    }
+
+    .button-link:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px #ffffff; /* focus-visible:ring-2 + focus-visible:ring-primary */
+    }
+
+    /* Text colours */
+    .text-primary {
+        color: var(--primary);
+    }
+
+    .text-text {
+        color: var(--text);
+    }
+
+    .text-muted {
+        color: var(--muted) !important;
+    }
+
+    /* Background colours */
+    .bg-background {
+        background-color: var(--background);
+    }
+
+    .bg-black {
+        background-color: var(--black);
+    }
+
+    .bg-hero {
+        background-color: var(--hero) !important;
+    }
+
+    .bg-primary {
+        background-color: var(--primary);
+    }
+
+    .bg-surface {
+        background-color: var(--surface);
+    }
+
+    .blog-hero {
+        background-color: rgba(18, 52, 86, 0.8);
+    }
+
+    /* 
+ * Glitch animation classes and keyframes
+ */
+    .glitch-hover::before,
+    .glitch-hover::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: inherit;
+        background: transparent;
+        overflow: hidden;
+        /* Using inset() to clip */
+        clip-path: inset(100% 100% 100% 100%); /* fully clipped by default */
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .glitch-hover::before {
+        text-shadow: -2px 0 var(--primary); /* vibrant pinkish red primary */
+        animation-name: glitch-anim-1;
+        animation-duration: 0.5s; /* faster flicker */
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(2, end); /* jerky steps */
+        animation-direction: alternate-reverse;
+    }
+
+    .glitch-hover::after {
+        text-shadow: -2px 0 #148aad; /* teal accent */
+        animation-name: glitch-anim-2;
+        animation-duration: 0.5s; /* faster flicker */
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(2, end); /* jerky steps */
+        animation-direction: alternate-reverse;
+    }
+
+    /* Show glitch layers on hover */
+    .glitch-hover:hover::before,
+    .glitch-hover:hover::after {
+        opacity: 1;
+        clip-path: inset(0 0 0 0); /* show all */
+    }
+}
