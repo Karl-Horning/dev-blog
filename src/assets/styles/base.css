@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* 
+ * CSS Variables and Base Styles
+ */
+:root {
+    --font-inter: Inter, sans-serif;
+    --font-poppins: Poppins, sans-serif;
+    --font-rubik-glitch: "Rubik Glitch", cursive;
+    --black: #2d292d;
+    --custom-red: #da4453;
+    --primary: #e93681;
+    --accent: #14a098;
+    --highlight: #148aad;
+    --background: #0f292f;
+    --background-subtle: #254c4f;
+    --surface: #1a3b3d;
+    --hero: #0b1d21;
+    --text: #cccccc;
+    --muted: #b3b3b3;
+}
+
+/*
+* Tailwind Layers
+*/
+@layer base {
+    ::selection {
+        background-color: #fee300;
+        color: #2d292d;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-poppins), sans-serif;
+        font-weight: 900;
+    }
+}
