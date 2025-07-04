@@ -11,7 +11,6 @@ permalink: "/tags/{{ tag | slug }}/"
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Posts tagged with "{{ tag }}" | Karl Horning</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -19,59 +18,68 @@ permalink: "/tags/{{ tag | slug }}/"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="{{ '/css/tailwind-output.css' | url }}" />
+        <title>Posts tagged “{{ tag }}” | Karl Horning</title>
         <meta
             name="description"
-            content="Blog posts by Karl Horning: JavaScript developer and learning technologist, writing about full-stack development, learning tech, accessibility and more."
+            content="All blog posts tagged with '{{ tag }}' by Karl Horning. Explore articles on development, learning tech, and more."
         />
-        <meta property="og:title" content="Blog | Karl Horning" />
+
+        <meta
+            property="og:title"
+            content="Posts tagged '{{ tag }}' | Karl Horning"
+        />
         <meta
             property="og:description"
-            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+            content="Browse posts related to '{{ tag }}' by Karl Horning."
         />
         <meta property="og:type" content="website" />
         <meta
             property="og:url"
-            content="https://karl-horning.github.io/blog/"
+            content="{{ site.url }}/tags/{{ tag | slug }}"
         />
         <meta
             property="og:image"
-            content="https://karl-horning.github.io/img/social-preview.jpg"
+            content="{{ site.url }}/img/social-preview.jpg"
         />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Blog | Karl Horning" />
+        <meta
+            name="twitter:title"
+            content="Posts tagged '{{ tag }}' | Karl Horning"
+        />
         <meta
             name="twitter:description"
-            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+            content="Browse posts related to '{{ tag }}' by Karl Horning."
         />
         <meta
             name="twitter:image"
-            content="https://karl-horning.github.io/img/social-preview.jpg"
+            content="{{ site.url }}/img/social-preview.jpg"
         />
         <script type="application/ld+json">
             {
               "@context": "https://schema.org",
-              "@type": "Blog",
-              "name": "Karl Horning Blog",
-              "url": "https://karl-horning.github.io/blog/",
-              "author": {
-                "@type": "Person",
-                "name": "Karl Horning"
-              },
-              "blogPost": [
-                {% for post in collections.post %}
-                {
-                  "@type": "BlogPosting",
-                  "headline": "{{ post.data.title | escape }}",
-                  "url": "https://karl-horning.github.io{{ post.url }}",
-                  "datePublished": "{{ post.data.date | date: '%Y-%m-%d' }}",
-                  "author": {
-                    "@type": "Person",
-                    "name": "Karl Horning"
-                  }
-                }{% unless forloop.last %},{% endunless %}
-                {% endfor %}
-              ]
+              "@type": "CollectionPage",
+              "name": "Posts tagged '{{ tag }}'",
+              "url": "{{ site.url }}/tags/{{ tag | slug }}",
+              "description": "A list of blog posts tagged with '{{ tag }}' by Karl Horning.",
+              "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                  {% for post in collections[tag] %}
+                  {
+                    "@type": "BlogPosting",
+                    "headline": "{{ post.data.title | escape }}",
+                    "url": "{{ site.url }}{{ post.url }}",
+                    "datePublished": "{{ post.date | date: '%Y-%m-%dT%H:%M:%S' }}+00:00",
+                    "author": {
+                      "@type": "Person",
+                      "name": "Karl Horning",
+                      "url": "{{ site.url }}/about/"
+                    }
+                  }{% unless forloop.last %},{% endunless %}
+                  {% endfor %}
+                ]
+              }
             }
         </script>
     </head>
