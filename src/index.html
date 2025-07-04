@@ -13,12 +13,13 @@
         <link rel="stylesheet" href="{{ '/css/tailwind-output.css' | url }}" />
         <meta
             name="description"
-            content="Blog posts by Karl Horning: JavaScript developer and learning technologist, writing about full-stack development, learning tech, accessibility and more."
+            content="Read blog posts by Karl Horning on full-stack development, JavaScript, learning technology, accessibility, and more."
         />
+
         <meta property="og:title" content="Blog | Karl Horning" />
         <meta
             property="og:description"
-            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+            content="Explore tutorials, insights, and reflections on JavaScript, web dev, and learning tech."
         />
         <meta property="og:type" content="website" />
         <meta
@@ -34,7 +35,7 @@
         <meta name="twitter:title" content="Blog | Karl Horning" />
         <meta
             name="twitter:description"
-            content="Insights, tutorials and thoughts on JS, education tech, and web development."
+            content="Explore tutorials, insights, and reflections on JavaScript, web dev, and learning tech."
         />
         <meta
             name="twitter:image"
@@ -43,27 +44,33 @@
         <script type="application/ld+json">
             {
               "@context": "https://schema.org",
-              "@type": "Blog",
+              "@type": "CollectionPage",
               "name": "Karl Horning Blog",
               "url": "https://karl-horning.github.io/blog/",
-              "author": {
-                "@type": "Person",
-                "name": "Karl Horning"
-              },
-              "blogPost": [
-                {% for post in collections.post %}
-                {
-                  "@type": "BlogPosting",
-                  "headline": "{{ post.data.title | escape }}",
-                  "url": "https://karl-horning.github.io{{ post.url }}",
-                  "datePublished": "{{ post.data.date | date: '%Y-%m-%d' }}",
-                  "author": {
-                    "@type": "Person",
-                    "name": "Karl Horning"
-                  }
-                }{% unless forloop.last %},{% endunless %}
-                {% endfor %}
-              ]
+              "description": "Blog posts by Karl Horning on development, learning technology, accessibility, and more.",
+              "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                  {% for post in collections.post %}
+                  {
+                    "@type": "ListItem",
+                    "position": {{ forloop.index }},
+                    "url": "https://karl-horning.github.io{{ post.url }}",
+                    "item": {
+                      "@type": "BlogPosting",
+                      "headline": "{{ post.data.title | escape }}",
+                      "url": "https://karl-horning.github.io{{ post.url }}",
+                      "datePublished": "{{ post.date | date: '%Y-%m-%dT%H:%M:%S' }}+00:00",
+                      "author": {
+                        "@type": "Person",
+                        "name": "Karl Horning",
+                        "url": "https://karl-horning.github.io/about"
+                      }
+                    }
+                  }{% unless forloop.last %},{% endunless %}
+                  {% endfor %}
+                ]
+              }
             }
         </script>
     </head>
@@ -103,12 +110,8 @@
                         />
                         {% endif %}
 
-                        <h2
-                            class="text-2xl mb-2 text-text"
-                        >
-                            <a
-                                href="{{ post.url | url }}"
-                                class="heading-link"
+                        <h2 class="text-2xl mb-2 text-text">
+                            <a href="{{ post.url | url }}" class="heading-link"
                                 >{{ post.data.title }}</a
                             >
                         </h2>

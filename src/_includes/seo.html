@@ -31,7 +31,8 @@
         "image": "{{ image | url }}",
         "author": {
             "@type": "Person",
-            "name": "{{ author | default: 'Karl Horning' }}"
+            "name": "{{ author | default: 'Karl Horning' }}",
+            "url": "https://karl-horning.github.io/about"
         },
         "publisher": {
             "@type": "Organization",
@@ -41,7 +42,7 @@
                 "url": "/assets/img/logo.png"
             }
         },
-        "datePublished": "{{ date | date: '%Y-%m-%d' }}",
+        "datePublished": "{{ date | date: '%Y-%m-%dT%H:%M:%S%:z' }}",
         "description": "{{ description | default: summary }}",
         "mainEntityOfPage": "{{ canonicalUrl | url }}"
     }
