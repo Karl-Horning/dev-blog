@@ -30,38 +30,33 @@
     /* Base link styling */
     .post a {
         color: var(--text);
-        display: inline-block; /* Allows positioning and sizing */
-        padding: 0 0.1em 0.3em; /* Adds space around text for background effect */
-        position: relative; /* Establishes a positioning context for ::before */
-        text-decoration: none;
-        z-index: 0; /* Creates a stacking context for layering */
+        text-decoration: underline; /* Makes all links clearly identifiable */
+        position: relative;
+        transition: color 0.3s ease;
     }
 
-    /* Animated background underline */
-    .post a::before {
-        content: "";
-        position: absolute; /* Position relative to .post a */
-        left: -0.2em;
-        right: -0.2em;
-        bottom: 0; /* Anchored to the bottom of the text */
-        top: 90%; /* Creates a thin underline (adjust for thickness) */
-        background-color: var(
-            --text
-        ); /* Same as text colour to simulate underline */
-        z-index: -1; /* Sits behind the actual text */
-        transition: all 0.4s cubic-bezier(0, 1, 0.3, 1);
-        border-radius: 0.1em;
-    }
-
-    /* On hover, change text colour */
+    /* On hover, change text colour and add animated underline background */
     .post a:hover {
-        color: black; /* IMPORTANT! Ensure contrast with background highlight */
+        color: white;
     }
 
-    /* Expand the background to fully highlight text on hover */
-    .post a:hover::before {
-        top: 0; /* Expands background to cover full height */
-        transition: all 0.3s cubic-bezier(0, 1.5, 0.5, 1);
+    /* Animated underline hover effect */
+    .post a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+
+    /* Animate underline on hover */
+    .post a:hover::after {
+        transform: scaleX(1);
     }
 
     .post a:focus {
