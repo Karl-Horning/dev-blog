@@ -52,10 +52,11 @@ This is an example of `inline code` inside a sentence.
 #### Code block
 
 ```javascript
-function greet(name) {
-  console.log(`Hello, ${name}!`);
+function putTheFunInFunction(name) {
+    console.log(`My name is ${name}, and I put the 'fun' in 'functions'!`);
 }
-greet('World');
+
+putTheFunInFunction("Bob");
 ````
 
 ---
