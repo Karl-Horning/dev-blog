@@ -60,7 +60,7 @@ greet('World');
 
 ### Images
 
-![Example Image](https://via.placeholder.com/400x150.png?text=Placeholder+Image)
+![Example Image](https://placehold.co/1200x800 "This is an example image")
 
 ---
 
