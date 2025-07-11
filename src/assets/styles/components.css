@@ -66,6 +66,15 @@
         margin-top: 0.5rem; /* mb-2 */
     }
 
+    .post li > ol {
+        list-style: upper-roman;
+    }
+
+    .post li > p > img {
+        margin-top: 1rem;
+        display: block;
+    }
+
     .post a {
         color: var(--text);
         text-decoration: underline;
