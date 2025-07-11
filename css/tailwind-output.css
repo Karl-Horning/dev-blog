@@ -1010,6 +1010,9 @@
     border-left-color: var(--primary-light, #6ee7b7);
     background-color: rgba(255, 255, 255, 0.02);
   }
+  .post blockquote blockquote + * {
+    margin-top: 1rem;
+  }
 }
 @layer components {
   @media (min-width: 640px) {
