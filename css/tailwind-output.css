@@ -285,9 +285,6 @@
   .hidden {
     display: none;
   }
-  .inline {
-    display: inline;
-  }
   .inline-block {
     display: inline-block;
   }
@@ -544,9 +541,6 @@
   }
   .text-white {
     color: var(--color-white);
-  }
-  .italic {
-    font-style: italic;
   }
   .opacity-80 {
     opacity: 80%;
@@ -941,6 +935,13 @@
   }
   .post li > ul, .post li > ol {
     margin-top: 0.5rem;
+  }
+  .post li > ol {
+    list-style: upper-roman;
+  }
+  .post li > p > img {
+    margin-top: 1rem;
+    display: block;
   }
   .post a {
     color: var(--text);
