@@ -6,24 +6,24 @@
         <li>
             <a
                 href="{{ post.url | url }}"
-                class="hover-bg-accent group flex items-center gap-4 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                class="hover-bg-accent group flex flex-col items-center gap-2 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
                 {% if post.data.thumbnail %}
                 <img
                     src="{{ post.data.thumbnail | url }}"
                     alt="Thumbnail for {{ post.data.title }}"
-                    class="w-16 h-16 object-cover rounded-md shrink-0"
+                    class="w-full h-40 object-cover rounded-md shrink-0"
                     loading="lazy"
                 />
                 {% endif %}
-                <div class="text-left">
+                <div class="text-center">
                     <p
                         class="text-lg font-medium text-white group-hover:text-primary"
                     >
                         {{ post.data.title }}
                     </p>
                     <p class="text-sm text-gray-500 dark:text-gray-400">
-                        Posted {{ post.date | date: "%d %B %Y" }}
+                        {{ post.date | date: "%d %B %Y" }}
                     </p>
                 </div>
             </a>
