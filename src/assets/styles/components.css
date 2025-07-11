@@ -107,6 +107,7 @@
         box-shadow: 0 0 0 2px var(--primary), 0 0 0 4px var(--background);
     }
 
+    /* Blockquotes */
     .post blockquote {
         border-left: 4px solid var(--primary); /* Accent border */
         background-color: var(--background-alt, rgba(255, 255, 255, 0.05));
@@ -150,6 +151,54 @@
 
     .post blockquote blockquote + * {
         margin-top: 1rem;
+    }
+
+    /* Tables */
+    .post table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        border: 1px solid theme("colors.zinc.700");
+        background-color: var(--background);
+        color: var(--text);
+        box-shadow: 0 0 0 1px theme("colors.zinc.800");
+    }
+
+    .post thead {
+        background-color: theme("colors.zinc.900");
+        color: theme("colors.white");
+        text-align: left;
+    }
+
+    .post th,
+    .post td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid theme("colors.zinc.700");
+    }
+
+    .post th {
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    .post tr:last-child td {
+        border-bottom: none;
+    }
+
+    .post tbody tr:hover {
+        background-color: var(--selection-highlight);
+        color: var(--black);
+        transition: background-color 0.2s ease;
+    }
+
+    .post caption {
+        caption-side: bottom;
+        font-size: 0.875rem;
+        text-align: left;
+        margin-top: 0.75rem;
+        color: theme("colors.zinc.400");
     }
 }
 

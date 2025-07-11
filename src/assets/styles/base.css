@@ -18,6 +18,7 @@
     --hero: #0b1d21;
     --text: #cccccc;
     --muted: #b3b3b3;
+    --selection-highlight: #fee300;
 }
 
 /*
@@ -25,8 +26,8 @@
 */
 @layer base {
     ::selection {
-        background-color: #fee300;
-        color: #2d292d;
+        background-color: var(--selection-highlight);
+        color: var(--black);
     }
 
     h1,

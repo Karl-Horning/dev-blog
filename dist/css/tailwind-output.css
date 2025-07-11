@@ -736,11 +736,12 @@
   --hero: #0b1d21;
   --text: #cccccc;
   --muted: #b3b3b3;
+  --selection-highlight: #fee300;
 }
 @layer base {
   ::selection {
-    background-color: #fee300;
-    color: #2d292d;
+    background-color: var(--selection-highlight);
+    color: var(--black);
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-poppins), sans-serif;
@@ -1012,6 +1013,45 @@
   }
   .post blockquote blockquote + * {
     margin-top: 1rem;
+  }
+  .post table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border: 1px solid oklch(37% 0.013 285.805);
+    background-color: var(--background);
+    color: var(--text);
+    box-shadow: 0 0 0 1px oklch(27.4% 0.006 286.033);
+  }
+  .post thead {
+    background-color: oklch(21% 0.006 285.885);
+    color: #fff;
+    text-align: left;
+  }
+  .post th, .post td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid oklch(37% 0.013 285.805);
+  }
+  .post th {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .post tr:last-child td {
+    border-bottom: none;
+  }
+  .post tbody tr:hover {
+    background-color: var(--selection-highlight);
+    color: var(--black);
+    transition: background-color 0.2s ease;
+  }
+  .post caption {
+    caption-side: bottom;
+    font-size: 0.875rem;
+    text-align: left;
+    margin-top: 0.75rem;
+    color: oklch(70.5% 0.015 286.067);
   }
 }
 @layer components {
