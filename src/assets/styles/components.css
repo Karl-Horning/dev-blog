@@ -231,28 +231,66 @@
 
     /* Code blocks (responsive) */
     .post pre {
-        max-width: 100%;
-        overflow-x: auto; /* allows horizontal scroll if needed */
-        padding: 1rem;
-        background-color: var(--surface);
-        border-radius: 0.5rem;
-        box-sizing: border-box;
-        white-space: pre-wrap; /* wraps long lines */
-        word-wrap: break-word; /* breaks words to avoid overflow */
-        font-family: "Source Code Pro", monospace, monospace;
-        font-size: 0.875rem;
-        line-height: 1.4;
+        background-color: var(--black) !important;
+        color: white !important;
+        font-family: "Fira Mono", "Courier New", Courier, monospace !important;
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        padding: 1rem 1.25rem !important;
+        border-radius: 0.5rem !important;
+        overflow-x: auto !important;
+        white-space: pre-wrap !important; /* wrap lines */
+        word-wrap: break-word !important;
+        box-sizing: border-box !important;
+        margin-bottom: 1.5rem !important;
+        box-shadow: 0 0 8px rgb(233 54 129 / 0.2) !important; /* subtle pink glow */
     }
 
-    /* Style the code inside the pre */
+    /* Override Prism's default white-space */
     .post pre code {
-        white-space: inherit; /* inherit wrapping */
-        display: block; /* ensures block behaviour */
+        white-space: inherit !important;
+        display: block !important;
+        color: inherit !important;
+    }
+
+    /* Style the scrollbar inside code blocks */
+    .post pre::-webkit-scrollbar {
+        height: 8px !important;
+    }
+
+    .post pre::-webkit-scrollbar-track {
+        background: var(--background-subtle) !important;
+        border-radius: 4px !important;
+    }
+
+    .post pre::-webkit-scrollbar-thumb {
+        background: var(--primary) !important;
+        border-radius: 4px !important;
+    }
+
+    .post pre::-webkit-scrollbar-thumb:hover {
+        background: var(--custom-red) !important;
+    }
+
+    /* Style inline code if you use it */
+    .post code {
+        background-color: var(--black) !important;
+        padding: 0.15rem 0.35rem !important;
+        border-radius: 0.3rem !important;
+        font-family: "Fira Mono", monospace !important;
+        font-size: 0.9rem !important;
+        color: white !important;
     }
 }
 
 /* Responsive heading sizes */
 @layer components {
+    @media (max-width: 480px) {
+        .post pre {
+            font-size: 0.8rem;
+            padding: 0.75rem 1rem;
+        }
+    }
     @media (min-width: 640px) {
         .post-title {
             font-size: 2.25rem;
