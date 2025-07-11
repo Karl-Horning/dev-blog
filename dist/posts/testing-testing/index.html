@@ -295,29 +295,78 @@
              
         </div>
 
-        <div
-            class="flex justify-between flex-col md:flex-row mt-10 gap-4 md:gap-0"
-        >
-            <div class="w-full md:w-auto">
+        <!-- Previous/Next Posts -->
+        <div class="flex justify-between flex-col md:flex-row mt-10 gap-6">
+            <!-- Previous Post -->
+            <div class="w-full md:w-1/2">
                 
                 <a
                     href="/dev-blog/posts/test/"
-                    class="button-link shadow font-semibold text-center px-6 py-3 mt-4 md:inline-block md:w-auto md:text-right md:mt-0"
+                    class="w-full hover-bg-accent group flex flex-col items-center gap-2 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                    <i class="fas fa-arrow-left ml-1" aria-hidden="true"></i>
-                    Previous: This Is a Very Long Blog Post Title Designed to Test How the Layout Handles Wrapping, Overflow, and Responsiveness Across Different Screen Sizes and Devices Without Breaking the Design or Causing Scrollbars to Appear Unnecessarily
+                    
+                    <img
+                        src="/dev-blog/assets/img/pexels-meruyert-gonullu-7317281.optimised.webp"
+                        alt="Thumbnail for This Is a Very Long Blog Post Title Designed to Test How the Layout Handles Wrapping, Overflow, and Responsiveness Across Different Screen Sizes and Devices Without Breaking the Design or Causing Scrollbars to Appear Unnecessarily"
+                        class="w-full h-40 object-cover rounded-md shrink-0"
+                        loading="lazy"
+                    />
+                    
+                    <p
+                        class="flex items-center text-primary font-semibold mb-1 group-hover:text-white transition-colors duration-300"
+                    >
+                        <i
+                            class="fas fa-arrow-left mr-2"
+                            aria-hidden="true"
+                        ></i>
+                        Previous
+                    </p>
+                    <h3
+                        class="text-lg font-medium text-white group-hover:text-primary transition-colors duration-300"
+                    >
+                        This Is a Very Long Blog Post Title Designed to Test How the Layout Handles Wrapping, Overflow, and Responsiveness Across Different Screen Sizes and Devices Without Breaking the Design or Causing Scrollbars to Appear Unnecessarily
+                    </h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        11 July 2025
+                    </p>
                 </a>
                 
             </div>
 
-            <div class="w-full md:w-auto">
+            <!-- Next Post -->
+            <div class="w-full md:w-1/2">
                 
                 <a
                     href="/dev-blog/posts/hello-world/"
-                    class="button-link shadow font-semibold text-center px-6 py-3 mt-4 md:inline-block md:w-auto md:text-right md:mt-0"
+                    class="w-full hover-bg-accent group flex flex-col items-center gap-2 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                    Next: Hello, World!
-                    <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
+                    
+                    <img
+                        src="/dev-blog/assets/img/pexels-meruyert-gonullu-7317281.optimised.webp"
+                        alt="Thumbnail for Hello, World!"
+                        class="w-full h-40 object-cover rounded-md shrink-0"
+                        loading="lazy"
+                    />
+                    
+                    <p
+                        class="flex items-center justify-end text-primary font-semibold mb-1 group-hover:text-white transition-colors duration-300"
+                    >
+                        Next
+                        <i
+                            class="fas fa-arrow-right ml-2"
+                            aria-hidden="true"
+                        ></i>
+                    </p>
+                    <h3
+                        class="text-lg font-medium text-white group-hover:text-primary transition-colors duration-300 text-right"
+                    >
+                        Hello, World!
+                    </h3>
+                    <p
+                        class="text-sm text-gray-500 dark:text-gray-400 mt-1 text-right"
+                    >
+                        22 June 2025
+                    </p>
                 </a>
                 
             </div>
