@@ -21,7 +21,7 @@ Welcome to this test blog post! This post includes a variety of Markdown element
 
 - Item one
 - Item two with some **bold** text
-- Item three with *italic* text and a [link](https://example.com)
+- Item three with *italic* text and a [link to an example domain](https://example.com)
 
 #### Ordered List
 
