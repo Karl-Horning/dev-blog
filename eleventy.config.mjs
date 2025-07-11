@@ -1,4 +1,6 @@
 import slugify from "slugify";
+import markdownIt from "markdown-it";
+import markdownItTaskLists from "markdown-it-task-lists";
 
 /**
  * Configure Eleventy with custom filters, collections, and settings.
@@ -86,6 +88,18 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/assets/img");
     eleventyConfig.addPassthroughCopy("src/assets/scripts");
     eleventyConfig.setServerPassthroughCopyBehavior("copy");
+
+    /**
+     * markdownIt options
+     */
+    const options = {
+        html: true,
+        breaks: true,
+        linkify: true,
+    };
+
+    const mdLib = markdownIt(options).use(markdownItTaskLists);
+    eleventyConfig.setLibrary("md", mdLib);
 
     /**
      * Return Eleventy configuration object with custom input/output directories and path prefix.
