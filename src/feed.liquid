@@ -1,0 +1,32 @@
+---
+pagination:
+  data: collections.post
+  size: 10
+  alias: posts
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }}</title>
+    <link>{{ site.url }}</link>
+    <description>{{ site.description }}</description>
+
+    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
+    
+    {% for post in posts %}
+    <item>
+      <title>{{ post.data.title | xml_escape }}</title>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+      <description><![CDATA[{{ post.data.summary }}]]></description>
+      <media:thumbnail url="{{ site.url }}{{ post.data.thumbnail }}" />
+      <guid>{{ site.url }}{{ post.url }}</guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
+
