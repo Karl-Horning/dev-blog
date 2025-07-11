@@ -35,9 +35,11 @@ Welcome to this test blog post! This post includes a variety of Markdown element
 
 ### Blockquotes
 
-> This is a blockquote. It should be indented and styled differently from the normal text.
+> This is a blockquote.
 >
-> > Nested blockquote inside the first blockquote.
+> > This is a nested blockquote.
+>
+> Back to the outer quote.
 
 ---
 
