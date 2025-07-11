@@ -941,6 +941,9 @@
   .post li {
     margin-bottom: 0.5rem;
   }
+  .post li > ul, .post li > ol {
+    margin-top: 0.5rem;
+  }
   .post a {
     color: var(--text);
     text-decoration: underline;

@@ -61,6 +61,11 @@
         margin-bottom: 0.5rem; /* mb-2 */
     }
 
+    .post li > ul,
+    .post li > ol {
+        margin-top: 0.5rem; /* mb-2 */
+    }
+
     .post a {
         color: var(--text);
         text-decoration: underline;
