@@ -324,6 +324,9 @@
   .max-w-6xl {
     max-width: var(--container-6xl);
   }
+  .max-w-full {
+    max-width: 100%;
+  }
   .max-w-none {
     max-width: none;
   }
