@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Karl Horning's Blog</title>
+    <link>https://karl-horning.github.io/dev-blog</link>
+    <description>Notes on web development, accessibility, and learning tech</description>
+
+    <atom:link href="https://karl-horning.github.io/dev-blog/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using Blackboard&#39;s Swagger File to Create a Postman Collection and Make an API Call</title>
+      <link>https://karl-horning.github.io/dev-blog/posts/using-blackboards-swagger-file-to-create-a-postman-collection-and-make-an-api-call/</link>
+      <pubDate>Fri, 11 Jul 2025 10:00:00 +0000</pubDate>
+      <description><![CDATA[This beginner-friendly tutorial walks you through importing Blackboard's Learn API into Postman, setting up OAuth2 authentication, and making a test request using client credentials.]]></description>
+      <media:thumbnail url="https://karl-horning.github.io/dev-blog/assets/img/postman_blackboard.webp" />
+      <guid>https://karl-horning.github.io/dev-blog/posts/using-blackboards-swagger-file-to-create-a-postman-collection-and-make-an-api-call/</guid>
+    </item>
+    
+    <item>
+      <title>Testing, Testing</title>
+      <link>https://karl-horning.github.io/dev-blog/posts/testing-testing/</link>
+      <pubDate>Mon, 23 Jun 2025 00:00:00 +0000</pubDate>
+      <description><![CDATA[A light-hearted post about testing my new blog, tweaking layouts, and checking how everything fits together.]]></description>
+      <media:thumbnail url="https://karl-horning.github.io/dev-blog/assets/img/pexels-mali-63238.optimised.webp" />
+      <guid>https://karl-horning.github.io/dev-blog/posts/testing-testing/</guid>
+    </item>
+    
+    <item>
+      <title>Hello, World!</title>
+      <link>https://karl-horning.github.io/dev-blog/posts/hello-world/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <description><![CDATA[A quick introduction to the blog: what it's for, what I might write about, and why I'm building it in the first place.]]></description>
+      <media:thumbnail url="https://karl-horning.github.io/dev-blog/assets/img/pexels-meruyert-gonullu-7317281.optimised.webp" />
+      <guid>https://karl-horning.github.io/dev-blog/posts/hello-world/</guid>
+    </item>
+    
+  </channel>
+</rss>
+
