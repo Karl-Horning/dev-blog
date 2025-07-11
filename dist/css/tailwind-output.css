@@ -276,6 +276,9 @@
   .hidden {
     display: none;
   }
+  .inline {
+    display: inline;
+  }
   .inline-block {
     display: inline-block;
   }
@@ -326,9 +329,6 @@
   }
   .max-w-full {
     max-width: 100%;
-  }
-  .max-w-none {
-    max-width: none;
   }
   .flex-1 {
     flex: 1;
@@ -535,6 +535,9 @@
   }
   .text-white {
     color: var(--color-white);
+  }
+  .italic {
+    font-style: italic;
   }
   .opacity-80 {
     opacity: 80%;
@@ -891,10 +894,32 @@
   }
 }
 @layer components {
+  .post-title {
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+  .post h2, .post h3, .post h4, .post h5, .post h6 {
+    line-height: 1.25;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
   .post h2 {
-    font-size: var(--text-2xl);
-    line-height: var( --tw-leading, var(--text-2xl--line-height)  );
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  .post h3 {
+    font-size: 1.25rem;
+  }
+  .post h4 {
+    font-size: 1.125rem;
+  }
+  .post h5 {
+    font-size: 1rem;
+  }
+  .post h6 {
+    font-size: 0.875rem;
   }
   .post p {
     margin-bottom: 1.5rem;
@@ -903,10 +928,15 @@
     margin: 2rem 0;
     border-color: oklch(44.2% 0.017 285.786);
   }
-  .post ul {
-    list-style: disc;
+  .post ol, .post ul {
     padding-left: 1.25rem;
     margin-bottom: 1.5rem;
+  }
+  .post ol {
+    list-style: decimal;
+  }
+  .post ul {
+    list-style: disc;
   }
   .post li {
     margin-bottom: 0.5rem;
@@ -941,6 +971,50 @@
   .post a:focus-visible {
     border-radius: 0.25rem;
     box-shadow: 0 0 0 2px var(--primary), 0 0 0 4px var(--background);
+  }
+}
+@layer components {
+  @media (min-width: 640px) {
+    .post-title {
+      font-size: 2.25rem;
+    }
+    .post h2 {
+      font-size: 1.875rem;
+    }
+    .post h3 {
+      font-size: 1.5rem;
+    }
+    .post h4 {
+      font-size: 1.25rem;
+    }
+    .post h5 {
+      font-size: 1.125rem;
+    }
+    .post h6 {
+      font-size: 1rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .post-title {
+      font-size: 3rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .post h2 {
+      font-size: 2.25rem;
+    }
+    .post h3 {
+      font-size: 1.875rem;
+    }
+    .post h4 {
+      font-size: 1.5rem;
+    }
+    .post h5 {
+      font-size: 1.25rem;
+    }
+    .post h6 {
+      font-size: 1rem;
+    }
   }
 }
 @keyframes glitch-anim-1 {

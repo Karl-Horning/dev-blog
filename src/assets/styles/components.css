@@ -1,15 +1,41 @@
 @layer components {
+    .post-title {
+        font-size: 1.875rem; /* mobile default */
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        font-weight: 800;
+    }
+
+    .post h2,
+    .post h3,
+    .post h4,
+    .post h5,
+    .post h6 {
+        line-height: 1.25;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    /* Base sizes */
     .post h2 {
-        font-size: var(--text-2xl) /* 1.5rem = 24px */;
-        line-height: var(
-            --tw-leading,
-            var(--text-2xl--line-height) /* calc(2 / 1.5) ≈ 1.3333 */
-        );
-        margin-bottom: 1.5rem; /* Tailwind's mb-6 */
+        font-size: 1.5rem; /* 24px */
+    }
+    .post h3 {
+        font-size: 1.25rem; /* 20px */
+    }
+    .post h4 {
+        font-size: 1.125rem; /* 18px */
+    }
+    .post h5 {
+        font-size: 1rem; /* 16px */
+    }
+    .post h6 {
+        font-size: 0.875rem; /* 14px */
     }
 
     .post p {
-        margin-bottom: 1.5rem; /* Tailwind's mb-6 */
+        margin-bottom: 1.5rem; /* mb-6 */
     }
 
     .post hr {
@@ -17,20 +43,27 @@
         border-color: theme("colors.zinc.600");
     }
 
+    .post ol,
+    .post ul {
+        padding-left: 1.25rem; /* pl-5 */
+        margin-bottom: 1.5rem; /* mb-6 */
+    }
+
+    .post ol {
+        list-style: decimal;
+    }
+
     .post ul {
         list-style: disc;
-        padding-left: 1.25rem;
-        margin-bottom: 1.5rem;
     }
 
     .post li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.5rem; /* mb-2 */
     }
 
-    /* Base link styling */
     .post a {
         color: var(--text);
-        text-decoration: underline; /* Makes all links clearly identifiable */
+        text-decoration: underline;
         position: relative;
         transition: color 0.3s ease;
     }
@@ -67,5 +100,53 @@
         border-radius: 0.25rem /* 4px */;
         /* Simulates Tailwind's ring system */
         box-shadow: 0 0 0 2px var(--primary), 0 0 0 4px var(--background);
+    }
+}
+
+/* Responsive heading sizes */
+@layer components {
+    @media (min-width: 640px) {
+        .post-title {
+            font-size: 2.25rem;
+        }
+        .post h2 {
+            font-size: 1.875rem;
+        }
+        .post h3 {
+            font-size: 1.5rem;
+        }
+        .post h4 {
+            font-size: 1.25rem;
+        }
+        .post h5 {
+            font-size: 1.125rem;
+        }
+        .post h6 {
+            font-size: 1rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .post-title {
+            font-size: 3rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .post h2 {
+            font-size: 2.25rem;
+        }
+        .post h3 {
+            font-size: 1.875rem;
+        }
+        .post h4 {
+            font-size: 1.5rem;
+        }
+        .post h5 {
+            font-size: 1.25rem;
+        }
+        .post h6 {
+            font-size: 1rem;
+        }
     }
 }
