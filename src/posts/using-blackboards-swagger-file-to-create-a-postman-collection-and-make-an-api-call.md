@@ -84,15 +84,19 @@ You should now see the Learn API endpoints available in the **Collections** tab.
 2. Name the environment something like **Blackboard Auth**.
 3. Add the following **variables**:
 
-| Variable Name       | Initial Value           | Type    |
-| ------------------- | ----------------------- | ------- |
-| `baseUrl`           | (Provided by Anthology) | Default |
-| `basicAuthUsername` |(From Developer Portal)  | Secret  |
-| `basicAuthPassword` |(From Developer Portal)  | Secret  |
+   - **baseUrl**
+     - Initial Value: (Provided by Anthology)
+     - Type: `Default`
+   - **basicAuthUsername**
+     - Initial Value: (From Developer Portal)
+     - Type: `Secret`
+   - **basicAuthPassword**
+     - Initial Value: (From Developer Portal)
+     - Type: `Secret`
 
 > These values are provided when you register your application in the [Anthology Developer Portal](https://developer.blackboard.com/). You’ll use the `client ID` as your username and the `client secret` as your password.
 
-4. Click **Save** (or press `Command + S`).
+1. Click **Save** (or press `Command + S`).
 
 ---
 
@@ -145,14 +149,10 @@ To interact with Blackboard's REST API, you’ll need to obtain an OAuth2 access
 1. In the **Collections** tab, click on **Learn APIs** (at the top level).
 2. Select the **Authorization** tab.
 3. Change the following settings:
-
-| Field         | Value                                |
-| ------------- | ------------------------------------ |
-| **Auth Type** | API Key                              |
-| **Key**       | `Authorization`                      |
-| **Value**     | {% raw %}`{{apiKey}}`{% endraw %}    |
-| **Add to**    | Header                               |
-
+   - **Auth Type:** `API Key`
+   - **Key:** `Authorization`
+   - **Value:** {% raw %}`{{apiKey}}`{% endraw %}
+   - **Add to:** `Header`
 4. Click **Save** (or press `Command + S`).
 
 All requests in the collection will now use your access token automatically.
