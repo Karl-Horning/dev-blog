@@ -26,12 +26,4 @@ Before you begin, make sure you have:
 
 ## 🔁 Step 1: Download the Blackboard API Swagger File
 
-1. Go to the Blackboard REST API documentation:
-
-   👉 [https://developer.blackboard.com/portal/displayApi](https://developer.blackboard.com/portal/displayApi)
-
-2. Under the **Learn APIs** section, right-click the link below and open it in a new tab (or, open the link below 🤪):
-
-   👉 [https://devportal-docstore.s3.amazonaws.com/learn-swagger.json](https://devportal-docstore.s3.amazonaws.com/learn-swagger.json)
-
 ![Browser prompt to save the learn-swagger.json file as a JSON document.](/dev-blog/assets/img/postman_blackboard/1.3_save_the_json_file.webp)
