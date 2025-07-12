@@ -225,7 +225,7 @@
             <!-- Blog Post -->
             <div class="max-w-4xl mx-auto px-4 py-16 grid lg:grid-cols-3 gap-12">
     <main class="lg:col-span-2">
-        <div class="prose post max-w-full text-lg"><p>This guide will help you import Blackboard Ultra's API into Postman, set up authentication, and make your first API request. It’s written for users who may be new to Postman or working with APIs.</p>
+        <div class="prose post max-w-full text-lg overflow-x-auto"><p>This guide will help you import Blackboard Ultra's API into Postman, set up authentication, and make your first API request. It’s written for users who may be new to Postman or working with APIs.</p>
 <hr>
 <h2>🛠️ Prerequisites</h2>
 <p>Before you begin, make sure you have:</p>
@@ -295,39 +295,37 @@
 </ol>
 <p><img src="/dev-blog/assets/img/postman_blackboard/3.2_save_env.webp" alt="Postman environment editor showing variables for base URL, client username, and client password."></p>
 <ol start="2">
-<li>Name the environment something like <strong>Blackboard Auth</strong>.</li>
-<li>Add the following <strong>variables</strong>:</li>
+<li>
+<p>Name the environment something like <strong>Blackboard Auth</strong>.</p>
+</li>
+<li>
+<p>Add the following <strong>variables</strong>:</p>
+<ul>
+<li><strong>baseUrl</strong>
+<ul>
+<li>Initial Value: (Provided by Anthology)</li>
+<li>Type: <code>Default</code></li>
+</ul>
+</li>
+<li><strong>basicAuthUsername</strong>
+<ul>
+<li>Initial Value: (From Developer Portal)</li>
+<li>Type: <code>Secret</code></li>
+</ul>
+</li>
+<li><strong>basicAuthPassword</strong>
+<ul>
+<li>Initial Value: (From Developer Portal)</li>
+<li>Type: <code>Secret</code></li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
-<table>
-<thead>
-<tr>
-<th>Variable Name</th>
-<th>Initial Value</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>baseUrl</code></td>
-<td>(Provided by Anthology)</td>
-<td>Default</td>
-</tr>
-<tr>
-<td><code>basicAuthUsername</code></td>
-<td>(From Developer Portal)</td>
-<td>Secret</td>
-</tr>
-<tr>
-<td><code>basicAuthPassword</code></td>
-<td>(From Developer Portal)</td>
-<td>Secret</td>
-</tr>
-</tbody>
-</table>
 <blockquote>
 <p>These values are provided when you register your application in the <a href="https://developer.blackboard.com/">Anthology Developer Portal</a>. You’ll use the <code>client ID</code> as your username and the <code>client secret</code> as your password.</p>
 </blockquote>
-<ol start="4">
+<ol>
 <li>Click <strong>Save</strong> (or press <code>Command + S</code>).</li>
 </ol>
 <hr>
@@ -389,35 +387,14 @@
 <ol>
 <li>In the <strong>Collections</strong> tab, click on <strong>Learn APIs</strong> (at the top level).</li>
 <li>Select the <strong>Authorization</strong> tab.</li>
-<li>Change the following settings:</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Auth Type</strong></td>
-<td>API Key</td>
-</tr>
-<tr>
-<td><strong>Key</strong></td>
-<td><code>Authorization</code></td>
-</tr>
-<tr>
-<td><strong>Value</strong></td>
-<td><code>{{apiKey}}</code></td>
-</tr>
-<tr>
-<td><strong>Add to</strong></td>
-<td>Header</td>
-</tr>
-</tbody>
-</table>
-<ol start="4">
+<li>Change the following settings:
+<ul>
+<li><strong>Auth Type:</strong> <code>API Key</code></li>
+<li><strong>Key:</strong> <code>Authorization</code></li>
+<li><strong>Value:</strong> <code>{{apiKey}}</code></li>
+<li><strong>Add to:</strong> <code>Header</code></li>
+</ul>
+</li>
 <li>Click <strong>Save</strong> (or press <code>Command + S</code>).</li>
 </ol>
 <p>All requests in the collection will now use your access token automatically.</p>
