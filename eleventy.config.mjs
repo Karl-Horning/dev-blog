@@ -87,6 +87,8 @@ export default function (eleventyConfig) {
      */
     eleventyConfig.addPassthroughCopy("src/assets/img");
     eleventyConfig.addPassthroughCopy("src/assets/scripts");
+    // Copy favicons to the root of the output folder
+    eleventyConfig.addPassthroughCopy({ "src/static": "/" });
     eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
     /**
