@@ -73,7 +73,7 @@ permalink: "/tags/{{ tag | slug }}/"
                   {
                     "@type": "BlogPosting",
                     "headline": "{{ post.data.title | escape }}",
-                    "image": "https://karl-horning.github.io/dev-blog{{ post.data.image | default: '/assets/img/social-preview.jpg' }}",
+                    "image": "https://www.karlhorning.dev/dev-blog{{ post.data.image | default: '/assets/img/social-preview.jpg' }}",
                     "url": "{{ site.url }}{{ post.url }}",
                     "datePublished": "{{ post.date | date: '%Y-%m-%dT%H:%M:%S' }}+00:00",
                     "author": {

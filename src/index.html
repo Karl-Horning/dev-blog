@@ -25,7 +25,7 @@
         <meta property="og:type" content="website" />
         <meta
             property="og:url"
-            content="https://karl-horning.github.io/blog/"
+            content="https://www.karlhorning.dev/blog/"
         />
         <meta
             property="og:image"
@@ -50,7 +50,7 @@
               "@context": "https://schema.org",
               "@type": "CollectionPage",
               "name": "Karl Horning Blog",
-              "url": "https://karl-horning.github.io/blog/",
+              "url": "https://www.karlhorning.dev/blog/",
               "description": "Blog posts by Karl Horning on development, learning technology, accessibility, and more.",
               "mainEntity": {
                 "@type": "ItemList",
@@ -59,17 +59,17 @@
                   {
                     "@type": "ListItem",
                     "position": {{ forloop.index }},
-                    "url": "https://karl-horning.github.io{{ post.url }}",
+                    "url": "https://www.karlhorning.dev{{ post.url }}",
                     "item": {
                       "@type": "BlogPosting",
                       "headline": "{{ post.data.title | escape }}",
-                      "image": "https://karl-horning.github.io/dev-blog{{ post.data.image | default: '/assets/img/social-preview.jpg' }}",
-                      "url": "https://karl-horning.github.io{{ post.url }}",
+                      "image": "https://www.karlhorning.dev/dev-blog{{ post.data.image | default: '/assets/img/social-preview.jpg' }}",
+                      "url": "https://www.karlhorning.dev{{ post.url }}",
                       "datePublished": "{{ post.date | date: '%Y-%m-%dT%H:%M:%S' }}+00:00",
                       "author": {
                         "@type": "Person",
                         "name": "Karl Horning",
-                        "url": "https://karl-horning.github.io/about"
+                        "url": "https://www.karlhorning.dev/about"
                       }
                     }
                   }{% unless forloop.last %},{% endunless %}
