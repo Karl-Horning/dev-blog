@@ -405,6 +405,9 @@
   .overflow-hidden {
     overflow: hidden;
   }
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
   .rounded {
     border-radius: 0.25rem;
   }
@@ -916,6 +919,10 @@
   .post p {
     margin-bottom: 1.5rem;
   }
+  .post p, .post li {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
   .post hr {
     margin: 2rem 0;
     border-color: oklch(44.2% 0.017 285.786);
@@ -948,6 +955,8 @@
     text-decoration: underline;
     position: relative;
     transition: color 0.3s ease;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
   .post a:hover {
     color: white;
