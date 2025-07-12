@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Post with Test Image</title>
+      <link>https://karl-horning.github.io/dev-blog/posts/test/</link>
+      <pubDate>Fri, 11 Jul 2025 11:00:00 +0100</pubDate>
+      <description><![CDATA[This beginner-friendly tutorial walks you through importing Blackboard's Learn API into Postman, setting up OAuth2 authentication, and making a test request using client credentials.]]></description>
+      <media:thumbnail url="https://karl-horning.github.io/dev-blog/assets/img/postman_blackboard.webp" />
+      <guid>https://karl-horning.github.io/dev-blog/posts/test/</guid>
+    </item>
+    
+    <item>
       <title>Using Blackboard&#39;s Swagger File to Create a Postman Collection and Make an API Call</title>
       <link>https://karl-horning.github.io/dev-blog/posts/using-blackboards-swagger-file-to-create-a-postman-collection-and-make-an-api-call/</link>
       <pubDate>Fri, 11 Jul 2025 11:00:00 +0100</pubDate>
