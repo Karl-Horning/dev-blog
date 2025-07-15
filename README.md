@@ -121,7 +121,7 @@ This project is deployed to GitHub Pages via [GitHub Actions](https://github.com
 
 ### 📌 To Do / Future Enhancements
 
-- [ ] **Add RSS feed**
+- [x] **Add RSS feed**
   Enable feed generation for blog syndication and subscriptions.
 - [x] **Tag-based filtering**
   Already implemented: posts can be filtered by tags via tag pages.
@@ -129,7 +129,7 @@ This project is deployed to GitHub Pages via [GitHub Actions](https://github.com
   Ensure the site passes WCAG AA standards and includes semantic landmarks, focus indicators, and appropriate colour contrast in both light and dark modes.
 - [ ] **Use custom HTML components instead of Markdown/MDX**
   Continue using HTML for finer control over blog post content and styling, rather than Markdown or MDX.
-- [ ] **Connect to main site subdomain**
+- [x] **Connect to main site subdomain**
   Serve this blog from a subdomain like `blog.karl-horning.com`.
 - [ ] **Automated JSON export for external use**
   Add a GitHub Actions workflow to update `Karl-Horning.github.io/public/data/blogPosts.json` whenever posts are added or changed.
