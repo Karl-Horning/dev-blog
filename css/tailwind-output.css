@@ -928,7 +928,7 @@
     border-color: oklch(44.2% 0.017 285.786);
   }
   .post ol, .post ul {
-    padding-left: 1.25rem;
+    padding-left: 1.5rem;
     margin-bottom: 1.5rem;
   }
   .post ol {
