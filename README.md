@@ -1,116 +1,94 @@
-# Dev Blog
+# 📘 Dev Blog
+
+---
 
 ## 📖 Table of Contents
 
-- [Dev Blog](#dev-blog)
+- [📘 Dev Blog](#-dev-blog)
   - [📖 Table of Contents](#-table-of-contents)
   - [🤓 Overview](#-overview)
-  - [🚀 Features](#-features)
+  - [📸 Demo](#-demo)
+  - [🛠️ Tech Stack](#️-tech-stack)
+  - [📦 Installation](#-installation)
+  - [🚀 Scripts / Usage](#-scripts--usage)
   - [📁 Project Structure](#-project-structure)
-  - [🛠️ Getting Started](#️-getting-started)
-    - [1. Clone the repo](#1-clone-the-repo)
-    - [2. Install dependencies](#2-install-dependencies)
-    - [3. Run the development server](#3-run-the-development-server)
-    - [4. Build for production](#4-build-for-production)
-  - [🧪 Scripts](#-scripts)
-  - [🚚 Deployment](#-deployment)
-    - [🔁 Workflow: `.github/workflows/deploy.yml`](#-workflow-githubworkflowsdeployyml)
-    - [📌 To Do / Future Enhancements](#-to-do--future-enhancements)
+  - [🌐 Live Site or Deployment](#-live-site-or-deployment)
+  - [📌 To Do / Roadmap](#-to-do--roadmap)
+  - [🧪 Known Issues](#-known-issues)
+  - [📄 Licence](#-licence)
+  - [👤 Author / Credits](#-author--credits)
 
 ---
 
 ## 🤓 Overview
 
-A personal developer blog powered by [Eleventy (11ty)](https://www.11ty.dev/) and styled with [Tailwind CSS](https://tailwindcss.com/). This static site is deployed automatically to GitHub Pages via GitHub Actions.
+This is the source code for my personal developer blog, built with Eleventy and Tailwind CSS. It supports tag-based filtering, responsive design, and deploys automatically to GitHub Pages using GitHub Actions.
 
 ---
 
-## 🚀 Features
+## 📸 Demo
 
-- ⚡ Fast static site generation with Eleventy
-- 🎨 Modern styling using Tailwind CSS 4
-- 🏷️ Tag-based filtering and navigation
-- 📱 Responsive layout with accessible design
-- 🔄 Automatic deployment to GitHub Pages
+Live: [karlhorning.dev/dev-blog/](https://www.karlhorning.dev/dev-blog/)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Static Site Generator**: Eleventy (11ty)
+- **Styling**: Tailwind CSS 4
+- **Deployment**: GitHub Pages via GitHub Actions
+- **Languages**: HTML, CSS, JavaScript
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/Karl-Horning/dev-blog.git
+cd dev-blog
+npm install
+```
+
+---
+
+## 🚀 Scripts / Usage
+
+| Command              | Description                                        |
+| -------------------- | -------------------------------------------------- |
+| `npm start`          | Run both `dev:11ty` and `dev:css` in parallel      |
+| `npm run build`      | Build both Eleventy and Tailwind output to `dist/` |
+| `npm run dev:11ty`   | Start Eleventy in dev mode with live reload        |
+| `npm run dev:css`    | Watch and compile Tailwind CSS with PostCSS        |
+| `npm run build:11ty` | Build the Eleventy site to `dist/`                 |
+| `npm run build:css`  | Build Tailwind CSS to `dist/css/` using PostCSS    |
 
 ---
 
 ## 📁 Project Structure
 
-```text
-
+```bash
 .
 ├── src/                      # Source content & templates
 │   ├── _includes/            # Reusable layout components
-│   ├── assets/               # Styles (Tailwind input), fonts, images
-│   ├── posts/                # Blog posts (Markdown)
-│   └── ...
-├── dist/                     # Output folder for production site (generated)
+│   ├── assets/               # Styles, fonts, images
+│   ├── posts/                # Blog posts (HTML)
+├── dist/                     # Production build output
 ├── .github/workflows/        # GitHub Actions CI/CD config
 ├── eleventy.config.mjs       # Eleventy config
 ├── tailwind.config.js        # Tailwind config
 ├── package.json
 └── README.md
-
-````
+```
 
 ---
 
-## 🛠️ Getting Started
+## 🌐 Live Site or Deployment
 
-### 1. Clone the repo
+This site is deployed to GitHub Pages via [GitHub Actions](https://github.com/features/actions).
 
-```bash
-git clone https://github.com/Karl-Horning/dev-blog.git
-cd dev-blog
-````
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Run the development server
-
-```bash
-npm start
-```
-
-This will:
-
-- Watch and rebuild Tailwind CSS
-- Serve the site locally via Eleventy at `http://localhost:8080`
-
-### 4. Build for production
-
-```bash
-npm run build
-```
-
-This will output the static site to the `dist/` directory.
-
----
-
-## 🧪 Scripts
-
-| Script            | Description                                     |
-| ----------------- | ----------------------------------------------- |
-| `npm start`       | Run Tailwind and Eleventy in watch/dev mode     |
-| `npm run build`   | Build Tailwind CSS and Eleventy site to `dist/` |
-| `npm run dev:*`   | Individual dev scripts (Tailwind / Eleventy)    |
-| `npm run build:*` | Individual build scripts                        |
-
----
-
-## 🚚 Deployment
-
-This project is deployed to GitHub Pages via [GitHub Actions](https://github.com/features/actions).
-
-### 🔁 Workflow: `.github/workflows/deploy.yml`
-
-- Trigger: Push to `main`
-- Steps:
+- **Workflow**: `.github/workflows/deploy.yml`
+- **Trigger**: Push to `main`
+- **Steps**:
 
   1. Checkout code
   2. Install dependencies
@@ -119,23 +97,34 @@ This project is deployed to GitHub Pages via [GitHub Actions](https://github.com
 
 > Deployment is automatic with no manual steps needed after pushing to `main`.
 
-### 📌 To Do / Future Enhancements
+---
 
-- [x] **Add RSS feed**
-  Enable feed generation for blog syndication and subscriptions.
-- [x] **Tag-based filtering**
-  Already implemented: posts can be filtered by tags via tag pages.
-- [ ] **Improve accessibility audit**
-  Ensure the site passes WCAG AA standards and includes semantic landmarks, focus indicators, and appropriate colour contrast in both light and dark modes.
-- [ ] **Use custom HTML components instead of Markdown/MDX**
-  Continue using HTML for finer control over blog post content and styling, rather than Markdown or MDX.
-- [x] **Connect to main site subdomain**
-  Serve this blog from a subdomain like `blog.karl-horning.com`.
-- [ ] **Automated JSON export for external use**
-  Add a GitHub Actions workflow to update `Karl-Horning.github.io/public/data/blogPosts.json` whenever posts are added or changed.
-- [ ] **Light/dark theme support**
-  Update with a light theme, as currently, only a dark theme is supported.
+## 📌 To Do / Roadmap
+
+- [x] Add RSS feed
+- [x] Implement tag-based filtering
+- [x] Connect to subdomain (`karlhorning.dev/dev-blog/`)
+- [ ] Improve accessibility to meet WCAG AA
+- [ ] Replace Markdown/MDX with custom HTML posts
+- [ ] Add GitHub Actions workflow to export JSON data
+- [ ] Add light mode support
 
 ---
+
+## 🧪 Known Issues
+
+- Accessibility audit requires improvement: headings, focus styles, and colour contrast in light mode
+- Currently dark-theme only
+- No built-in post authoring UI
+
+---
+
+## 📄 Licence
+
+MIT © 2025 Karl Horning
+
+---
+
+## 👤 Author / Credits
 
 Made with ❤️ by [Karl Horning](https://github.com/Karl-Horning)
