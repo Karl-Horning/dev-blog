@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call | Karl Horning</title>
+    <title>Running Canvas LMS Locally with Docker (and Why canvas.docker Didn't Work for Me) | Karl Horning</title>
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -18,36 +18,36 @@
     <link rel="stylesheet" href="/dev-blog/css/tailwind-output.css" />
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn how to import Blackboard Learn's Swagger file into Postman, configure authentication, and make your first API call using client credentials." />
+    <meta name="description" content="Learn how to run Canvas LMS locally using Docker, troubleshoot common issues with the canvas.docker proxy, and access the API and GraphQL sandbox." />
 <meta name="author" content="Karl Horning" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call" />
+<meta property="og:title" content="Running Canvas LMS Locally with Docker (and Why canvas.docker Didn't Work for Me)" />
 <meta
     property="og:description"
-    content="Learn how to import Blackboard Learn's Swagger file into Postman, configure authentication, and make your first API call using client credentials."
+    content="Learn how to run Canvas LMS locally using Docker, troubleshoot common issues with the canvas.docker proxy, and access the API and GraphQL sandbox."
 />
-<meta property="og:image" content="/dev-blog/assets/img/postman_blackboard.webp" />
+<meta property="og:image" content="/dev-blog/assets/img/canvas_lms_docker.webp" />
 <meta property="og:url" content="." />
 <meta property="og:site_name" content="Karl Horning's Blog" />
-<link rel="canonical" href="https://www.karlhorning.dev/dev-blog/posts/using-blackboards-swagger-file-to-create-a-postman-collection-and-make-an-api-call/" />
+<link rel="canonical" href="https://www.karlhorning.dev/dev-blog/posts/running-canvas-lms-locally-with-docker/" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call" />
+<meta name="twitter:title" content="Running Canvas LMS Locally with Docker (and Why canvas.docker Didn't Work for Me)" />
 <meta
     name="twitter:description"
-    content="Learn how to import Blackboard Learn's Swagger file into Postman, configure authentication, and make your first API call using client credentials."
+    content="Learn how to run Canvas LMS locally using Docker, troubleshoot common issues with the canvas.docker proxy, and access the API and GraphQL sandbox."
 />
-<meta name="twitter:image" content="/dev-blog/assets/img/postman_blackboard.webp" />
+<meta name="twitter:image" content="/dev-blog/assets/img/canvas_lms_docker.webp" />
 
 <!-- JSON-LD -->
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call",
+        "headline": "Running Canvas LMS Locally with Docker (and Why canvas.docker Didn't Work for Me)",
         "image": "https://www.karlhorning.dev/dev-blog/assets/img/social-preview.jpg",
         "author": {
             "@type": "Person",
@@ -62,8 +62,8 @@
                 "url": "/assets/img/logo.png"
             }
         },
-        "datePublished": "2025-07-11T11:00:00+01:00",
-        "description": "Learn how to import Blackboard Learn's Swagger file into Postman, configure authentication, and make your first API call using client credentials.",
+        "datePublished": "2025-08-11T19:00:00+01:00",
+        "description": "Learn how to run Canvas LMS locally using Docker, troubleshoot common issues with the canvas.docker proxy, and access the API and GraphQL sandbox.",
         "mainEntityOfPage": "."
     }
 </script>
@@ -218,16 +218,16 @@
             <!-- Blog post image, title, and date -->
             <header
     class="relative text-white py-32 px-4 bg-cover bg-center"
-    style="background-image: url('/dev-blog/assets/img/postman_blackboard.webp')"
+    style="background-image: url('/dev-blog/assets/img/docker-canvas.webp')"
 >
     <div class="absolute inset-0 blog-hero"></div>
     <div class="relative z-10 max-w-4xl mx-auto text-center">
         <h1 class="post-title">
-            Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call
+            Running Canvas LMS Locally with Docker (and Why canvas.docker Didn't Work for Me)
         </h1>
         <p class="text-sm opacity-80 flex items-center justify-center gap-2">
             <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            <time datetime="2025-06-26">11 July 2025</time>
+            <time datetime="2025-06-26">11 August 2025</time>
             <span class="mx-1 text-xs">•</span>
             <i class="fas fa-clock" aria-hidden="true"></i>
             <span id="reading-time">Calculating...</span>
@@ -238,255 +238,88 @@
             <!-- Blog Post -->
             <div class="max-w-4xl mx-auto px-4 py-16 grid lg:grid-cols-3 gap-12">
     <main class="lg:col-span-2">
-        <div class="prose post max-w-full text-lg overflow-x-auto"><p>This guide will help you import Blackboard Ultra's API into Postman, set up authentication, and make your first API request. It’s written for users who may be new to Postman or working with APIs.</p>
-<hr>
-<h2>🛠️ Prerequisites</h2>
-<p>Before you begin, make sure you have:</p>
-<ul>
-<li>A Blackboard Learn instance with REST API access enabled</li>
-<li>A registered application in the <a href="https://developer.blackboard.com/">Anthology Developer Portal</a></li>
-<li>Postman installed (<a href="https://www.postman.com/downloads/">Download here</a>)</li>
-<li>Credentials for the <code>client_credentials</code> grant type (provided when registering your application)</li>
-</ul>
-<hr>
-<h2>🔁 Step 1: Download the Blackboard API Swagger File</h2>
-<ol>
-<li>
-<p>Go to the Blackboard REST API documentation:</p>
-<p>👉 <a href="https://developer.blackboard.com/portal/displayApi">https://developer.blackboard.com/portal/displayApi</a></p>
-</li>
-<li>
-<p>Under the <strong>Learn APIs</strong> section, right-click the link below and open it in a new tab (or, open the link below 🤪):</p>
-<p>👉 <a href="https://devportal-docstore.s3.amazonaws.com/learn-swagger.json">https://devportal-docstore.s3.amazonaws.com/learn-swagger.json</a></p>
-</li>
-</ol>
-<p><img src="/dev-blog/assets/img/postman_blackboard/1.3_save_the_json_file.webp" alt="Browser prompt to save the learn-swagger.json file as a JSON document."></p>
-<ol start="3">
-<li>
-<p>When prompted to save the file:</p>
-<ol>
-<li>Name the file <code>learn-swagger.json</code></li>
-<li>Choose <strong>JavaScript Object Notation (.json)</strong> as the file type</li>
-<li>Click <strong>Save</strong></li>
-</ol>
-</li>
-</ol>
-<p><img src="/dev-blog/assets/img/postman_blackboard/1.4_alternative_save.webp" alt="JSON Swagger file open in a browser tab with the Save button highlighted."></p>
-<ol start="4">
-<li>Alternatively, if your browser displays the file instead of downloading it, click <strong>Save</strong>, then follow step 3.</li>
-</ol>
-<hr>
-<h2>🧰 Step 2: Import the Swagger File into Postman</h2>
-<p><img src="/dev-blog/assets/img/postman_blackboard/2.1_new_workspace.webp" alt="Postman interface showing how to create a new workspace from the New menu."></p>
-<ol>
-<li>Open <strong>Postman</strong>.</li>
-<li>From the top-left, click <strong>New &gt; Workspace</strong>.</li>
-</ol>
-<p><img src="/dev-blog/assets/img/postman_blackboard/2.3_blank_workspace.webp" alt="Postman workspace creation window with &quot;Blank workspace&quot; selected."></p>
-<ol start="3">
-<li>Select <strong>Blank workspace</strong> and click <strong>Next</strong>.</li>
-<li>Name your workspace something like <strong>Blackboard APIs</strong>, then click <strong>Create</strong>.</li>
-</ol>
-<p><img src="/dev-blog/assets/img/postman_blackboard/2.5_import_postman_collection.webp" alt="Postman interface with the Import window open, selecting the Swagger file as a Postman Collection."></p>
-<ol start="5">
-<li>
-<p>Once in your new workspace:</p>
-<ol>
-<li>Click <strong>File &gt; Import…</strong> (or press <code>Command + O</code>)</li>
-<li>Locate and select the <code>learn-swagger.json</code> file you downloaded</li>
-<li>Make sure <strong>Postman Collection</strong> is selected as the import type</li>
-<li>Click <strong>Import</strong></li>
-</ol>
-</li>
-</ol>
-<p>You should now see the Learn API endpoints available in the <strong>Collections</strong> tab.</p>
-<hr>
-<h2>🔐 Step 3: Set Up the Authentication Environment</h2>
-<p><img src="/dev-blog/assets/img/postman_blackboard/3.1_create_env.webp" alt="Creating a new environment in Postman with the Create Environment modal open."></p>
-<ol>
-<li>In Postman, click <strong>Environments</strong> (top-right) &gt; <strong>Create Environment</strong>.</li>
-</ol>
-<p><img src="/dev-blog/assets/img/postman_blackboard/3.2_save_env.webp" alt="Postman environment editor showing variables for base URL, client username, and client password."></p>
-<ol start="2">
-<li>
-<p>Name the environment something like <strong>Blackboard Auth</strong>.</p>
-</li>
-<li>
-<p>Add the following <strong>variables</strong>:</p>
-<ul>
-<li><strong>baseUrl</strong>
-<ul>
-<li>Initial Value: (Provided by Anthology)</li>
-<li>Type: <code>Default</code></li>
-</ul>
-</li>
-<li><strong>basicAuthUsername</strong>
-<ul>
-<li>Initial Value: (From Developer Portal)</li>
-<li>Type: <code>Secret</code></li>
-</ul>
-</li>
-<li><strong>basicAuthPassword</strong>
-<ul>
-<li>Initial Value: (From Developer Portal)</li>
-<li>Type: <code>Secret</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>These values are provided when you register your application in the <a href="https://developer.blackboard.com/">Anthology Developer Portal</a>. You’ll use the <code>client ID</code> as your username and the <code>client secret</code> as your password.</p>
-</blockquote>
-<ol>
-<li>Click <strong>Save</strong> (or press <code>Command + S</code>).</li>
-</ol>
-<hr>
-<h2>🔑 Step 4: Request an Access Token</h2>
-<p>To interact with Blackboard's REST API, you’ll need to obtain an OAuth2 access token. This token authenticates your API calls and is required for most requests.</p>
-<p><img src="/dev-blog/assets/img/postman_blackboard/4.1_set_params.webp" alt="Postman Params tab with only the grant_type parameter selected and set to client_credentials."></p>
-<ol>
-<li>
-<p>Make sure <strong>Blackboard Auth</strong> is selected in the environment dropdown (top-right).</p>
-</li>
-<li>
-<p>In the <strong>Collections</strong> tab, go to:<br>
-<code>Learn APIs &gt; learn &gt; api &gt; public &gt; v1 &gt; oauth2 &gt; token &gt; Request Token</code></p>
-</li>
-<li>
-<p>Select the <strong>Params</strong> tab:</p>
-<ol>
-<li>Deselect all parameters except for <code>grant_type</code></li>
-<li>Set <code>grant_type</code> to <code>client_credentials</code></li>
-</ol>
-</li>
-</ol>
-<p><img src="/dev-blog/assets/img/postman_blackboard/4.4_set_scripts.webp" alt="Postman Tests tab showing a script that saves the access token to an environment variable."></p>
-<ol start="4">
-<li>
-<p>Go to the <strong>Authorization</strong> tab:</p>
-<ul>
-<li><strong>Type:</strong> Basic Auth</li>
-<li><strong>Username:</strong> <code>{{basicAuthUsername}}</code></li>
-<li><strong>Password:</strong> <code>{{basicAuthPassword}}</code></li>
-</ul>
-</li>
-<li>
-<p>Go to the <strong>Headers</strong> tab and change the existing header to:</p>
-<ul>
-<li><strong>Key:</strong> <code>Content-Type</code></li>
-<li><strong>Value:</strong> <code>application/x-www-form-urlencoded</code></li>
-</ul>
-</li>
-<li>
-<p>Go to the <strong>Scripts</strong> tab (may be labelled &quot;Tests&quot; or &quot;Post-response&quot;):</p>
-<ul>
-<li>Paste the following script:</li>
-</ul>
-<pre><code class="language-javascript">// Parse the response body to get the access token.
- const response = pm.response.json();
-
- // Set the access token in the environment variables.
- pm.environment.set('apiKey', `Bearer ${response.access_token}`);
+        <div class="prose post max-w-full text-lg overflow-x-auto"><p>I recently set up Canvas LMS locally using Docker and thought I'd share the process — and more importantly, the <strong>troubleshooting</strong> I had to do when things didn't quite go as expected. Hopefully, this will help someone else who's running into the same issues.</p>
+<h2>🧱 Getting Started</h2>
+<p>I followed the <a href="https://github.com/instructure/canvas-lms/wiki/Quick-Start">Canvas LMS Quick Start guide</a>, which uses Docker Compose to spin up all the required services. Once I had the repo cloned, I ran:</p>
+<pre><code class="language-sh">docker compose up -d
 </code></pre>
-</li>
-<li>
-<p>Click <strong>Send</strong> (or press <code>Command + Enter</code>) to retrieve your access token.</p>
-</li>
-</ol>
-<hr>
-<h2>🌐 Step 5: Add the Access Token to All API Requests</h2>
-<p><img src="/dev-blog/assets/img/postman_blackboard/5.1_set_access_token.webp" alt="Postman Collection-level Authorization tab set to API Key with Authorization as the header key."></p>
-<ol>
-<li>In the <strong>Collections</strong> tab, click on <strong>Learn APIs</strong> (at the top level).</li>
-<li>Select the <strong>Authorization</strong> tab.</li>
-<li>Change the following settings:
-<ul>
-<li><strong>Auth Type:</strong> <code>API Key</code></li>
-<li><strong>Key:</strong> <code>Authorization</code></li>
-<li><strong>Value:</strong> <code>{{apiKey}}</code></li>
-<li><strong>Add to:</strong> <code>Header</code></li>
-</ul>
-</li>
-<li>Click <strong>Save</strong> (or press <code>Command + S</code>).</li>
-</ol>
-<p>All requests in the collection will now use your access token automatically.</p>
+<p>After that, the instructions say to visit:</p>
+<pre><code class="language-bash">http://canvas.docker
+</code></pre>
+<p>...but when I opened that URL, I was greeted with:</p>
+<p><img src="/dev-blog/assets/img/canvas_docker/dinghy-http-proxy-page.webp" alt="Screenshot of the Dinghy HTTP Proxy page"></p>
 <blockquote>
-<p>💡 <strong>Tip:</strong> Some individual requests may still have old parameters set by default. If you get errors, check the <strong>Params</strong> tab and uncheck or delete any unnecessary ones.</p>
+<p><strong>Welcome to the Dinghy HTTP Proxy</strong><br>
+If you expected to see your application at this URL, it may not be running, or it may be improperly configured.</p>
 </blockquote>
-<p>You're now ready to explore Blackboard's Learn API.</p>
-<h2>✅ Step 6: Make a Simple API Call</h2>
-<p>Let’s test the setup with a basic GET request to list users.</p>
-<ol>
-<li>In the <strong>Collections</strong> tab, navigate to:<br>
-<code>Learn APIs &gt; learn &gt; api &gt; public &gt; v1 &gt; users &gt; Get Users</code></li>
-<li>Click on the request and make sure:
+<p>At this point, Canvas wasn't accessible — even though all the containers seemed to be running:</p>
+<p><img src="/dev-blog/assets/img/canvas_docker/docker-running-canvas.webp" alt="Canvas running in Docker"></p>
+<hr>
+<h2>🔍 Debugging the Proxy Message</h2>
+<p>It turned out that the <code>canvas.docker</code> domain was just a local DNS alias that relied on Dinghy or a similar proxy, but <strong>Canvas itself wasn't being served properly</strong>, because:</p>
 <ul>
-<li>The <strong>Authorization</strong> is inherited from the collection</li>
-<li>There are no unnecessary parameters selected</li>
+<li>The Docker Compose config <strong>didn't expose any ports</strong>.</li>
+<li>The <code>web</code> service was running Nginx and Passenger inside the container, but nothing on the host could access it.</li>
 </ul>
-</li>
-<li>Click <strong>Send</strong>.</li>
-</ol>
-<p>You should receive a JSON response containing user records.</p>
-<p>If you receive a 401 error, double-check that your access token has been saved and that it's correctly set under the collection’s <strong>Authorization</strong> tab.</p>
-<h2>🧯 Troubleshooting</h2>
-<p>Here are some common issues and how to fix them:</p>
-<ul>
-<li>
-<p><strong>401 Unauthorized</strong>:</p>
-<ul>
-<li>Check your <code>client_credentials</code> (client ID and secret)</li>
-<li>Make sure the token request succeeded</li>
-<li>Confirm the token is included in the header (check the &quot;Authorization&quot; tab is set to &quot;Bearer Token&quot; and using the correct variable)</li>
-</ul>
-</li>
-<li>
-<p><strong>400 Bad Request</strong>:</p>
-<ul>
-<li>
-<p>This often happens if unused parameters are still selected in the request.</p>
-</li>
-<li>
-<p>For example, when testing <code>GET /users</code>, if parameters like <code>dataSourceId</code> are left checked and contain placeholder or junk values, Blackboard will reject the request with a <code>400</code> error and a verbose message like:</p>
-<pre><code class="language-json">{
-  &quot;status&quot;: 400,
-  &quot;message&quot;: &quot;: 1 errors\nField error in object 'usersSearchCriteriaPubV1' on field 'dataSourceId': rejected value [anim nostrud occaecat elit amet]; ...&quot;,
-  &quot;extraInfo&quot;: &quot;...&quot;
+<p>I checked this by running:</p>
+<pre><code class="language-sh">docker compose ps
+</code></pre>
+<p>...and saw that the <code>web</code> service didn't list any ports like <code>0.0.0.0:3000-&gt;80/tcp</code>. That confirmed it.</p>
+<hr>
+<h2>🛠️ Fixing It with <code>docker-compose.override.yml</code></h2>
+<p>To expose Canvas to my local machine, I updated the <code>docker-compose.override.yml</code> file by adding this:</p>
+<pre><code class="language-yaml">services:
+  web:
+    ports:
+      - &quot;3000:80&quot;
+</code></pre>
+<p>This tells Docker to map <strong>port 80 inside the container</strong> (where Nginx is serving Canvas) to <strong>port 3000 on my host machine</strong>.</p>
+<p>Then I restarted everything:</p>
+<pre><code class="language-sh">docker compose down
+docker compose up -d
+</code></pre>
+<p>And now, I could access Canvas at:</p>
+<pre><code class="language-bash">http://localhost:3000
+</code></pre>
+<p>🎉 Success!</p>
+<hr>
+<h2>❌ Why <code>http://canvas.docker</code> Still Doesn't Work</h2>
+<p>The <code>canvas.docker</code> URL requires additional setup. Unless you're using Dinghy or explicitly mapping that hostname to <code>127.0.0.1</code> in <code>/etc/hosts</code>, your browser won't know where to send the request.</p>
+<p>If you really want to use that domain locally, you can add this to your hosts file:</p>
+<pre><code class="language-plaintext">127.0.0.1 canvas.docker
+</code></pre>
+<p>But for me, just using <code>http://localhost:3000</code> is simpler and works fine.</p>
+<hr>
+<h2>🔍 API Troubleshooting</h2>
+<p>Once I had Canvas running, I tried to access the API by visiting:</p>
+<pre><code class="language-bash">http://localhost:3000/api/v1/
+</code></pre>
+<p>But that gave me a Rails routing error:</p>
+<blockquote>
+<p><strong>No route matches [GET] &quot;/api/v1&quot;</strong></p>
+</blockquote>
+<p>This is expected — Canvas's API doesn't have a root endpoint at <code>/api/v1/</code>. Instead, you need to call specific endpoints like:</p>
+<pre><code class="language-bash">http://localhost:3000/api/v1/users/self
+</code></pre>
+<p>You can access the API using an access token from your account settings, or by using <code>fetch</code> in the browser console (if you're already logged in).</p>
+<hr>
+<h2>⚙️ Using GraphQL</h2>
+<p>Canvas also supports GraphQL, and in development mode you can use the built-in GraphiQL sandbox interface. Just go to:</p>
+<pre><code class="language-bash">http://localhost:3000/graphiql
+</code></pre>
+<p>Here you can run queries like:</p>
+<pre><code class="language-graphql">query Account {
+  account(id: &quot;1&quot;) {
+    name
+    id
+  }
 }
 </code></pre>
-</li>
-<li>
-<p>Solution: go to the <strong>Params</strong> tab and deselect or delete any unnecessary parameters before sending the request.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Empty or unexpected responses</strong>:</p>
-<ul>
-<li>Your Learn environment may not contain any users or courses yet.</li>
-<li>Try calling a different endpoint or inspecting the full JSON response for pagination info.</li>
-</ul>
-</li>
-<li>
-<p><strong>Token not saving or reused</strong>:</p>
-<ul>
-<li>Ensure your token save script (under the <strong>Tests</strong> tab) is error-free and includes the <code>Bearer</code> prefix.</li>
-<li>Check your Collection-level <strong>Authorization</strong> settings are set to inherit the token from the environment variable (for example, <code>{{token}}</code>).</li>
-</ul>
-</li>
-</ul>
-<h2>🎉 Summary</h2>
-<p>You've now:</p>
-<ul>
-<li>Imported Blackboard’s Learn API (Swagger file) into Postman</li>
-<li>Set up a Postman environment for OAuth2 authentication</li>
-<li>Retrieved an access token using the <code>client_credentials</code> grant type</li>
-<li>Configured all API requests to use your token automatically</li>
-<li>Made your first successful API request</li>
-</ul>
-<p>From here, you can explore other endpoints to manage users, courses, announcements, enrolments, and more. If you’re working in an institutional context, be sure to follow data protection policies when experimenting with real user data.</p>
-<p>Happy exploring!</p>
+<p>If you're logged in, you'll see results for your account — no token needed in the browser.</p>
+<hr>
+<h2>Final Thoughts</h2>
+<p>If you're trying to get Canvas LMS running locally and hit a wall with <code>canvas.docker</code>, don't worry — you're not alone. Mapping the internal port to your host using Docker Compose is the key. Once that's done, everything works as expected using <code>http://localhost:3000</code>.</p>
+<p>If you've been through this setup yourself or have tips for making it smoother, I'd love to hear them!</p>
 <p>— Karl</p>
 </div>
  
@@ -498,19 +331,27 @@
         <div class="flex flex-wrap gap-2 justify-center">
                
             <a
-                href="/dev-blog/tags/blackboard/"
-                aria-label="View all posts tagged Blackboard"
+                href="/dev-blog/tags/canvas-lms/"
+                aria-label="View all posts tagged Canvas LMS"
                 class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-                #Blackboard
+                #Canvas LMS
             </a>
               
             <a
-                href="/dev-blog/tags/postman/"
-                aria-label="View all posts tagged Postman"
+                href="/dev-blog/tags/docker/"
+                aria-label="View all posts tagged Docker"
                 class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-                #Postman
+                #Docker
+            </a>
+              
+            <a
+                href="/dev-blog/tags/edtech/"
+                aria-label="View all posts tagged EdTech"
+                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+                #EdTech
             </a>
               
             <a
@@ -522,27 +363,19 @@
             </a>
               
             <a
-                href="/dev-blog/tags/swagger/"
-                aria-label="View all posts tagged Swagger"
+                href="/dev-blog/tags/graphql/"
+                aria-label="View all posts tagged GraphQL"
                 class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-                #Swagger
+                #GraphQL
             </a>
               
             <a
-                href="/dev-blog/tags/oauth2/"
-                aria-label="View all posts tagged OAuth2"
+                href="/dev-blog/tags/local-development/"
+                aria-label="View all posts tagged Local Development"
                 class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-                #OAuth2
-            </a>
-              
-            <a
-                href="/dev-blog/tags/edtech/"
-                aria-label="View all posts tagged EdTech"
-                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            >
-                #EdTech
+                #Local Development
             </a>
              
         </div>
@@ -552,36 +385,9 @@
             <!-- Previous Post -->
             <div class="w-full md:w-1/2">
                 
-                <a
-                    href="/dev-blog/posts/running-canvas-lms-locally-with-docker/"
-                    class="w-full hover-bg-accent group flex flex-col items-center gap-2 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                    
-                    <img
-                        src="/dev-blog/assets/img/docker-canvas.webp"
-                        alt="Thumbnail for Running Canvas LMS Locally with Docker (and Why canvas.docker Didn't Work for Me)"
-                        class="w-full h-40 object-cover rounded-md shrink-0"
-                        loading="lazy"
-                    />
-                    
-                    <p
-                        class="flex items-center text-primary font-semibold mb-1 group-hover:text-white transition-colors duration-300"
-                    >
-                        <i
-                            class="fas fa-arrow-left mr-2"
-                            aria-hidden="true"
-                        ></i>
-                        Previous
-                    </p>
-                    <h3
-                        class="text-lg font-medium text-white group-hover:text-primary transition-colors duration-300"
-                    >
-                        Running Canvas LMS Locally with Docker (and Why canvas.docker Didn't Work for Me)
-                    </h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                        11 August 2025
-                    </p>
-                </a>
+                <div style="visibility: hidden" class="block w-full">
+                    &nbsp;
+                </div>
                 
             </div>
 
@@ -589,13 +395,13 @@
             <div class="w-full md:w-1/2">
                 
                 <a
-                    href="/dev-blog/posts/testing-testing/"
+                    href="/dev-blog/posts/using-blackboards-swagger-file-to-create-a-postman-collection-and-make-an-api-call/"
                     class="w-full hover-bg-accent group flex flex-col items-center gap-2 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                     
                     <img
-                        src="/dev-blog/assets/img/pexels-mali-63238.optimised.webp"
-                        alt="Thumbnail for Testing, Testing"
+                        src="/dev-blog/assets/img/postman_blackboard.webp"
+                        alt="Thumbnail for Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call"
                         class="w-full h-40 object-cover rounded-md shrink-0"
                         loading="lazy"
                     />
@@ -612,12 +418,12 @@
                     <h3
                         class="text-lg font-medium text-white group-hover:text-primary transition-colors duration-300 text-right"
                     >
-                        Testing, Testing
+                        Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call
                     </h3>
                     <p
                         class="text-sm text-gray-500 dark:text-gray-400 mt-1 text-right"
                     >
-                        23 June 2025
+                        11 July 2025
                     </p>
                 </a>
                 
