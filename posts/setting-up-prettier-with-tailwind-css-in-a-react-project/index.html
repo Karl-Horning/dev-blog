@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello, World! | Karl Horning</title>
+    <title>Setting Up Prettier with Tailwind CSS in a React Project (Without Forgetting Next Time) | Karl Horning</title>
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -18,36 +18,36 @@
     <link rel="stylesheet" href="/dev-blog/css/tailwind-output.css" />
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="This is the first post of the blog. It includes a brief explanation of its purpose and how it's built using Eleventy and Tailwind CSS." />
+    <meta name="description" content="A quick walkthrough for setting up Prettier with Tailwind CSS in a new React project using either Next.js or Vite. Written mainly as a reminder to myself — but hopefully useful for others too." />
 <meta name="author" content="Karl Horning" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Hello, World!" />
+<meta property="og:title" content="Setting Up Prettier with Tailwind CSS in a React Project (Without Forgetting Next Time)" />
 <meta
     property="og:description"
-    content="This is the first post of the blog. It includes a brief explanation of its purpose and how it's built using Eleventy and Tailwind CSS."
+    content="A quick walkthrough for setting up Prettier with Tailwind CSS in a new React project using either Next.js or Vite. Written mainly as a reminder to myself — but hopefully useful for others too."
 />
-<meta property="og:image" content="/dev-blog/assets/img/pexels-meruyert-gonullu-7317281.optimised.webp" />
+<meta property="og:image" content="/dev-blog/assets/img/prettier_tailwind.webp" />
 <meta property="og:url" content="." />
 <meta property="og:site_name" content="Karl Horning's Blog" />
-<link rel="canonical" href="https://www.karlhorning.dev/dev-blog/posts/hello-world/" />
+<link rel="canonical" href="https://www.karlhorning.dev/dev-blog/posts/setting-up-prettier-with-tailwind-css-in-a-react-project/" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Hello, World!" />
+<meta name="twitter:title" content="Setting Up Prettier with Tailwind CSS in a React Project (Without Forgetting Next Time)" />
 <meta
     name="twitter:description"
-    content="This is the first post of the blog. It includes a brief explanation of its purpose and how it's built using Eleventy and Tailwind CSS."
+    content="A quick walkthrough for setting up Prettier with Tailwind CSS in a new React project using either Next.js or Vite. Written mainly as a reminder to myself — but hopefully useful for others too."
 />
-<meta name="twitter:image" content="/dev-blog/assets/img/pexels-meruyert-gonullu-7317281.optimised.webp" />
+<meta name="twitter:image" content="/dev-blog/assets/img/prettier_tailwind.webp" />
 
 <!-- JSON-LD -->
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Hello, World!",
+        "headline": "Setting Up Prettier with Tailwind CSS in a React Project (Without Forgetting Next Time)",
         "image": "https://www.karlhorning.dev/dev-blog/assets/img/social-preview.jpg",
         "author": {
             "@type": "Person",
@@ -62,8 +62,8 @@
                 "url": "/assets/img/logo.png"
             }
         },
-        "datePublished": "2025-06-22T00:00:00+00:00",
-        "description": "This is the first post of the blog. It includes a brief explanation of its purpose and how it's built using Eleventy and Tailwind CSS.",
+        "datePublished": "2025-08-04T18:00:00+00:00",
+        "description": "A quick walkthrough for setting up Prettier with Tailwind CSS in a new React project using either Next.js or Vite. Written mainly as a reminder to myself — but hopefully useful for others too.",
         "mainEntityOfPage": "."
     }
 </script>
@@ -218,16 +218,16 @@
             <!-- Blog post image, title, and date -->
             <header
     class="relative text-white py-32 px-4 bg-cover bg-center"
-    style="background-image: url('/dev-blog/assets/img/pexels-meruyert-gonullu-7317281.optimised.webp')"
+    style="background-image: url('/dev-blog/assets/img/prettier_tailwind.webp')"
 >
     <div class="absolute inset-0 blog-hero"></div>
     <div class="relative z-10 max-w-4xl mx-auto text-center">
         <h1 class="post-title">
-            Hello, World!
+            Setting Up Prettier with Tailwind CSS in a React Project (Without Forgetting Next Time)
         </h1>
         <p class="text-sm opacity-80 flex items-center justify-center gap-2">
             <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            <time datetime="2025-06-26">22 June 2025</time>
+            <time datetime="2025-06-26">04 August 2025</time>
             <span class="mx-1 text-xs">•</span>
             <i class="fas fa-clock" aria-hidden="true"></i>
             <span id="reading-time">Calculating...</span>
@@ -238,50 +238,78 @@
             <!-- Blog Post -->
             <div class="max-w-4xl mx-auto px-4 py-16 grid lg:grid-cols-3 gap-12">
     <main class="lg:col-span-2">
-        <div class="prose post max-w-full text-lg overflow-x-auto">
-<p>
-    Welcome to my blog! I'm calling this the "first post", but really, it's a
-    placeholder — something to test layouts and that lovely moment when a blank
-    site becomes something more than a skeleton.
-</p>
+        <div class="prose post max-w-full text-lg overflow-x-auto"><p>This post is mainly for me — the kind of thing I'll want to come back to next time I spin up a new React project and think, <em>&quot;How did I set up Prettier and Tailwind last time?&quot;</em> That said, I've tried to write it clearly in case it helps someone else too.</p>
+<p>In the future, I might wrap all this into a proper template repo, but for now, here's the manual checklist I follow.</p>
+<blockquote>
+<p>📝 I usually create the GitHub repo first and clone it locally, so I initialise Next.js or Vite in an existing folder. If you're doing the same, remember to use the <code>.</code> at the end of your command to scaffold into the current directory.</p>
+</blockquote>
+<hr>
+<h2>🧱 Starting a New Next.js Project</h2>
+<p>From your Visual Studio Code terminal, run:</p>
+<pre><code class="language-bash">npx create-next-app@latest .
+</code></pre>
+<p>(The full stop at the end tells it to install into the current folder.)</p>
+<p>Here are the options I usually pick:</p>
+<pre><code class="language-bash">Would you like to use TypeScript?                    Yes
+Would you like to use ESLint?                        No
+Would you like to use Tailwind CSS?                  Yes
+Would you like your code inside a `src/` directory?  Yes
+Would you like to use App Router? (recommended)      Yes
+Would you like to use Turbopack for `next dev`?      Yes
+Would you like to customise the import alias?        No
+</code></pre>
+<p>Once that's done, install Prettier and the Tailwind plugin:</p>
+<pre><code class="language-bash">npm install -D prettier prettier-plugin-tailwindcss
+</code></pre>
+<p>Then, at the bottom of your <code>package.json</code>, add the following config:</p>
+<pre><code class="language-json">&quot;prettier&quot;: {
+    &quot;trailingComma&quot;: &quot;es5&quot;,
+    &quot;tabWidth&quot;: 4,
+    &quot;semi&quot;: true,
+    &quot;singleQuote&quot;: false,
+    &quot;plugins&quot;: [
+        &quot;prettier-plugin-tailwindcss&quot;
+    ]
+}
+</code></pre>
+<p>That's it — Prettier will now sort your Tailwind classes automatically when you format. (<code>Option + Shift + F</code> is the shortcut on macOS.)</p>
+<hr>
+<h2>⚡ Bonus: Using Prettier + Tailwind CSS in a Vite Project</h2>
+<p>The setup is nearly identical when working with Vite, but here's a quick run-through for completeness.</p>
+<h3>Step 1: Install Tailwind CSS and its Vite plugin</h3>
+<pre><code class="language-bash">npm install tailwindcss @tailwindcss/vite
+</code></pre>
+<h3>Step 2: Update your Vite config</h3>
+<p>In your <code>vite.config.ts</code> (or <code>.js</code>), import the plugin and apply it:</p>
+<pre><code class="language-ts">import { defineConfig } from &quot;vite&quot;;
+import tailwindcss from &quot;@tailwindcss/vite&quot;;
 
-<p>That said, I thought I'd make it useful.</p>
-
-<p>
-    This site is my digital notebook, portfolio, and playground. Expect a mix of
-    topics — from thoughts on learning technology and software development, to
-    accessibility, to side projects that may or may not get finished (but are
-    fun to build anyway).
-</p>
-
-<p>
-    I'm building the blog with
-    <a href="https://www.11ty.dev/" target="_blank">Eleventy (11ty)</a>, a
-    lightweight static site generator. It's fast, flexible, and — once you get
-    the hang of it — satisfying to work with. I've paired it with Tailwind CSS
-    to keep things clean and responsive.
-</p>
-
-<p>
-    If you've stumbled across this while everything's still under construction,
-    thanks for your patience! And if you're here on purpose: welcome. I hope you
-    find something interesting!
-</p>
-
-<hr />
-
-<ul>
-    <li>🛠 <strong>Built with</strong>: Eleventy, Tailwind CSS, GitHub Pages</li>
-    <li>
-        🧪 <strong>Currently testing</strong>: Layouts, dark mode, mobile nav
-    </li>
-    <li>☕ <strong>Currently drinking</strong>: Water 😥</li>
-</ul>
-
-<hr />
-
-<p>Stay tuned.</p>
-
+export default defineConfig({
+    plugins: [tailwindcss()],
+});
+</code></pre>
+<h3>Step 3: Import Tailwind in your CSS</h3>
+<p>In your main stylesheet (for example, <code>src/style.css</code>):</p>
+<pre><code class="language-css">@import &quot;tailwindcss&quot;;
+</code></pre>
+<h3>Step 4: Use Tailwind classes in your HTML</h3>
+<p>Make sure your compiled CSS is loaded in your HTML or app entry. For example:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;link href=&quot;/src/style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class=&quot;text-3xl font-bold underline&quot;&gt;Hello world!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2>🔁 Final Notes</h2>
+<p>This approach works equally well across both Next.js and Vite projects. If you're using VS Code, make sure you have the Prettier extension installed and your format-on-save settings enabled — it'll take care of sorting the utility classes automatically.</p>
+<p>If I find myself doing this more than a couple more times, I'll probably turn it into a template repo. But for now, this guide does the job.</p>
 <p>— Karl</p>
 </div>
  
@@ -293,35 +321,59 @@
         <div class="flex flex-wrap gap-2 justify-center">
                
             <a
-                href="/dev-blog/tags/meta/"
-                aria-label="View all posts tagged Meta"
+                href="/dev-blog/tags/prettier/"
+                aria-label="View all posts tagged Prettier"
                 class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-                #Meta
+                #Prettier
             </a>
               
             <a
-                href="/dev-blog/tags/blog/"
-                aria-label="View all posts tagged Blog"
+                href="/dev-blog/tags/tailwind-css/"
+                aria-label="View all posts tagged Tailwind CSS"
                 class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-                #Blog
+                #Tailwind CSS
             </a>
               
             <a
-                href="/dev-blog/tags/personal/"
-                aria-label="View all posts tagged Personal"
+                href="/dev-blog/tags/react/"
+                aria-label="View all posts tagged React"
                 class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-                #Personal
+                #React
             </a>
               
             <a
-                href="/dev-blog/tags/technology/"
-                aria-label="View all posts tagged Technology"
+                href="/dev-blog/tags/nextjs/"
+                aria-label="View all posts tagged Next.js"
                 class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-                #Technology
+                #Next.js
+            </a>
+              
+            <a
+                href="/dev-blog/tags/vite/"
+                aria-label="View all posts tagged Vite"
+                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+                #Vite
+            </a>
+              
+            <a
+                href="/dev-blog/tags/javascript/"
+                aria-label="View all posts tagged JavaScript"
+                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+                #JavaScript
+            </a>
+              
+            <a
+                href="/dev-blog/tags/frontend/"
+                aria-label="View all posts tagged Frontend"
+                class="hover-bg-accent text-sm bg-hero text-muted transition-colors duration-300 px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+                #Frontend
             </a>
              
         </div>
@@ -331,45 +383,47 @@
             <!-- Previous Post -->
             <div class="w-full md:w-1/2">
                 
-                <a
-                    href="/dev-blog/posts/testing-testing/"
-                    class="w-full hover-bg-accent group flex flex-col items-center gap-2 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                    
-                    <img
-                        src="/dev-blog/assets/img/pexels-mali-63238.optimised.webp"
-                        alt="Thumbnail for Testing, Testing"
-                        class="w-full h-40 object-cover rounded-md shrink-0"
-                        loading="lazy"
-                    />
-                    
-                    <p
-                        class="flex items-center text-primary font-semibold mb-1 group-hover:text-white transition-colors duration-300"
-                    >
-                        <i
-                            class="fas fa-arrow-left mr-2"
-                            aria-hidden="true"
-                        ></i>
-                        Previous
-                    </p>
-                    <h3
-                        class="text-lg font-medium text-white group-hover:text-primary transition-colors duration-300"
-                    >
-                        Testing, Testing
-                    </h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                        23 June 2025
-                    </p>
-                </a>
+                <div style="visibility: hidden" class="block w-full">
+                    &nbsp;
+                </div>
                 
             </div>
 
             <!-- Next Post -->
             <div class="w-full md:w-1/2">
                 
-                <div style="visibility: hidden" class="block w-full">
-                    &nbsp;
-                </div>
+                <a
+                    href="/dev-blog/posts/using-blackboards-swagger-file-to-create-a-postman-collection-and-make-an-api-call/"
+                    class="w-full hover-bg-accent group flex flex-col items-center gap-2 p-4 rounded-lg transform transition duration-300 hover:scale-105 hover:shadow-lg ease-in-out bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                    
+                    <img
+                        src="/dev-blog/assets/img/postman_blackboard.webp"
+                        alt="Thumbnail for Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call"
+                        class="w-full h-40 object-cover rounded-md shrink-0"
+                        loading="lazy"
+                    />
+                    
+                    <p
+                        class="flex items-center justify-end text-primary font-semibold mb-1 group-hover:text-white transition-colors duration-300"
+                    >
+                        Next
+                        <i
+                            class="fas fa-arrow-right ml-2"
+                            aria-hidden="true"
+                        ></i>
+                    </p>
+                    <h3
+                        class="text-lg font-medium text-white group-hover:text-primary transition-colors duration-300 text-right"
+                    >
+                        Using Blackboard's Swagger File to Create a Postman Collection and Make an API Call
+                    </h3>
+                    <p
+                        class="text-sm text-gray-500 dark:text-gray-400 mt-1 text-right"
+                    >
+                        11 July 2025
+                    </p>
+                </a>
                 
             </div>
         </div>
