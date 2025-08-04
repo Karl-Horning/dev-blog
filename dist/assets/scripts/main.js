@@ -36,7 +36,7 @@ menuBtn.addEventListener("click", () => {
  * @returns {string} Estimated reading time in the format "X min read".
  */
 const calculateReadingTime = (text) => {
-    const wordsPerMinute = 225; // Average reading speed
+    const wordsPerMinute = 150; // Firefox average reading speed
     const words = text.trim().split(/\s+/).length; // Count words
     const minutes = Math.ceil(words / wordsPerMinute); // Round up to full minutes
     return `${minutes} min read`;
