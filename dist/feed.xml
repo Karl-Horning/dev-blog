@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Setting Up Prettier with Tailwind CSS in a React Project (Without Forgetting Next Time)</title>
+      <link>https://www.karlhorning.dev/dev-blog/posts/setting-up-prettier-with-tailwind-css-in-a-react-project/</link>
+      <pubDate>Mon, 04 Aug 2025 19:00:00 +0100</pubDate>
+      <description><![CDATA[A personal checklist for setting up Prettier with Tailwind CSS, covering installation, configuration, and project setup in both Next.js and Vite. Ideal for React developers who want to save a few minutes each time.]]></description>
+      <media:thumbnail url="https://www.karlhorning.dev/dev-blog/assets/img/prettier_tailwind.webp" />
+      <guid>https://www.karlhorning.dev/dev-blog/posts/setting-up-prettier-with-tailwind-css-in-a-react-project/</guid>
+    </item>
+    
+    <item>
       <title>Using Blackboard&#39;s Swagger File to Create a Postman Collection and Make an API Call</title>
       <link>https://www.karlhorning.dev/dev-blog/posts/using-blackboards-swagger-file-to-create-a-postman-collection-and-make-an-api-call/</link>
       <pubDate>Fri, 11 Jul 2025 11:00:00 +0100</pubDate>
